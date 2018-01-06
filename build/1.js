@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 272:
+/***/ 530:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(541);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = (function () {
-    function LoginPageModule() {
+var TabsPageModule = (function () {
+    function TabsPageModule() {
     }
-    LoginPageModule = __decorate([
+    TabsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], TabsPageModule);
+    return TabsPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=tabs.module.js.map
 
 /***/ }),
 
-/***/ 275:
+/***/ 541:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(174);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,32 +57,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the TabsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams) {
+var TabsPage = (function () {
+    function TabsPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.tab1 = "PetPage";
+        this.tab2 = "LostpetsPage";
+        this.tab3 = "ProfilePage";
+        this.tab4 = "OtherPage";
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad LoginPage');
+    TabsPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad TabsPage');
     };
-    LoginPage.prototype.goToRegisterPage = function () {
-        this.navCtrl.push('RegisterPage');
-    };
-    LoginPage = __decorate([
+    TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/'<ion-content padding>\n  <div>\n    <h1 class="headerLogo"><img src="assets/images/logo.png" alt=""></h1>\n    <p class="subTitle">Welcome to Purrs and Paws,<br> Login to your account</p>\n    <ion-item>\n      <ion-label floating>Username</ion-label>\n      <ion-input type="text"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input type="password"></ion-input>\n    </ion-item>\n    <p>Don\'t have an account? <a (click)="goToRegisterPage()" class="blue">Sign Up</a></p>\n    <button ion-button class="btnLogin">Login</button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/'\n\n<ion-tabs color="light-blue">\n  <ion-tab tabIcon="paw" [rootParams]="tabsParam" tabTitle="Pets" [root]="tab1" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="sad" tabTitle="Lost Pets" [root]="tab2" [rootParams]="tabsParam" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="person" tabTitle="Profile" [rootParams]="tabsParam" [root]="tab3"></ion-tab>\n  <ion-tab tabIcon="apps" tabTitle="Others" [rootParams]="tabsParam" [root]="tab4"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]])
-    ], LoginPage);
-    return LoginPage;
+    ], TabsPage);
+    return TabsPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=tabs.js.map
 
 /***/ })
 
