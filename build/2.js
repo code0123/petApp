@@ -70,6 +70,7 @@ var SearchvetPage = (function () {
     SearchvetPage.prototype.initMap = function () {
         var element = this.mapElement.nativeElement;
         this.map = this.googleMaps.create(element);
+        console.log('this.map', this.map);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
