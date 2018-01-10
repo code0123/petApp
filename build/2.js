@@ -68,9 +68,11 @@ var SearchvetPage = (function () {
         this.geo.getCurrentPosition().then(function (res) {
             _this.lat = res.coords.latitude;
             _this.lng = res.coords.longitude;
+            alert('lat' + _this.lat);
             _this.showMap();
         }).catch(function (err) {
             console.log(err);
+            alert(err);
         });
     };
     SearchvetPage.prototype.showMap = function () {
