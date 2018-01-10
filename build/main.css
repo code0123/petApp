@@ -25817,6 +25817,10 @@ page-lostpets .datePosted {
   font-size: 11px;
 }
 
+page-lostpets .searchBar {
+  padding: 10px 3px 0;
+}
+
 page-other .item {
   padding-left: 0;
 }
@@ -25833,6 +25837,19 @@ page-other .arrow {
   position: absolute;
   right: 15px;
   font-size: 24px;
+}
+
+page-other .preIcon {
+  font-size: 22px;
+  position: absolute;
+  height: 22px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+page-other .listName {
+  padding-left: 23px;
 }
 
 page-pet ion-card-title,
@@ -25872,6 +25889,10 @@ page-pet .datePosted {
   bottom: 10px;
   right: 10px;
   font-size: 11px;
+}
+
+page-pet .searchBar {
+  padding: 10px 3px 0;
 }
 
 page-profile .profileBlock {
@@ -25952,6 +25973,10 @@ page-profile .editBtn {
   position: absolute;
   bottom: 30px;
   right: 20px;
+}
+
+page-profile .profileTbl ion-icon {
+  font-size: 22px !important;
 }
 
 page-register .btnRegister {
