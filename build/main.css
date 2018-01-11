@@ -26015,6 +26015,23 @@ page-searchvet ion-label {
   padding: 0 10px;
 }
 
+page-searchvet .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-searchvet .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
 page-tabs .tabs-md .tabbar {
   background: #4080ff;
   padding: 3px 0;
