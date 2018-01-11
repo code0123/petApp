@@ -25739,6 +25739,65 @@ ion-fab[bottom] {
   box-shadow: inset 0 -1px 0 0 #f53d3d !important;
 }
 
+.profileTbl {
+  margin-top: 10px;
+}
+
+.profileTbl tr td:nth-child(1) i {
+  font-size: 22px;
+  color: #4080ff;
+}
+
+.profileTbl tr td:nth-child(1) {
+  width: 50px;
+  text-align: center;
+}
+
+.profileTbl tr td:nth-child(2) {
+  padding-top: 6px;
+}
+
+.profileTbl tr td:nth-child(2) strong {
+  color: #4080ff;
+  font-size: 14px;
+}
+
+.profileTbl tr {
+  position: relative;
+}
+
+.profileTbl tr:after {
+  width: 100%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.15);
+  right: 0;
+  left: 0;
+  content: "";
+  position: absolute;
+}
+
+.profileTbl tr td:nth-child(2) p {
+  display: inline-block;
+  width: calc(100% - 15px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #333;
+  font-size: 13px;
+  margin: 0;
+}
+
+.profileTbl ion-icon {
+  font-size: 22px !important;
+}
+
+.toolbar-background {
+  background: #4080ff !important;
+}
+
+.toolbar-title, .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+  color: #fff !important;
+}
+
 page-editprofile .btnSave {
   margin: 15px 0 0;
 }
@@ -25895,6 +25954,14 @@ page-pet .searchBar {
   padding: 10px 3px 0;
 }
 
+page-place-detail .profileTbl tr:nth-child(1):after {
+  display: none;
+}
+
+page-place-detail .profileTbl tr:nth-child(1):after {
+  display: none;
+}
+
 page-profile .profileBlock {
   margin-top: 20px;
   text-align: center;
@@ -25922,61 +25989,10 @@ page-profile .profileBlock h3 {
   margin-bottom: 25px;
 }
 
-page-profile .profileTbl {
-  margin-top: 10px;
-}
-
-page-profile .profileTbl tr td:nth-child(1) i {
-  font-size: 22px;
-  color: #4080ff;
-}
-
-page-profile .profileTbl tr td:nth-child(1) {
-  width: 50px;
-  text-align: center;
-}
-
-page-profile .profileTbl tr td:nth-child(2) {
-  padding-top: 6px;
-}
-
-page-profile .profileTbl tr td:nth-child(2) strong {
-  color: #4080ff;
-  font-size: 14px;
-}
-
-page-profile .profileTbl tr {
-  position: relative;
-}
-
-page-profile .profileTbl tr:after {
-  width: 100%;
-  height: 1px;
-  background: rgba(0, 0, 0, 0.15);
-  right: 0;
-  left: 0;
-  content: "";
-  position: absolute;
-}
-
-page-profile .profileTbl tr td:nth-child(2) p {
-  display: inline-block;
-  width: calc(100% - 15px);
-  text-overflow: ellipsis;
-  overflow: hidden;
-  color: #333;
-  font-size: 13px;
-  margin: 0;
-}
-
 page-profile .editBtn {
   position: absolute;
   bottom: 30px;
   right: 20px;
-}
-
-page-profile .profileTbl ion-icon {
-  font-size: 22px !important;
 }
 
 page-register .btnRegister {
@@ -25997,14 +26013,6 @@ page-searchvet .scroll {
 page-searchvet #map {
   width: 100%;
   height: 40%;
-}
-
-page-searchvet .toolbar-background {
-  background: #4080ff !important;
-}
-
-page-searchvet .toolbar-title, page-searchvet .bar-button-default-md, page-searchvet .bar-button-clear-md-default, page-searchvet .bar-button-md-default {
-  color: #fff !important;
 }
 
 page-searchvet .item-inner {
@@ -26030,6 +26038,16 @@ page-searchvet .pageLoader {
 
 page-searchvet .spinner-md-crescent circle {
   stroke: #4080ff !important;
+}
+
+page-searchvet .arrow {
+  position: absolute;
+  right: 15px;
+  font-size: 24px;
+  height: 24px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
 }
 
 page-tabs .tabs-md .tabbar {

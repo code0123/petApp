@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 535:
+/***/ 537:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchvetPageModule", function() { return SearchvetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__searchvet__ = __webpack_require__(546);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__searchvet__ = __webpack_require__(548);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,15 @@ var SearchvetPageModule = (function () {
 
 /***/ }),
 
-/***/ 546:
+/***/ 548:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchvetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__place_detail_place_detail__ = __webpack_require__(326);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,10 +59,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SearchvetPage = (function () {
-    function SearchvetPage(navCtrl, geolocation) {
+    function SearchvetPage(navCtrl, geolocation, modalCtrl) {
         this.navCtrl = navCtrl;
         this.geolocation = geolocation;
+        this.modalCtrl = modalCtrl;
         this.pageLoaded = false;
     }
     SearchvetPage.prototype.ionViewDidEnter = function () {
@@ -151,18 +154,26 @@ var SearchvetPage = (function () {
             infoWindow.open(_this.map, marker);
         });
     };
+    SearchvetPage.prototype.placeDetail = function (place) {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__place_detail_place_detail__["a" /* PlaceDetailPage */], place);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], SearchvetPage.prototype, "mapElement", void 0);
     SearchvetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-searchvet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Nearest Vet Clinics</ion-title>\n    </ion-navbar>\n</ion-header>\n  \n  \n<ion-content>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div #map id="map"></div>\n  <div *ngIf="pageLoaded" style="width : 100% ;height: 60%">\n    <ion-list>\n      <ion-item *ngFor="let place of places">\n        <p>{{place.name}}</p>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n  '/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/,
+            selector: 'page-searchvet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Nearest Vet Clinics</ion-title>\n    </ion-navbar>\n</ion-header>\n  \n  \n<ion-content>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div #map id="map"></div>\n  <div *ngIf="pageLoaded" style="width : 100% ;height: 60%">\n    <ion-list>\n      <ion-item *ngFor="let place of places" (click)="placeDetail(place)">\n        <p>{{place.name}}</p>\n        <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n  '/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ModalController */]])
     ], SearchvetPage);
     return SearchvetPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=searchvet.js.map
