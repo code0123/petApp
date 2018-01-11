@@ -25990,6 +25990,15 @@ page-register ion-spinner {
   height: 22px;
 }
 
+page-searchvet .scroll {
+  height: 100%;
+}
+
+page-searchvet #map {
+  width: 100%;
+  height: 40%;
+}
+
 page-tabs .tabs-md .tabbar {
   background: #4080ff;
   padding: 3px 0;
