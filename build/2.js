@@ -80,6 +80,7 @@ var SearchvetPage = (function () {
             service.nearbySearch(request, function (results, status) {
                 if (status === google.maps.places.PlacesServiceStatus.OK) {
                     console.log('results', results);
+                    alert(results);
                     resolve(results);
                 }
                 else {
@@ -143,15 +144,16 @@ var SearchvetPage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], SearchvetPage.prototype, "mapElement", void 0);
     SearchvetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-searchvet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Find Vet Clinics</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content padding>\n    <div #map id="map"></div>\n    <div style="width : 100% ;height: 60%">\n      <ion-list>\n        <ion-item *ngFor="let place of places">\n          <p></p>\n        </ion-item>\n      </ion-list>\n    </div>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\searchvet\searchvet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _c || Object])
     ], SearchvetPage);
     return SearchvetPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=searchvet.js.map
