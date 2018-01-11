@@ -25999,6 +25999,22 @@ page-searchvet #map {
   height: 40%;
 }
 
+page-searchvet .toolbar-background {
+  background: #4080ff !important;
+}
+
+page-searchvet .toolbar-title, page-searchvet .bar-button-default-md, page-searchvet .bar-button-clear-md-default, page-searchvet .bar-button-md-default {
+  color: #fff !important;
+}
+
+page-searchvet .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+page-searchvet ion-label {
+  padding: 0 10px;
+}
+
 page-tabs .tabs-md .tabbar {
   background: #4080ff;
   padding: 3px 0;
