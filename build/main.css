@@ -25798,6 +25798,32 @@ ion-fab[bottom] {
   color: #fff !important;
 }
 
+page-add-lost-pet-form .btnSave {
+  margin: 15px 0 0;
+}
+
+page-add-lost-pet-form .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-add-lost-pet-form .profileBlock .camera {
+  position: absolute;
+  color: #bbb;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 65px;
+  font-size: 26px;
+}
+
+page-add-lost-pet-form .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-editprofile .btnSave {
   margin: 15px 0 0;
 }
@@ -25835,6 +25861,14 @@ page-login .btnLogin {
 page-login ion-spinner {
   width: 22px;
   height: 22px;
+}
+
+page-lost-pet-details .profileTbl tr:first-child:after {
+  display: none;
+}
+
+page-lost-pet-details .profileTbl {
+  margin-top: 0;
 }
 
 page-lostpets ion-card-title,
@@ -25878,6 +25912,45 @@ page-lostpets .datePosted {
 
 page-lostpets .searchBar {
   padding: 10px 3px 0;
+}
+
+page-lostpets .btnDetails {
+  position: absolute;
+  right: 7px;
+  bottom: 84px;
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+}
+
+page-lostpets .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 10px;
+  padding: 7px;
+  height: auto;
+}
+
+page-lostpets .noPetResult {
+  padding: 0 16px;
+}
+
+page-lostpets .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-lostpets .spinner-md-crescent circle {
+  stroke: #4080ff !important;
 }
 
 page-other .item {
