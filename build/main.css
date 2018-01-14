@@ -25798,6 +25798,32 @@ ion-fab[bottom] {
   color: #fff !important;
 }
 
+page-add-for-sale-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-add-for-sale-pet .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-add-for-sale-pet .profileBlock .camera {
+  position: absolute;
+  color: #bbb;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 65px;
+  font-size: 26px;
+}
+
+page-add-for-sale-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-add-lost-pet-form .btnSave {
   margin: 15px 0 0;
 }
@@ -25824,6 +25850,14 @@ page-add-lost-pet-form .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-buy-pet-details .profileTbl tr:first-child:after {
+  display: none;
+}
+
+page-buy-pet-details .profileTbl {
+  margin-top: 0;
+}
+
 page-editprofile .btnSave {
   margin: 15px 0 0;
 }
@@ -25834,7 +25868,42 @@ page-editprofile ion-spinner {
 }
 
 page-home ion-slide {
-  background: #fff;
+  background: #488aff;
+}
+
+page-home ion-slide h4,
+page-home ion-slide p {
+  padding: 0 20px;
+  color: #fff !important;
+}
+
+page-home ion-slide h4 {
+  margin-top: 0;
+}
+
+page-home ion-slide h2 {
+  margin-bottom: 0;
+}
+
+page-home .swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+page-home .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-home .spinner-md-crescent circle {
+  stroke: #fff !important;
 }
 
 page-login .headerLogo {
@@ -26027,6 +26096,69 @@ page-pet .searchBar {
   padding: 10px 3px 0;
 }
 
+page-pet .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-pet .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 10px;
+  padding: 7px;
+  height: auto;
+}
+
+page-pet .noPetResult {
+  padding: 0 16px;
+}
+
+page-pet .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-pet .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-pet .thumbsUpBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  padding: 0;
+  height: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+page-pet .thumbsUpBtn ion-icon {
+  color: #333;
+  font-size: 17px;
+  position: relative;
+  top: -2px;
+}
+
+page-pet .thumbsUpBtn.blue ion-icon {
+  color: #4080ff;
+}
+
 page-place-detail .profileTbl tr:nth-child(1):after {
   display: none;
 }
@@ -26077,6 +26209,146 @@ page-register .btnRegister {
 page-register ion-spinner {
   width: 22px;
   height: 22px;
+}
+
+page-register-pet-form .btnSave {
+  margin: 15px 0 0;
+}
+
+page-register-pet-form .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-register-pet-form .profileBlock .camera {
+  position: absolute;
+  color: #bbb;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 65px;
+  font-size: 26px;
+}
+
+page-register-pet-form .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+page-registered-pet-details .profileTbl tr:first-child:after {
+  display: none;
+}
+
+page-registered-pet-details .profileTbl {
+  margin-top: 0;
+}
+
+page-registerpets ion-card-title,
+page-registerpets ion-card {
+  position: relative;
+}
+
+page-registerpets ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-registerpets .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-registerpets .bold {
+  font-weight: bold;
+}
+
+page-registerpets .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-registerpets .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-registerpets .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-registerpets .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-registerpets .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 10px;
+  padding: 7px;
+  height: auto;
+}
+
+page-registerpets .noPetResult {
+  padding: 0 16px;
+}
+
+page-registerpets .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-registerpets .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-registerpets .thumbsUpBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  padding: 0;
+  height: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+page-registerpets .thumbsUpBtn ion-icon {
+  color: #333;
+  font-size: 17px;
+  position: relative;
+  top: -2px;
+}
+
+page-registerpets .thumbsUpBtn.blue ion-icon {
+  color: #4080ff;
 }
 
 page-searchvet .scroll {

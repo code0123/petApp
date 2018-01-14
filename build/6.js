@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 532:
+/***/ 542:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPageModule", function() { return PetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet__ = __webpack_require__(545);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet__ = __webpack_require__(557);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,20 @@ var PetPageModule = (function () {
 
 /***/ }),
 
-/***/ 545:
+/***/ 557:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(324);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(326);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(327);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__ = __webpack_require__(328);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,22 +64,141 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
 var PetPage = (function () {
-    function PetPage(navCtrl, navParams, authProvider) {
+    function PetPage(navCtrl, navParams, authProvider, modalCtrl, alertCtrl, toastCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authProvider = authProvider;
+        this.modalCtrl = modalCtrl;
+        this.alertCtrl = alertCtrl;
+        this.toastCtrl = toastCtrl;
+        this.petsCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
+        this.pageLoaded = false;
+        this.userId = localStorage.getItem('userId');
+        this.getItems();
     }
-    PetPage.prototype.openPage = function (p) {
+    PetPage.prototype.getItems = function () {
+        var _this = this;
+        this.db.collection('buypets').where("isactive", "==", true).onSnapshot(function (snapshots) {
+            console.log('snapshots', snapshots);
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                var interestedUsers = docData['interestedUsers'];
+                if (interestedUsers.indexOf(_this.userId) == -1) {
+                    docData['interested'] = false;
+                }
+                else {
+                    docData['interested'] = true;
+                }
+                docData['buyPetId'] = doc.id;
+                pets.push(docData);
+            });
+            _this.pets = pets;
+            console.log('this.pets', _this.pets);
+            _this.petsCount = Object.keys(pets).length;
+            _this.pageLoaded = true;
+        }), (function (err) {
+            console.log('err', err);
+        });
     };
-    PetPage.prototype.getItems = function (event) {
-        console.log(event);
+    PetPage.prototype.addForSalePet = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */]);
+        modal.onDidDismiss(function (data) {
+        });
+        modal.present();
+    };
+    PetPage.prototype.removePost = function (buyPetId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Your pet was sold?',
+            message: 'Are you sure do you want to remove your post?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.db.collection('buypets').doc(buyPetId).update({
+                            isactive: false
+                        });
+                        var toast = _this.toastCtrl.create({
+                            message: 'Post was removed',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    PetPage.prototype.buyPetDetails = function (pet) {
+        console.log('pet', pet);
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */], pet);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
+    PetPage.prototype.thumbsUp = function (petId) {
+        var _this = this;
+        var petRef = this.db.collection('buypets').doc(petId);
+        petRef.get().then(function (pet) {
+            var data = pet.data();
+            var interestedUsers = data['interestedUsers'];
+            if (interestedUsers.indexOf(_this.userId) == -1) {
+                interestedUsers.push(_this.userId);
+                petRef.update({
+                    interestedUsers: interestedUsers
+                });
+                var toast = _this.toastCtrl.create({
+                    message: 'Interested!',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }
+            else {
+                interestedUsers.splice(_this.userId, 1);
+                petRef.update({
+                    interestedUsers: interestedUsers
+                });
+                var toast = _this.toastCtrl.create({
+                    message: 'Not interested!',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }
+            petRef.update({
+                interestedCount: interestedUsers.length
+            });
+        }).catch(function (err) {
+            console.log('err', err);
+        });
     };
     PetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    </form>\n    <ion-card>\n        <img src="https://i.amz.mshcdn.com/2xXpy52DS30uKJBrQm-qI1JDAbc=/fit-in/1200x9600/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F454852%2Fc149fd02-3174-46f9-9b58-d7026cc5ada9.jpg"/>\n        <ion-card-content>\n            <ion-card-title>\n            Scarlet\n            <span class="price">Php 15,000</span>\n            </ion-card-title>\n            <div>\n                <span class="bold">Owner\'s Address:</span>\n                <span>Ortigas Pasig city</span>\n            </div>\n            <div>\n                <span class="bold">Owner\'s Contact #:</span>\n                <span>09123456789</span>\n            </div>\n            <button ion-button class="buyBtn">Buy</button>\n            <span class="datePosted">Posted: Jan 07, 2017</span>\n        </ion-card-content>\n    </ion-card>\n    <ion-card>\n        <img src="https://i.amz.mshcdn.com/2xXpy52DS30uKJBrQm-qI1JDAbc=/fit-in/1200x9600/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F454852%2Fc149fd02-3174-46f9-9b58-d7026cc5ada9.jpg"/>\n        <ion-card-content>\n            <ion-card-title>\n            Scarlet\n            <span class="price">Php 15,000</span>\n            </ion-card-title>\n            <div>\n                <span class="bold">Owner\'s Address:</span>\n                <span>Ortigas Pasig city</span>\n            </div>\n            <div>\n                <span class="bold">Owner\'s Contact #:</span>\n                <span>09123456789</span>\n            </div>\n            <button ion-button class="buyBtn">Buy</button>\n            <span class="datePosted">Posted: Jan 07, 2017</span>\n        </ion-card-content>\n    </ion-card>\n    <ion-card>\n        <img src="https://i.amz.mshcdn.com/2xXpy52DS30uKJBrQm-qI1JDAbc=/fit-in/1200x9600/https%3A%2F%2Fblueprint-api-production.s3.amazonaws.com%2Fuploads%2Fcard%2Fimage%2F454852%2Fc149fd02-3174-46f9-9b58-d7026cc5ada9.jpg"/>\n        <ion-card-content>\n            <ion-card-title>\n            Scarlet\n            <span class="price">Php 15,000</span>\n            </ion-card-title>\n            <div>\n                <span class="bold">Owner\'s Address:</span>\n                <span>Ortigas Pasig city</span>\n            </div>\n            <div>\n                <span class="bold">Owner\'s Contact #:</span>\n                <span>09123456789</span>\n            </div>\n            <button ion-button class="buyBtn">Buy</button>\n            <span class="datePosted">Posted: Jan 07, 2017</span>\n        </ion-card-content>\n    </ion-card>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/,
+            selector: 'page-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No posted pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/blank-profile.png\'" />\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}  <span class="price">{{pet.price | currency:\'PHP\':true}}</span></ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removePost(pet.buyPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="buyPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                    <button ion-button type="button" class="thumbsUpBtn" [class.blue]="pet.interested" (click)="thumbsUp(pet.buyPetId)"><ion-icon name="thumbs-up"></ion-icon> &nbsp;Interested ({{pet.interestedCount}})</button>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addForSalePet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
     ], PetPage);
     return PetPage;
 }());
