@@ -25798,6 +25798,12 @@ ion-fab[bottom] {
   color: #fff !important;
 }
 
+.noImage {
+  text-align: center !important;
+  margin: 20px auto !important;
+  width: 200px !important;
+}
+
 page-add-for-sale-pet .btnSave {
   margin: 15px 0 0;
 }

@@ -82,6 +82,27 @@ var LostpetsPage = (function () {
         this.userId = localStorage.getItem('userId');
         this.getItems();
     }
+    LostpetsPage.prototype.searching = function () {
+        if (this.pageLoaded) {
+            this.pageLoaded = false;
+        }
+    };
+    LostpetsPage.prototype.onSearch = function (ev) {
+        var _this = this;
+        this.pageLoaded = false;
+        this.getItems();
+        var val = ev.target.value;
+        if (val && val.trim() != '') {
+            console.log('val', val.toLowerCase());
+            setTimeout(function () {
+                _this.pets = _this.pets.filter(function (el) {
+                    return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
+                        (el.breed.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                });
+                _this.pageLoaded = true;
+            }, 600);
+        }
+    };
     LostpetsPage.prototype.addLostPet = function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */]);
         modal.onDidDismiss(function (data) {
@@ -147,7 +168,7 @@ var LostpetsPage = (function () {
     };
     LostpetsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-lostpets',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No lost pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/blank-profile.png\'" />\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Place of lost:</span>\n                        <span>{{pet.placeLost}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Lost date #:</span>\n                        <span>{{pet.lostDate | date:\'mediumDate\'}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removeLostPet(pet.lostPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="lostPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.lostDate | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addLostPet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/,
+            selector: 'page-lostpets',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar (keyup)="searching()"\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="600"\n            placeholder="Search Name or Place of lost"\n        >\n    </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No lost pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Place of lost:</span>\n                        <span>{{pet.placeLost}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Lost date #:</span>\n                        <span>{{pet.lostDate | date:\'mediumDate\'}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removeLostPet(pet.lostPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="lostPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.lostDate | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addLostPet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
