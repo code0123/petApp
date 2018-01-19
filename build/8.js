@@ -98,6 +98,9 @@ var LostpetsPage = (function () {
             }, 700);
         }
     };
+    LostpetsPage.prototype.onCancel = function (ev) {
+        this.getItems();
+    };
     LostpetsPage.prototype.addLostPet = function () {
         var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */]);
         modal.onDidDismiss(function (data) {
