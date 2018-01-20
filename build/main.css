@@ -25856,6 +25856,14 @@ page-add-lost-pet-form .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-admin-buy-and-sell .toolbar-background {
+  background: #4080ff !important;
+}
+
+page-admin-groom-pet .toolbar-background {
+  background: #673AB7 !important;
+}
+
 page-admin-home .back-button.show-back-button {
   display: none !important;
 }
@@ -25924,6 +25932,162 @@ page-admin-home .box .arrow {
   right: 10px;
   margin: auto;
   font-size: 30px;
+}
+
+page-admin-home .toolbar-title-md {
+  font-size: 18px !important;
+}
+
+page-admin-lost-pets .toolbar-background {
+  background: #E91E63 !important;
+}
+
+page-admin-registered-user .toolbar-background {
+  background: #4CAF50 !important;
+}
+
+page-admin-registered-user .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-registered-user .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-admin-registered-user .list-avatar-page ion-note {
+  font-size: 12px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 14px;
+}
+
+page-admin-registered-user .item-inner {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
+}
+
+page-admin-registered-user .item-md.item-block .item-inner {
+  padding-right: 0 !important;
+}
+
+page-admin-registered-user .list-avatar-page ion-note {
+  margin-right: 0 !important;
+}
+
+page-admin-registered-user .item-md {
+  padding-left: 0 !important;
+}
+
+page-admin-registered-user .deleteBtn {
+  background: #E91E63;
+}
+
+page-admin-registered-user .item-md .item-button {
+  height: auto !important;
+  font-size: 16px !important;
+  padding: 8px !important;
+}
+
+page-admin-train-pet .toolbar-background {
+  background: #FFC107 !important;
+}
+
+page-admin-view-profile .toolbar-background {
+  background: #4CAF50 !important;
+}
+
+page-admin-view-profile .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-admin-view-profile .profileBlock img {
+  border-radius: 50%;
+}
+
+page-admin-view-user-registered-pets .toolbar-background {
+  background: #4CAF50 !important;
+}
+
+page-admin-view-user-registered-pets ion-card-title,
+page-admin-view-user-registered-pets ion-card {
+  position: relative;
+}
+
+page-admin-view-user-registered-pets ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-admin-view-user-registered-pets .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-admin-view-user-registered-pets .bold {
+  font-weight: bold;
+}
+
+page-admin-view-user-registered-pets .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-admin-view-user-registered-pets .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-admin-view-user-registered-pets .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-admin-view-user-registered-pets .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-admin-view-user-registered-pets .noPetResult {
+  padding: 0 16px;
+}
+
+page-admin-view-user-registered-pets .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-view-user-registered-pets .spinner-md-crescent circle {
+  stroke: #4080ff !important;
 }
 
 page-buy-pet-details .profileTbl tr:first-child:after {
