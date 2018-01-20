@@ -25869,8 +25869,110 @@ page-add-lost-pet-form .profileBlock img {
   border: 1px solid #eee;
 }
 
-page-admin-buy-and-sell .toolbar-background {
-  background: #4080ff !important;
+page-admin-buy-and-sell ion-card-title,
+page-admin-buy-and-sell ion-card {
+  position: relative;
+}
+
+page-admin-buy-and-sell ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-admin-buy-and-sell .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-admin-buy-and-sell .bold {
+  font-weight: bold;
+}
+
+page-admin-buy-and-sell .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-admin-buy-and-sell .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-admin-buy-and-sell .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-admin-buy-and-sell .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-admin-buy-and-sell .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-admin-buy-and-sell .noPetResult {
+  padding: 0 16px;
+}
+
+page-admin-buy-and-sell .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-buy-and-sell .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-admin-buy-and-sell .thumbsUpBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  padding: 0;
+  height: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+page-admin-buy-and-sell .thumbsUpBtn ion-icon {
+  color: #333;
+  font-size: 17px;
+  position: relative;
+  top: -2px;
+}
+
+page-admin-buy-and-sell .thumbsUpBtn.blue ion-icon {
+  color: #4080ff;
 }
 
 page-admin-groom-pet .toolbar-background {
@@ -25951,8 +26053,107 @@ page-admin-home .toolbar-title-md {
   font-size: 18px !important;
 }
 
+page-admin-home .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-home .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
 page-admin-lost-pets .toolbar-background {
   background: #E91E63 !important;
+}
+
+page-admin-lost-pets ion-card-title,
+page-admin-lost-pets ion-card {
+  position: relative;
+}
+
+page-admin-lost-pets ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-admin-lost-pets .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-admin-lost-pets .bold {
+  font-weight: bold;
+}
+
+page-admin-lost-pets .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-admin-lost-pets .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-admin-lost-pets .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-admin-lost-pets .btnDetails {
+  position: absolute;
+  right: 7px;
+  bottom: 84px;
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+}
+
+page-admin-lost-pets .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-admin-lost-pets .noPetResult {
+  padding: 0 16px;
+}
+
+page-admin-lost-pets .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-lost-pets .spinner-md-crescent circle {
+  stroke: #4080ff !important;
 }
 
 page-admin-registered-user .toolbar-background {
@@ -26327,8 +26528,8 @@ page-lostpets .removeBtn {
   position: absolute;
   right: 7px;
   top: 6px;
-  font-size: 10px;
-  padding: 7px;
+  font-size: 20px;
+  padding: 5px 10px;
   height: auto;
 }
 
@@ -26438,8 +26639,8 @@ page-pet .removeBtn {
   position: absolute;
   right: 7px;
   top: 6px;
-  font-size: 10px;
-  padding: 7px;
+  font-size: 20px;
+  padding: 5px 10px;
   height: auto;
 }
 
@@ -26625,8 +26826,8 @@ page-registerpets .removeBtn {
   position: absolute;
   right: 7px;
   top: 6px;
-  font-size: 10px;
-  padding: 7px;
+  font-size: 20px;
+  padding: 5px 10px;
   height: auto;
 }
 
