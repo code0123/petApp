@@ -25979,6 +25979,13 @@ page-admin-groom-pet .toolbar-background {
   background: #673AB7 !important;
 }
 
+page-admin-groom-pet .videoPlayList {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  padding: 12px;
+  margin-bottom: 30px;
+}
+
 page-admin-home .back-button.show-back-button {
   display: none !important;
 }
