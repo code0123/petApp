@@ -78,13 +78,24 @@ var TabsPage = (function () {
             }
         });
     };
+    TabsPage.prototype.ionViewCanLeave = function () {
+        // here we can either return true or false
+        // depending on if we want to leave this view
+        if (localStorage.getItem('userId') != '') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/'\n\n<ion-tabs color="light-blue">\n  <ion-tab tabIcon="paw" [rootParams]="tabsParam" tabTitle="Pets" [root]="tab1" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="sad" tabTitle="Lost Pets" [root]="tab2" [rootParams]="tabsParam" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="person" tabTitle="Profile" [rootParams]="tabsParam" [root]="tab3"></ion-tab>\n  <ion-tab tabIcon="apps" tabTitle="Others" [rootParams]="tabsParam" [root]="tab4"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object])
     ], TabsPage);
     return TabsPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=tabs.js.map
