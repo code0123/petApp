@@ -25804,6 +25804,10 @@ ion-fab[bottom] {
   width: 200px !important;
 }
 
+.logout {
+  background: #E91E63;
+}
+
 page-add-for-sale-pet .btnSave {
   margin: 15px 0 0;
 }
