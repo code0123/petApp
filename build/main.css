@@ -25816,12 +25816,12 @@ page-add-for-sale-pet .profileBlock {
 
 page-add-for-sale-pet .profileBlock .camera {
   position: absolute;
-  color: #bbb;
+  color: #fff;
   width: 24px;
   left: 0;
   right: 0;
   margin: auto;
-  top: 65px;
+  top: 87px;
   font-size: 26px;
 }
 
@@ -25842,18 +25842,88 @@ page-add-lost-pet-form .profileBlock {
 
 page-add-lost-pet-form .profileBlock .camera {
   position: absolute;
-  color: #bbb;
+  color: #fff;
   width: 24px;
   left: 0;
   right: 0;
   margin: auto;
-  top: 65px;
+  top: 87px;
   font-size: 26px;
 }
 
 page-add-lost-pet-form .profileBlock img {
   border-radius: 50%;
   border: 1px solid #eee;
+}
+
+page-admin-home .back-button.show-back-button {
+  display: none !important;
+}
+
+page-admin-home .box {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  overflow: hidden;
+  padding: 15px;
+  position: relative;
+  color: #fff !important;
+  margin-bottom: 20px;
+}
+
+page-admin-home .box.blue {
+  background: #4080ff;
+}
+
+page-admin-home .box.pink {
+  background: #E91E63;
+}
+
+page-admin-home .box.green {
+  background: #4CAF50;
+}
+
+page-admin-home .box.amber {
+  background: #FFC107;
+}
+
+page-admin-home .box.indigo {
+  background: #673AB7;
+}
+
+page-admin-home .iconBlock {
+  float: left;
+  width: 50px;
+}
+
+page-admin-home .iconBlock ion-icon {
+  font-size: 65px;
+}
+
+page-admin-home .titleBlock {
+  float: left;
+  width: calc(100% - 80px);
+  margin-left: 30px;
+}
+
+page-admin-home .titleBlock h3 {
+  margin: 0;
+}
+
+page-admin-home .count {
+  font-size: 26px;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-weight: 600;
+}
+
+page-admin-home .box .arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 30px;
+  right: 10px;
+  margin: auto;
+  font-size: 30px;
 }
 
 page-buy-pet-details .profileTbl tr:first-child:after {
@@ -26186,7 +26256,7 @@ page-profile .profileBlock .camera {
   left: 0;
   right: 0;
   margin: auto;
-  top: 65px;
+  top: 89px;
   font-size: 26px;
 }
 

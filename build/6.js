@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PetPageModule", function() { return PetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet__ = __webpack_require__(557);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pet__ = __webpack_require__(560);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var PetPageModule = (function () {
 
 /***/ }),
 
-/***/ 557:
+/***/ 560:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,7 +51,7 @@ var PetPageModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__ = __webpack_require__(329);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -82,26 +82,39 @@ var PetPage = (function () {
         this.userId = localStorage.getItem('userId');
         this.getItems();
     }
-    // searching() {
-    //   if (this.pageLoaded) {
-    //     this.pageLoaded = false;
-    //   }
-    // }
     PetPage.prototype.onSearch = function (ev) {
         var _this = this;
         this.pageLoaded = false;
-        this.getItems();
         var val = ev.target.value;
-        if (val && val.trim() != '') {
-            console.log('val', val.toLowerCase());
-            setTimeout(function () {
+        this.db.collection('buypets').where("isactive", "==", true).onSnapshot(function (snapshots) {
+            console.log('snapshots', snapshots);
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                var interestedUsers = docData['interestedUsers'];
+                if (interestedUsers.indexOf(_this.userId) == -1) {
+                    docData['interested'] = false;
+                }
+                else {
+                    docData['interested'] = true;
+                }
+                docData['buyPetId'] = doc.id;
+                pets.push(docData);
+            });
+            _this.pets = pets;
+            _this.petsCount = Object.keys(pets).length;
+            if (val && val.trim() != '') {
                 _this.pets = _this.pets.filter(function (el) {
                     return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
                         (el.breed.toLowerCase().indexOf(val.toLowerCase()) > -1);
                 });
+            }
+            setTimeout(function () {
                 _this.pageLoaded = true;
             }, 700);
-        }
+        }), (function (err) {
+            console.log('err', err);
+        });
     };
     PetPage.prototype.onCancel = function (ev) {
         this.getItems();
@@ -215,12 +228,16 @@ var PetPage = (function () {
     };
     PetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="1000"\n            placeholder="Search Name or Breed"\n        >\n        </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No posted pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}  <span class="price">{{pet.price | currency:\'PHP\':true}}</span></ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removePost(pet.buyPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="buyPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                    <button ion-button type="button" class="thumbsUpBtn" [class.blue]="pet.interested" (click)="thumbsUp(pet.buyPetId)"><ion-icon name="thumbs-up"></ion-icon> &nbsp;Interested ({{pet.interestedCount}})</button>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addForSalePet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/,
+            selector: 'page-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="700"\n            placeholder="Search Name or Breed"\n        >\n        </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No posted pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}  <span class="price">{{pet.price | currency:\'PHP\':true}}</span></ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removePost(pet.buyPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="buyPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                    <button ion-button type="button" class="thumbsUpBtn" [class.blue]="pet.interested" (click)="thumbsUp(pet.buyPetId)"><ion-icon name="thumbs-up"></ion-icon> &nbsp;Interested ({{pet.interestedCount}})</button>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addForSalePet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\pet\pet.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
     ], PetPage);
     return PetPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=pet.js.map
