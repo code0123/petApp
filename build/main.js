@@ -1,193 +1,6 @@
-webpackJsonp([28],{
+webpackJsonp([31],{
 
-/***/ 108:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostpetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var LostpetProvider = (function () {
-    function LostpetProvider(http) {
-        this.http = http;
-        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
-        this.basePath = '/uploads';
-        this.userId = localStorage.getItem('userId');
-    }
-    LostpetProvider.prototype.randomCharacters = function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for (var i = 0; i < 20; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        return text;
-    };
-    LostpetProvider.prototype.uploadPhoto = function (upload) {
-        var _this = this;
-        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
-        Object.defineProperty(upload, 'name', {
-            writable: true,
-            value: uploadName
-        });
-        var promise = new Promise(function (resolve, reject) {
-            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
-            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
-            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
-                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
-            }, function (error) {
-                reject(error);
-            }, function () {
-                resolve(uploadTask.snapshot.downloadURL);
-            });
-        });
-        return promise;
-    };
-    LostpetProvider.prototype.saveLostPet = function (pet) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            pet['uid'] = _this.userId;
-            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
-            pet['status'] = false;
-            _this.db.collection('lostpets').doc().set(pet).then(function (res) {
-                resolve(1);
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    LostpetProvider.prototype.ownerInfo = function (uid) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
-                resolve(snapshots.data());
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    LostpetProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], LostpetProvider);
-    return LostpetProvider;
-}());
-
-//# sourceMappingURL=lostpet.js.map
-
-/***/ }),
-
-/***/ 136:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuypetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var BuypetProvider = (function () {
-    function BuypetProvider(http) {
-        this.http = http;
-        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
-        this.basePath = '/uploads';
-        this.userId = localStorage.getItem('userId');
-    }
-    BuypetProvider.prototype.randomCharacters = function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for (var i = 0; i < 20; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        return text;
-    };
-    BuypetProvider.prototype.uploadPhoto = function (upload) {
-        var _this = this;
-        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
-        Object.defineProperty(upload, 'name', {
-            writable: true,
-            value: uploadName
-        });
-        var promise = new Promise(function (resolve, reject) {
-            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
-            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
-            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
-                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
-            }, function (error) {
-                reject(error);
-            }, function () {
-                resolve(uploadTask.snapshot.downloadURL);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.saveLostPet = function (pet) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            pet['uid'] = _this.userId;
-            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
-            _this.db.collection('buypets').doc().set(pet).then(function (res) {
-                resolve(1);
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.ownerInfo = function (uid) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
-                resolve(snapshots.data());
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], BuypetProvider);
-    return BuypetProvider;
-}());
-
-//# sourceMappingURL=buypet.js.map
-
-/***/ }),
-
-/***/ 158:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -260,6 +73,17 @@ var RegisterPetProvider = (function () {
         });
         return promise;
     };
+    RegisterPetProvider.prototype.saveUpdates = function (pet, petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('registerpets').doc(petId).update(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
     RegisterPetProvider.prototype.ownerInfo = function (uid) {
         var _this = this;
         var promise = new Promise(function (resolve, reject) {
@@ -271,11 +95,23 @@ var RegisterPetProvider = (function () {
         });
         return promise;
     };
+    RegisterPetProvider.prototype.getRegisterPetInfo = function (petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('registerpets').doc(petId).get().then(function (pet) {
+                resolve(pet.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
     RegisterPetProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
     ], RegisterPetProvider);
     return RegisterPetProvider;
+    var _a;
 }());
 
 //# sourceMappingURL=register-pet.js.map
@@ -288,8 +124,8 @@ var RegisterPetProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisteredPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -337,9 +173,9 @@ var RegisteredPetDetailsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-registered-pet-details',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registered-pet-details\registered-pet-details.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Pet Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n<table class="profileTbl">\n  <tr>\n    <td>\n      <ion-icon name="paw"></ion-icon>\n    </td>\n    <td>\n      <strong>Name</strong>\n      <p>{{name}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="checkbox-outline"></ion-icon>\n    </td>\n    <td>\n      <strong>Type</strong>\n      <p *ngIf="type == \'\' || type == undefined">N/A</p>\n      <p *ngIf="type">{{type}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="bookmark"></ion-icon>\n    </td>\n    <td>\n      <strong>Breed</strong>\n      <p *ngIf="breed == \'\' || breed == null">N/A</p>\n      <p *ngIf="breed">{{breed}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="color-fill"></ion-icon>\n    </td>\n    <td>\n      <strong>Color</strong>\n      <p *ngIf="color == \'\' || color == null">N/A</p>\n      <p *ngIf="color">{{color}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="heart"></ion-icon>\n    </td>\n    <td>\n      <strong>Gender</strong>\n      <p *ngIf="gender == \'\' || gender == null">N/A</p>\n      <p *ngIf="gender">{{gender}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="calendar"></ion-icon>\n    </td>\n    <td>\n      <strong>Last Vaccine Date</strong>\n      <p *ngIf="vaccineDate == \'\' || vaccineDate == null">N/A</p>\n      <p *ngIf="vaccineDate">{{vaccineDate | date:\'mediumDate\'}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="md-contact"></ion-icon>\n    </td>\n    <td>\n      <strong>Owner Name</strong>\n      <p *ngIf="ownerName == \'\' || ownerName == null">N/A</p>\n      <p *ngIf="ownerName">{{ownerName}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="mail"></ion-icon>\n    </td>\n    <td>\n      <strong>Email Address</strong>\n      <p *ngIf="ownerEmail == \'\' || ownerEmail == null">N/A</p>\n      <p *ngIf="ownerEmail">{{ownerEmail}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="call"></ion-icon>\n    </td>\n    <td>\n      <strong>Phone Number</strong>\n      <p *ngIf="ownerPhone == \'\' || ownerPhone == null">N/A</p>\n      <p *ngIf="ownerPhone">{{ownerPhone}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="locate"></ion-icon>\n    </td>\n    <td>\n      <strong>Address</strong>\n      <p *ngIf="ownerAddress == \'\' || ownerAddress == null">N/A</p>\n      <p *ngIf="ownerAddress">{{ownerAddress}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="information-circle"></ion-icon>\n    </td>\n    <td>\n      <strong>Remarks</strong>\n      <p *ngIf="remarks == \'\' || remarks == null">N/A</p>\n      <p *ngIf="remarks">{{remarks}}</p>\n    </td>\n  </tr>\n</table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registered-pet-details\registered-pet-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__["a" /* RegisterPetProvider */]])
     ], RegisteredPetDetailsPage);
     return RegisteredPetDetailsPage;
@@ -355,7 +191,7 @@ var RegisteredPetDetailsPage = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminViewUserRegisteredPetsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
@@ -457,10 +293,10 @@ var AdminViewUserRegisteredPetsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-admin-view-user-registered-pets',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-user-registered-pets\admin-view-user-registered-pets.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Registered Pets\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="dismiss()">\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="700"\n            placeholder="Search Name or Breed"\n        >\n        </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No registered pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="submit" class="btnDetails" (click)="registeredPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Date added: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n  </ion-content>\n  \n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-user-registered-pets\admin-view-user-registered-pets.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], AdminViewUserRegisteredPetsPage);
     return AdminViewUserRegisteredPetsPage;
 }());
@@ -596,15 +432,15 @@ webpackEmptyAsyncContext.id = 196;
 
 var map = {
 	"../pages/add-for-sale-pet/add-for-sale-pet.module": [
-		537,
-		27
+		540,
+		30
 	],
 	"../pages/add-lost-pet-form/add-lost-pet-form.module": [
-		539,
-		26
+		550,
+		29
 	],
 	"../pages/admin-buy-and-sell/admin-buy-and-sell.module": [
-		538,
+		541,
 		17
 	],
 	"../pages/admin-groom-pet/admin-groom-pet.module": [
@@ -612,99 +448,111 @@ var map = {
 		16
 	],
 	"../pages/admin-home/admin-home.module": [
-		540,
+		543,
 		15
 	],
 	"../pages/admin-lost-pets/admin-lost-pets.module": [
-		541,
+		544,
 		14
 	],
 	"../pages/admin-registered-user/admin-registered-user.module": [
-		543,
+		545,
 		13
 	],
 	"../pages/admin-train-pet/admin-train-pet.module": [
-		544,
+		546,
 		12
 	],
 	"../pages/admin-view-profile/admin-view-profile.module": [
-		545,
-		25
+		549,
+		28
 	],
 	"../pages/admin-view-user-registered-pets/admin-view-user-registered-pets.module": [
 		547,
-		24
+		27
 	],
 	"../pages/buy-pet-details/buy-pet-details.module": [
-		549,
+		552,
+		26
+	],
+	"../pages/edit-for-sale-pet/edit-for-sale-pet.module": [
+		553,
+		25
+	],
+	"../pages/edit-lost-pet/edit-lost-pet.module": [
+		548,
+		24
+	],
+	"../pages/edit-registered-pet/edit-registered-pet.module": [
+		557,
 		23
 	],
 	"../pages/editprofile/editprofile.module": [
-		546,
+		551,
 		22
 	],
 	"../pages/groompet/groompet.module": [
-		557,
+		555,
 		11
 	],
 	"../pages/home/home.module": [
-		548,
+		554,
 		10
 	],
 	"../pages/login/login.module": [
-		560,
+		563,
 		9
 	],
 	"../pages/lost-pet-details/lost-pet-details.module": [
-		550,
+		556,
 		21
 	],
 	"../pages/lostpets/lostpets.module": [
-		551,
+		558,
 		8
 	],
 	"../pages/other/other.module": [
-		552,
+		559,
 		7
 	],
 	"../pages/pet/pet.module": [
-		553,
+		561,
 		6
 	],
 	"../pages/place-detail/place-detail.module": [
-		554,
+		560,
 		20
 	],
 	"../pages/profile/profile.module": [
-		555,
+		569,
 		5
 	],
 	"../pages/register-pet-form/register-pet-form.module": [
-		563,
+		570,
 		19
 	],
 	"../pages/register/register.module": [
-		556,
+		562,
 		4
 	],
 	"../pages/registered-pet-details/registered-pet-details.module": [
-		564,
+		567,
 		18
 	],
 	"../pages/registerpets/registerpets.module": [
-		558,
+		564,
 		3
 	],
 	"../pages/searchvet/searchvet.module": [
-		559,
+		565,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		561,
+		566,
 		1
 	],
 	"../pages/trainpets/trainpets.module": [
-		562,
+		568,
 		0
 	]
 };
@@ -923,9 +771,9 @@ var AuthProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddForSalePetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1062,12 +910,12 @@ var AddForSalePetPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-add-for-sale-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-for-sale-pet\add-for-sale-pet.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Post your pet\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="addForSalePet" (ngSubmit)="addForSalePetSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Price in Peso</ion-label>\n      <ion-input type="number" formControlName="price" [(ngModel)]="price" name="price"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Date of last vaccine</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>\n    </ion-item>\n\n      <ion-item>\n        <ion-label floating>Remarks</ion-label>\n        <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-for-sale-pet\add-for-sale-pet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__["a" /* BuypetProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], AddForSalePetPage);
     return AddForSalePetPage;
 }());
@@ -1080,11 +928,259 @@ var AddForSalePetPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminViewProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(183);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminViewProfilePage = (function () {
+    function AdminViewProfilePage(navCtrl, navParams, viewCtrl, adminProvider, modalCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.adminProvider = adminProvider;
+        this.modalCtrl = modalCtrl;
+    }
+    AdminViewProfilePage.prototype.ionViewDidLoad = function () {
+        this.userId = this.navParams.get('userId');
+        this.loadProfile();
+    };
+    AdminViewProfilePage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    AdminViewProfilePage.prototype.loadProfile = function () {
+        var _this = this;
+        this.adminProvider.loadProfile(this.userId).then(function (user) {
+            _this.user = user;
+        });
+    };
+    AdminViewProfilePage.prototype.registeredPetsClick = function () {
+        var user = {
+            userId: this.userId
+        };
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */], user);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
+    AdminViewProfilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-admin-view-profile',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-profile\admin-view-profile.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      User Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="profileBlock">\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\' " width="124" height="124" alt="">\n        <h3 *ngIf="user?.name != \'\' || user?.name != null">{{user?.name}}</h3>\n        <h3 *ngIf="user?.name == \'\' || user?.name == null">N/A</h3>\n    </div>\n    \n    <table class="profileTbl">\n        <tr>\n            <td><ion-icon name="mail"></ion-icon></td>\n            <td>\n                <strong>Email Address</strong>\n                <p *ngIf="user?.email != \'\' && user?.email != null">{{user?.email}}</p>\n                <p *ngIf="user?.email == \'\' || user?.email == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="call"></ion-icon></td>\n            <td>\n                <strong>Phone Number</strong>\n                <p *ngIf="user?.phone != \'\' && user?.phone != null">{{user?.phone}}</p>\n                <p *ngIf="user?.phone == \'\' || user?.phone == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="locate"></ion-icon></td>\n            <td>\n                <strong>Address</strong>\n                <p *ngIf="user?.address != \'\' && user?.address != null">{{user?.address}}</p>\n                <p *ngIf="user?.address == \'\' || user?.address == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="paw"></ion-icon></td>\n            <td>\n                <strong (click)="registeredPetsClick()">Registered Pets</strong>\n                <p (click)="registeredPetsClick()">Click to see registered pets</p>\n            </td>\n        </tr>\n    </table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-profile\admin-view-profile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__["a" /* AdminProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
+    ], AdminViewProfilePage);
+    return AdminViewProfilePage;
+}());
+
+//# sourceMappingURL=admin-view-profile.js.map
+
+/***/ }),
+
+/***/ 332:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditLostPetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(84);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EditLostPetPage = (function () {
+    function EditLostPetPage(navCtrl, navParams, viewCtrl, loadingCtrl, toastCtrl, lostpetProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.lostpetProvider = lostpetProvider;
+        this.image = '';
+        this.name = '';
+        this.petType = '';
+        this.breed = '';
+        this.color = '';
+        this.age = '';
+        this.gender = '';
+        this.placeLost = '';
+        this.lostDate = '';
+        this.remarks = '';
+        this.isSubmitting = false;
+        this.imageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.breedCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.colorCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.ageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.genderCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.placeLostCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.petTypeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.lostDateCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.remarksCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.addLostPetForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            image: this.imageCtrl,
+            name: this.nameCtrl,
+            petType: this.petTypeCtrl,
+            breed: this.breedCtrl,
+            color: this.colorCtrl,
+            age: this.ageCtrl,
+            gender: this.genderCtrl,
+            placeLost: this.placeLostCtrl,
+            lostDate: this.lostDateCtrl,
+            remarks: this.remarksCtrl
+        });
+        this.petId = this.navParams.get('petId');
+        this.getLostPetInfo();
+    }
+    EditLostPetPage.prototype.getLostPetInfo = function () {
+        var _this = this;
+        this.lostpetProvider.getLostPetInfo(this.petId).then(function (pet) {
+            _this.image = pet['image'];
+            _this.name = pet['name'];
+            _this.petType = pet['petType'];
+            _this.breed = pet['breed'];
+            _this.color = pet['color'];
+            _this.age = pet['age'];
+            _this.gender = pet['gender'];
+            _this.placeLost = pet['placeLost'];
+            _this.lostDate = pet['lostDate'];
+            _this.remarks = pet['remarks'];
+        }).catch(function (err) {
+            console.log('err', err);
+        });
+    };
+    EditLostPetPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    EditLostPetPage.prototype.petPicUploadEvent = function (event) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Uploading your pet photo...'
+        });
+        loading.present();
+        this.lostpetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+            console.log('photo', photo);
+            _this.image = photo;
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: 'Photo was uploaded',
+                duration: 5000,
+                position: 'bottom'
+            });
+        }).catch(function (err) {
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
+    };
+    EditLostPetPage.prototype.petLostSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.addLostPetForm.valid) {
+            var petInfo = {
+                name: this.name,
+                petType: this.petType,
+                image: this.image,
+                breed: this.breed,
+                color: this.color,
+                age: this.age,
+                gender: this.gender,
+                placeLost: this.placeLost,
+                lostDate: this.lostDate,
+                remarks: this.remarks,
+            };
+            this.lostpetProvider.saveUpdates(petInfo, this.petId).then(function (res) {
+                _this.isSubmitting = false;
+                _this.viewCtrl.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: 'Updates was posted',
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                console.log('err', err);
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Post failed, please fill up all required fields',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    EditLostPetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-lost-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-lost-pet\edit-lost-pet.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Edit Pet Details\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="dismiss()">\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <div class="profileBlock">\n      <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n      <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n        alt="" (click)="petPicUpload.click()">\n      <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n    </div>\n  \n    <form [formGroup]="addLostPetForm" (ngSubmit)="petLostSubmit()">\n      <ion-item hidden>\n        <ion-label floating>Image</ion-label>\n        <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Name</ion-label>\n        <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Pet Type</ion-label>\n        <ion-select formControlName="petType" [(ngModel)]="petType" name="gender">\n          <ion-option value="Dog">Dog</ion-option>\n          <ion-option value="Cat">Cat</ion-option>\n        </ion-select>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Breed</ion-label>\n        <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Color</ion-label>\n        <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Age</ion-label>\n        <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Gender</ion-label>\n        <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n          <ion-option value="Female">Female</ion-option>\n          <ion-option value="Male">Male</ion-option>\n        </ion-select>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Place of lost</ion-label>\n        <ion-input type="text" formControlName="placeLost" [(ngModel)]="placeLost" name="placeLost"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Lost Date</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="lostDate" [(ngModel)]="lostDate" name="lostDate"></ion-datetime>\n      </ion-item>\n  \n        <ion-item>\n          <ion-label floating>Remarks</ion-label>\n          <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n        </ion-item>\n    \n      <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n        <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n        <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n    </form>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-lost-pet\edit-lost-pet.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
+    ], EditLostPetPage);
+    return EditLostPetPage;
+}());
+
+//# sourceMappingURL=edit-lost-pet.js.map
+
+/***/ }),
+
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddLostPetFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1220,11 +1316,11 @@ var AddLostPetFormPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-add-lost-pet-form',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Lost Pet\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="addLostPetForm" (ngSubmit)="petLostSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="gender">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Place of lost</ion-label>\n      <ion-input type="text" formControlName="placeLost" [(ngModel)]="placeLost" name="placeLost"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Lost Date</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="lostDate" [(ngModel)]="lostDate" name="lostDate"></ion-datetime>\n    </ion-item>\n\n      <ion-item>\n        <ion-label floating>Remarks</ion-label>\n        <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
     ], AddLostPetFormPage);
     return AddLostPetFormPage;
@@ -1234,86 +1330,14 @@ var AddLostPetFormPage = (function () {
 
 /***/ }),
 
-/***/ 332:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminViewProfilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(183);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var AdminViewProfilePage = (function () {
-    function AdminViewProfilePage(navCtrl, navParams, viewCtrl, adminProvider, modalCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.adminProvider = adminProvider;
-        this.modalCtrl = modalCtrl;
-    }
-    AdminViewProfilePage.prototype.ionViewDidLoad = function () {
-        this.userId = this.navParams.get('userId');
-        this.loadProfile();
-    };
-    AdminViewProfilePage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    AdminViewProfilePage.prototype.loadProfile = function () {
-        var _this = this;
-        this.adminProvider.loadProfile(this.userId).then(function (user) {
-            _this.user = user;
-        });
-    };
-    AdminViewProfilePage.prototype.registeredPetsClick = function () {
-        var user = {
-            userId: this.userId
-        };
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */], user);
-        modal.onDidDismiss(function (data) {
-            if (data) {
-                // this.loadProfile();
-            }
-        });
-        modal.present();
-    };
-    AdminViewProfilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-view-profile',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-profile\admin-view-profile.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      User Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n    <div class="profileBlock">\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\' " width="124" height="124" alt="">\n        <h3 *ngIf="user?.name != \'\' || user?.name != null">{{user?.name}}</h3>\n        <h3 *ngIf="user?.name == \'\' || user?.name == null">N/A</h3>\n    </div>\n    \n    <table class="profileTbl">\n        <tr>\n            <td><ion-icon name="mail"></ion-icon></td>\n            <td>\n                <strong>Email Address</strong>\n                <p *ngIf="user?.email != \'\' && user?.email != null">{{user?.email}}</p>\n                <p *ngIf="user?.email == \'\' || user?.email == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="call"></ion-icon></td>\n            <td>\n                <strong>Phone Number</strong>\n                <p *ngIf="user?.phone != \'\' && user?.phone != null">{{user?.phone}}</p>\n                <p *ngIf="user?.phone == \'\' || user?.phone == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="locate"></ion-icon></td>\n            <td>\n                <strong>Address</strong>\n                <p *ngIf="user?.address != \'\' && user?.address != null">{{user?.address}}</p>\n                <p *ngIf="user?.address == \'\' || user?.address == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="paw"></ion-icon></td>\n            <td>\n                <strong (click)="registeredPetsClick()">Registered Pets</strong>\n                <p (click)="registeredPetsClick()">Click to see registered pets</p>\n            </td>\n        </tr>\n    </table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-view-profile\admin-view-profile.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__["a" /* AdminProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
-    ], AdminViewProfilePage);
-    return AdminViewProfilePage;
-}());
-
-//# sourceMappingURL=admin-view-profile.js.map
-
-/***/ }),
-
-/***/ 333:
+/***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditprofilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1401,7 +1425,7 @@ var EditprofilePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-editprofile',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Edit Profile\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="editForm" (ngSubmit)="editProfileSubmit()">\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Phone number</ion-label>\n      <ion-input type="text" formControlName="phone" [(ngModel)]="phone" name="phone"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Address</ion-label>\n        <ion-input type="text" formControlName="address" [(ngModel)]="address" name="address"></ion-input>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
     ], EditprofilePage);
     return EditprofilePage;
 }());
@@ -1410,14 +1434,14 @@ var EditprofilePage = (function () {
 
 /***/ }),
 
-/***/ 334:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuyPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(136);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(90);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1465,7 +1489,7 @@ var BuyPetDetailsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-buy-pet-details',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\buy-pet-details\buy-pet-details.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Pet Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n<table class="profileTbl">\n  <tr>\n    <td>\n      <ion-icon name="paw"></ion-icon>\n    </td>\n    <td>\n      <strong>Name</strong>\n      <p>{{name}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="checkbox-outline"></ion-icon>\n    </td>\n    <td>\n      <strong>Type</strong>\n      <p *ngIf="type == \'\' || type == undefined">N/A</p>\n      <p *ngIf="type">{{type}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="bookmark"></ion-icon>\n    </td>\n    <td>\n      <strong>Breed</strong>\n      <p *ngIf="breed == \'\' || breed == null">N/A</p>\n      <p *ngIf="breed">{{breed}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="color-fill"></ion-icon>\n    </td>\n    <td>\n      <strong>Color</strong>\n      <p *ngIf="color == \'\' || color == null">N/A</p>\n      <p *ngIf="color">{{color}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="heart"></ion-icon>\n    </td>\n    <td>\n      <strong>Gender</strong>\n      <p *ngIf="gender == \'\' || gender == null">N/A</p>\n      <p *ngIf="gender">{{gender}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="md-contact"></ion-icon>\n    </td>\n    <td>\n      <strong>Owner Name</strong>\n      <p *ngIf="ownerName == \'\' || ownerName == null">N/A</p>\n      <p *ngIf="ownerName">{{ownerName}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="mail"></ion-icon>\n    </td>\n    <td>\n      <strong>Email Address</strong>\n      <p *ngIf="ownerEmail == \'\' || ownerEmail == null">N/A</p>\n      <p *ngIf="ownerEmail">{{ownerEmail}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="call"></ion-icon>\n    </td>\n    <td>\n      <strong>Phone Number</strong>\n      <p *ngIf="ownerPhone == \'\' || ownerPhone == null">N/A</p>\n      <p *ngIf="ownerPhone">{{ownerPhone}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="locate"></ion-icon>\n    </td>\n    <td>\n      <strong>Address</strong>\n      <p *ngIf="ownerAddress == \'\' || ownerAddress == null">N/A</p>\n      <p *ngIf="ownerAddress">{{ownerAddress}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="information-circle"></ion-icon>\n    </td>\n    <td>\n      <strong>Remarks</strong>\n      <p *ngIf="remarks == \'\' || remarks == null">N/A</p>\n      <p *ngIf="remarks">{{remarks}}</p>\n    </td>\n  </tr>\n</table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\buy-pet-details\buy-pet-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__["a" /* BuypetProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__["a" /* BuypetProvider */]])
     ], BuyPetDetailsPage);
     return BuyPetDetailsPage;
 }());
@@ -1474,14 +1498,190 @@ var BuyPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 336:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditForSalePetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(90);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EditForSalePetPage = (function () {
+    function EditForSalePetPage(navCtrl, navParams, viewCtrl, loadingCtrl, buypetProvider, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.buypetProvider = buypetProvider;
+        this.toastCtrl = toastCtrl;
+        this.image = '';
+        this.name = '';
+        this.price = '';
+        this.petType = '';
+        this.breed = '';
+        this.color = '';
+        this.age = '';
+        this.gender = '';
+        this.vaccineDate = '';
+        this.remarks = '';
+        this.isSubmitting = false;
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.priceCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.petTypeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.breedCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.colorCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.ageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.genderCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.vaccineDateCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.remarksCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.imageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.addForSalePet = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            image: this.imageCtrl,
+            name: this.nameCtrl,
+            price: this.priceCtrl,
+            petType: this.petTypeCtrl,
+            breed: this.breedCtrl,
+            color: this.colorCtrl,
+            age: this.ageCtrl,
+            gender: this.genderCtrl,
+            vaccineDate: this.vaccineDateCtrl,
+            remarks: this.remarksCtrl
+        });
+        this.petId = this.navParams.get('petId');
+        this.getPetInfo();
+    }
+    EditForSalePetPage.prototype.getPetInfo = function () {
+        var _this = this;
+        this.buypetProvider.getPetInfo(this.petId).then(function (pet) {
+            _this.image = pet['image'];
+            _this.name = pet['name'];
+            _this.price = pet['price'];
+            _this.petType = pet['petType'];
+            _this.breed = pet['breed'];
+            _this.color = pet['color'];
+            _this.age = pet['color'];
+            _this.gender = pet['gender'];
+            _this.vaccineDate = pet['vaccineDate'];
+            _this.remarks = pet['remarks'];
+        }).catch(function (err) {
+            console.log('err', err);
+        });
+    };
+    EditForSalePetPage.prototype.addForSalePetSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.addForSalePet.valid) {
+            var petInfo = {
+                name: this.name,
+                image: this.image,
+                price: this.price,
+                petType: this.petType,
+                breed: this.breed,
+                color: this.color,
+                age: this.age,
+                gender: this.gender,
+                vaccineDate: this.vaccineDate,
+                remarks: this.remarks,
+                isactive: true,
+            };
+            this.buypetProvider.saveUpdatedPetInfo(petInfo, this.petId).then(function (res) {
+                _this.isSubmitting = false;
+                _this.viewCtrl.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: 'Updates was posted',
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                console.log('err', err);
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Post failed, please fill up all required fields',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    EditForSalePetPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    EditForSalePetPage.prototype.petPicUploadEvent = function (event) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Uploading your pet photo...'
+        });
+        loading.present();
+        this.buypetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+            console.log('photo', photo);
+            _this.image = photo;
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: 'Photo was uploaded',
+                duration: 5000,
+                position: 'bottom'
+            });
+        }).catch(function (err) {
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
+    };
+    EditForSalePetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-for-sale-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-for-sale-pet\edit-for-sale-pet.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Edit Pet Details\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="dismiss()">\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <div class="profileBlock">\n      <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n      <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n        alt="" (click)="petPicUpload.click()">\n      <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n    </div>\n  \n    <form [formGroup]="addForSalePet" (ngSubmit)="addForSalePetSubmit()">\n      <ion-item hidden>\n        <ion-label floating>Image</ion-label>\n        <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Name</ion-label>\n        <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Price in Peso</ion-label>\n        <ion-input type="number" formControlName="price" [(ngModel)]="price" name="price"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Pet Type</ion-label>\n        <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">\n          <ion-option value="Dog">Dog</ion-option>\n          <ion-option value="Cat">Cat</ion-option>\n        </ion-select>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Breed</ion-label>\n        <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Color</ion-label>\n        <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Age</ion-label>\n        <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Gender</ion-label>\n        <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n          <ion-option value="Female">Female</ion-option>\n          <ion-option value="Male">Male</ion-option>\n        </ion-select>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Date of last vaccine</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>\n      </ion-item>\n  \n        <ion-item>\n          <ion-label floating>Remarks</ion-label>\n          <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n        </ion-item>\n    \n      <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n        <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n        <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n    </form>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-for-sale-pet\edit-for-sale-pet.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__["a" /* BuypetProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
+    ], EditForSalePetPage);
+    return EditForSalePetPage;
+}());
+
+//# sourceMappingURL=edit-for-sale-pet.js.map
+
+/***/ }),
+
+/***/ 337:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(84);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1530,7 +1730,7 @@ var LostPetDetailsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-lost-pet-details',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lost-pet-details\lost-pet-details.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Lost Pet Details\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n<table class="profileTbl">\n  <tr>\n    <td>\n      <ion-icon name="paw"></ion-icon>\n    </td>\n    <td>\n      <strong>Name</strong>\n      <p>{{name}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="checkbox-outline"></ion-icon>\n    </td>\n    <td>\n      <strong>Type</strong>\n      <p *ngIf="type == \'\' || type == undefined">N/A</p>\n      <p *ngIf="type">{{type}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="bookmark"></ion-icon>\n    </td>\n    <td>\n      <strong>Breed</strong>\n      <p *ngIf="breed == \'\' || breed == null">N/A</p>\n      <p *ngIf="breed">{{breed}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="color-fill"></ion-icon>\n    </td>\n    <td>\n      <strong>Color</strong>\n      <p *ngIf="color == \'\' || color == null">N/A</p>\n      <p *ngIf="color">{{color}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="heart"></ion-icon>\n    </td>\n    <td>\n      <strong>Gender</strong>\n      <p *ngIf="gender == \'\' || gender == null">N/A</p>\n      <p *ngIf="gender">{{gender}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="locate"></ion-icon>\n    </td>\n    <td>\n      <strong>Place of Lost</strong>\n      <p *ngIf="placeLost == \'\' || placeLost == null">N/A</p>\n      <p *ngIf="placeLost">{{placeLost}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="calendar"></ion-icon>\n    </td>\n    <td>\n      <strong>Lost Date</strong>\n      <p *ngIf="lostDate == \'\' || lostDate == null">N/A</p>\n      <p *ngIf="lostDate">{{lostDate | date:\'mediumDate\'}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="md-contact"></ion-icon>\n    </td>\n    <td>\n      <strong>Owner Name</strong>\n      <p *ngIf="ownerName == \'\' || ownerName == null">N/A</p>\n      <p *ngIf="ownerName">{{ownerName}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="mail"></ion-icon>\n    </td>\n    <td>\n      <strong>Email Address</strong>\n      <p *ngIf="ownerEmail == \'\' || ownerEmail == null">N/A</p>\n      <p *ngIf="ownerEmail">{{ownerEmail}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="call"></ion-icon>\n    </td>\n    <td>\n      <strong>Phone Number</strong>\n      <p *ngIf="ownerPhone == \'\' || ownerPhone == null">N/A</p>\n      <p *ngIf="ownerPhone">{{ownerPhone}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="locate"></ion-icon>\n    </td>\n    <td>\n      <strong>Address</strong>\n      <p *ngIf="ownerAddress == \'\' || ownerAddress == null">N/A</p>\n      <p *ngIf="ownerAddress">{{ownerAddress}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="information-circle"></ion-icon>\n    </td>\n    <td>\n      <strong>Remarks</strong>\n      <p *ngIf="remarks == \'\' || remarks == null">N/A</p>\n      <p *ngIf="remarks">{{remarks}}</p>\n    </td>\n  </tr>\n</table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\lost-pet-details\lost-pet-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
     ], LostPetDetailsPage);
     return LostPetDetailsPage;
 }());
@@ -1539,13 +1739,181 @@ var LostPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 336:
+/***/ 338:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditRegisteredPetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(106);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EditRegisteredPetPage = (function () {
+    function EditRegisteredPetPage(navCtrl, navParams, viewCtrl, loadingCtrl, registerPetProvider, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.registerPetProvider = registerPetProvider;
+        this.toastCtrl = toastCtrl;
+        this.image = '';
+        this.name = '';
+        this.petType = '';
+        this.breed = '';
+        this.color = '';
+        this.age = '';
+        this.gender = '';
+        this.vaccineDate = '';
+        this.remarks = '';
+        this.isSubmitting = false;
+        this.imageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.petTypeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.breedCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.colorCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.ageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.genderCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.vaccineDateCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.remarksCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.registerPetForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            image: this.imageCtrl,
+            name: this.nameCtrl,
+            petType: this.petTypeCtrl,
+            breed: this.breedCtrl,
+            color: this.colorCtrl,
+            age: this.ageCtrl,
+            gender: this.genderCtrl,
+            vaccineDate: this.vaccineDateCtrl,
+            remarks: this.remarksCtrl
+        });
+        this.petId = this.navParams.get('petId');
+        console.log('this.petId', this.petId);
+        this.getRegisterPetInfo();
+    }
+    EditRegisteredPetPage.prototype.getRegisterPetInfo = function () {
+        var _this = this;
+        this.registerPetProvider.getRegisterPetInfo(this.petId).then(function (pet) {
+            _this.image = pet['image'];
+            _this.name = pet['name'];
+            _this.petType = pet['petType'];
+            _this.breed = pet['breed'];
+            _this.color = pet['color'];
+            _this.age = pet['age'];
+            _this.gender = pet['gender'];
+            _this.vaccineDate = pet['vaccineDate'];
+            _this.remarks = pet['remarks'];
+        }).catch(function (err) {
+            console.log('err', err);
+        });
+    };
+    EditRegisteredPetPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    EditRegisteredPetPage.prototype.petPicUploadEvent = function (event) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Uploading your pet photo...'
+        });
+        loading.present();
+        this.registerPetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+            console.log('photo', photo);
+            _this.image = photo;
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: 'Photo was uploaded',
+                duration: 5000,
+                position: 'bottom'
+            });
+        }).catch(function (err) {
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
+    };
+    EditRegisteredPetPage.prototype.registerPetFormSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.registerPetForm.valid) {
+            console.log('valid');
+            var petInfo = {
+                name: this.name,
+                petType: this.petType,
+                image: this.image,
+                breed: this.breed,
+                color: this.color,
+                age: this.age,
+                gender: this.gender,
+                remarks: this.remarks,
+                vaccineDate: this.vaccineDate
+            };
+            this.registerPetProvider.saveUpdates(petInfo, this.petId).then(function (res) {
+                _this.isSubmitting = false;
+                _this.viewCtrl.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: 'Updates was saved',
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                console.log('err', err);
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Post failed, please fill up all required fields',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    EditRegisteredPetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-registered-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-registered-pet\edit-registered-pet.html"*/'<ion-header>\n    <ion-toolbar>\n      <ion-title>\n        Edit Pet Details\n      </ion-title>\n      <ion-buttons start>\n        <button ion-button (click)="dismiss()">\n          <span ion-text color="primary" showWhen="ios">Cancel</span>\n          <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n        </button>\n      </ion-buttons>\n    </ion-toolbar>\n  </ion-header>\n  \n  <ion-content padding>\n    <div class="profileBlock">\n      <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n      <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n        alt="" (click)="petPicUpload.click()">\n      <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n    </div>\n  \n    <form [formGroup]="registerPetForm" (ngSubmit)="registerPetFormSubmit()">\n      <ion-item hidden>\n        <ion-label floating>Image</ion-label>\n        <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Name</ion-label>\n        <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Pet Type</ion-label>\n        <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">\n          <ion-option value="Dog">Dog</ion-option>\n          <ion-option value="Cat">Cat</ion-option>\n        </ion-select>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Breed</ion-label>\n        <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Color</ion-label>\n        <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Age</ion-label>\n        <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Gender</ion-label>\n        <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n          <ion-option value="Female">Female</ion-option>\n          <ion-option value="Male">Male</ion-option>\n        </ion-select>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Date of last vaccine</ion-label>\n        <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>\n      </ion-item>\n  \n      <ion-item>\n        <ion-label floating>Remarks</ion-label>\n        <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n      </ion-item>\n    \n      <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n        <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n        <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n    </form>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\edit-registered-pet\edit-registered-pet.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__["a" /* RegisterPetProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__["a" /* RegisterPetProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _f || Object])
+    ], EditRegisteredPetPage);
+    return EditRegisteredPetPage;
+    var _a, _b, _c, _d, _e, _f;
+}());
+
+//# sourceMappingURL=edit-registered-pet.js.map
+
+/***/ }),
+
+/***/ 339:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlaceDetailPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1576,7 +1944,7 @@ var PlaceDetailPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-place-detail',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\place-detail\place-detail.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Place Detail\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content>\n<table class="profileTbl">\n  <tr>\n    <td>\n      <ion-icon name="paw"></ion-icon>\n    </td>\n    <td>\n      <strong>Clinic Name</strong>\n      <p>{{name}}</p>\n    </td>\n  </tr>\n  <tr>\n    <td>\n      <ion-icon name="locate"></ion-icon>\n    </td>\n    <td>\n      <strong>Address</strong>\n      <p>{{address}}</p>\n    </td>\n  </tr>\n</table>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\place-detail\place-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
     ], PlaceDetailPage);
     return PlaceDetailPage;
 }());
@@ -1585,15 +1953,15 @@ var PlaceDetailPage = (function () {
 
 /***/ }),
 
-/***/ 337:
+/***/ 340:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPetFormPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(158);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(106);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1671,6 +2039,9 @@ var RegisterPetFormPage = (function () {
             toast.present();
         });
     };
+    RegisterPetFormPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
     RegisterPetFormPage.prototype.registerPetFormSubmit = function () {
         var _this = this;
         this.isSubmitting = true;
@@ -1719,14 +2090,14 @@ var RegisterPetFormPage = (function () {
     };
     RegisterPetFormPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register-pet-form',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register-pet-form\register-pet-form.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Register Pet Form\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/blank_pet.png\' " width="100" height="100"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="registerPetForm" (ngSubmit)="registerPetFormSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Date of last vaccine</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Remarks</ion-label>\n      <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n    </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register-pet-form\register-pet-form.html"*/,
+            selector: 'page-register-pet-form',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register-pet-form\register-pet-form.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Register Pet Form\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="registerPetForm" (ngSubmit)="registerPetFormSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="petType">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Date of last vaccine</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="vaccineDate" [(ngModel)]="vaccineDate" name="vaccineDate"></ion-datetime>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Remarks</ion-label>\n      <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n    </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register-pet-form\register-pet-form.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
     ], RegisterPetFormPage);
     return RegisterPetFormPage;
 }());
@@ -1735,13 +2106,13 @@ var RegisterPetFormPage = (function () {
 
 /***/ }),
 
-/***/ 339:
+/***/ 342:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(364);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1749,38 +2120,41 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 361:
+/***/ 364:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(327);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(535);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_place_detail_place_detail__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(538);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_place_detail_place_detail__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(337);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__ = __webpack_require__(340);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(331);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(183);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_profile_profile__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(536);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_lostpet_lostpet__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_buypet_buypet__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_register_pet_register_pet__ = __webpack_require__(158);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_admin_admin__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_profile_profile__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_lostpet_lostpet__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_buypet_buypet__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_register_pet_register_pet__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_admin_admin__ = __webpack_require__(286);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1797,6 +2171,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 // Plugins
 
 // Components
+
+
+
 
 
 
@@ -1842,48 +2219,54 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */]
+                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {
                     tabsPlacement: 'top',
                     tabsHideOnSubPages: true
                 }, {
                     links: [
                         { loadChildren: '../pages/add-for-sale-pet/add-for-sale-pet.module#AddForSalePetPageModule', name: 'AddForSalePetPage', segment: 'add-for-sale-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-buy-and-sell/admin-buy-and-sell.module#AdminBuyAndSellPageModule', name: 'AdminBuyAndSellPage', segment: 'admin-buy-and-sell', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/add-lost-pet-form/add-lost-pet-form.module#AddLostPetFormPageModule', name: 'AddLostPetFormPage', segment: 'add-lost-pet-form', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/admin-groom-pet/admin-groom-pet.module#AdminGroomPetPageModule', name: 'AdminGroomPetPage', segment: 'admin-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-home/admin-home.module#AdminHomePageModule', name: 'AdminHomePage', segment: 'admin-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-lost-pets/admin-lost-pets.module#AdminLostPetsPageModule', name: 'AdminLostPetsPage', segment: 'admin-lost-pets', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/admin-groom-pet/admin-groom-pet.module#AdminGroomPetPageModule', name: 'AdminGroomPetPage', segment: 'admin-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-registered-user/admin-registered-user.module#AdminRegisteredUserPageModule', name: 'AdminRegisteredUserPage', segment: 'admin-registered-user', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-train-pet/admin-train-pet.module#AdminTrainPetPageModule', name: 'AdminTrainPetPage', segment: 'admin-train-pet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/admin-view-profile/admin-view-profile.module#AdminViewProfilePageModule', name: 'AdminViewProfilePage', segment: 'admin-view-profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-view-user-registered-pets/admin-view-user-registered-pets.module#AdminViewUserRegisteredPetsPageModule', name: 'AdminViewUserRegisteredPetsPage', segment: 'admin-view-user-registered-pets', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-lost-pet/edit-lost-pet.module#EditLostPetPageModule', name: 'EditLostPetPage', segment: 'edit-lost-pet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/admin-view-profile/admin-view-profile.module#AdminViewProfilePageModule', name: 'AdminViewProfilePage', segment: 'admin-view-profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-lost-pet-form/add-lost-pet-form.module#AddLostPetFormPageModule', name: 'AddLostPetFormPage', segment: 'add-lost-pet-form', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/buy-pet-details/buy-pet-details.module#BuyPetDetailsPageModule', name: 'BuyPetDetailsPage', segment: 'buy-pet-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-for-sale-pet/edit-for-sale-pet.module#EditForSalePetPageModule', name: 'EditForSalePetPage', segment: 'edit-for-sale-pet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/groompet/groompet.module#GroompetPageModule', name: 'GroompetPage', segment: 'groompet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost-pet-details/lost-pet-details.module#LostPetDetailsPageModule', name: 'LostPetDetailsPage', segment: 'lost-pet-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-registered-pet/edit-registered-pet.module#EditRegisteredPetPageModule', name: 'EditRegisteredPetPage', segment: 'edit-registered-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lostpets/lostpets.module#LostpetsPageModule', name: 'LostpetsPage', segment: 'lostpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/other/other.module#OtherPageModule', name: 'OtherPage', segment: 'other', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/place-detail/place-detail.module#PlaceDetailPageModule', name: 'PlaceDetailPage', segment: 'place-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/groompet/groompet.module#GroompetPageModule', name: 'GroompetPage', segment: 'groompet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registerpets/registerpets.module#RegisterpetsPageModule', name: 'RegisterpetsPage', segment: 'registerpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/searchvet/searchvet.module#SearchvetPageModule', name: 'SearchvetPage', segment: 'searchvet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/registered-pet-details/registered-pet-details.module#RegisteredPetDetailsPageModule', name: 'RegisteredPetDetailsPage', segment: 'registered-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trainpets/trainpets.module#TrainpetsPageModule', name: 'TrainpetsPage', segment: 'trainpets', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/registered-pet-details/registered-pet-details.module#RegisteredPetDetailsPageModule', name: 'RegisteredPetDetailsPage', segment: 'registered-pet-details', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__["a" /* EditprofilePage */],
@@ -1895,20 +2278,23 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
                 __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
                 __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */]
+                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_19__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_20__providers_profile_profile__["a" /* ProfileProvider */],
-                __WEBPACK_IMPORTED_MODULE_21__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_23__providers_profile_profile__["a" /* ProfileProvider */],
+                __WEBPACK_IMPORTED_MODULE_24__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
                 __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_22__providers_lostpet_lostpet__["a" /* LostpetProvider */],
-                __WEBPACK_IMPORTED_MODULE_23__providers_buypet_buypet__["a" /* BuypetProvider */],
-                __WEBPACK_IMPORTED_MODULE_24__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
-                __WEBPACK_IMPORTED_MODULE_25__providers_admin_admin__["a" /* AdminProvider */]
+                __WEBPACK_IMPORTED_MODULE_25__providers_lostpet_lostpet__["a" /* LostpetProvider */],
+                __WEBPACK_IMPORTED_MODULE_26__providers_buypet_buypet__["a" /* BuypetProvider */],
+                __WEBPACK_IMPORTED_MODULE_27__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
+                __WEBPACK_IMPORTED_MODULE_28__providers_admin_admin__["a" /* AdminProvider */],
             ]
         })
     ], AppModule);
@@ -1919,13 +2305,13 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 535:
+/***/ 538:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(328);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(327);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1964,17 +2350,16 @@ var MyApp = (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
 
-/***/ 536:
+/***/ 539:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2006,7 +2391,239 @@ var GoogleCloudVisionProvider = (function () {
 
 //# sourceMappingURL=google-cloud-vision.js.map
 
+/***/ }),
+
+/***/ 84:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostpetProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LostpetProvider = (function () {
+    function LostpetProvider(http) {
+        this.http = http;
+        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
+        this.basePath = '/uploads';
+        this.userId = localStorage.getItem('userId');
+    }
+    LostpetProvider.prototype.randomCharacters = function () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 20; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    };
+    LostpetProvider.prototype.uploadPhoto = function (upload) {
+        var _this = this;
+        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
+        Object.defineProperty(upload, 'name', {
+            writable: true,
+            value: uploadName
+        });
+        var promise = new Promise(function (resolve, reject) {
+            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
+            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
+            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
+                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
+            }, function (error) {
+                reject(error);
+            }, function () {
+                resolve(uploadTask.snapshot.downloadURL);
+            });
+        });
+        return promise;
+    };
+    LostpetProvider.prototype.saveLostPet = function (pet) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            pet['uid'] = _this.userId;
+            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
+            pet['status'] = false;
+            _this.db.collection('lostpets').doc().set(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    LostpetProvider.prototype.saveUpdates = function (pet, petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('lostpets').doc(petId).update(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    LostpetProvider.prototype.ownerInfo = function (uid) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
+                resolve(snapshots.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    LostpetProvider.prototype.getLostPetInfo = function (petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('lostpets').doc(petId).get().then(function (pet) {
+                resolve(pet.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    LostpetProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], LostpetProvider);
+    return LostpetProvider;
+}());
+
+//# sourceMappingURL=lostpet.js.map
+
+/***/ }),
+
+/***/ 90:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuypetProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BuypetProvider = (function () {
+    function BuypetProvider(http) {
+        this.http = http;
+        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
+        this.basePath = '/uploads';
+        this.userId = localStorage.getItem('userId');
+    }
+    BuypetProvider.prototype.randomCharacters = function () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 20; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    };
+    BuypetProvider.prototype.uploadPhoto = function (upload) {
+        var _this = this;
+        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
+        Object.defineProperty(upload, 'name', {
+            writable: true,
+            value: uploadName
+        });
+        var promise = new Promise(function (resolve, reject) {
+            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
+            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
+            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
+                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
+            }, function (error) {
+                reject(error);
+            }, function () {
+                resolve(uploadTask.snapshot.downloadURL);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.saveLostPet = function (pet) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            pet['uid'] = _this.userId;
+            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
+            _this.db.collection('buypets').doc().set(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.saveUpdatedPetInfo = function (pet, petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
+            _this.db.collection('buypets').doc(petId).update(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.ownerInfo = function (uid) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
+                resolve(snapshots.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.getPetInfo = function (petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('buypets').doc(petId).get().then(function (pet) {
+                resolve(pet.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], BuypetProvider);
+    return BuypetProvider;
+}());
+
+//# sourceMappingURL=buypet.js.map
+
 /***/ })
 
-},[339]);
+},[342]);
 //# sourceMappingURL=main.js.map

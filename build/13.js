@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 543:
+/***/ 545:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRegisteredUserPageModule", function() { return AdminRegisteredUserPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(569);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(575);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var AdminRegisteredUserPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
             ],
         })
     ], AdminRegisteredUserPageModule);
@@ -38,18 +38,18 @@ var AdminRegisteredUserPageModule = (function () {
 
 /***/ }),
 
-/***/ 569:
+/***/ 575:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegisteredUserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(331);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -145,11 +145,11 @@ var AdminRegisteredUserPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-admin-registered-user',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="list-avatar-page" padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <ion-list *ngIf="pageLoaded">\n    <a ion-item detail-none *ngFor="let user of users" (click)="viewProfile(user?.uid)">\n      <ion-avatar item-left>\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\'" >\n      </ion-avatar>\n      <ion-label>\n          <h2>{{user?.name}}</h2>\n          <p>{{user?.email}}</p>\n      </ion-label>\n      <button item-right ion-button type="button" class="deleteBtn" (click)="deleteUser($event, user?.uid, user?.name)"><ion-icon name="trash"></ion-icon></button>\n    </a>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
     ], AdminRegisteredUserPage);
     return AdminRegisteredUserPage;
 }());

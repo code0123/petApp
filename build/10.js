@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 548:
+/***/ 554:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(571);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(577);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var HomePageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
             ],
         })
     ], HomePageModule);
@@ -38,13 +38,13 @@ var HomePageModule = (function () {
 
 /***/ }),
 
-/***/ 571:
+/***/ 577:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(329);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -94,14 +94,14 @@ var HomePage = (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Slides */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Slides */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
     ], HomePage.prototype, "slides", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\home\home.html"*/'<ion-slides pager (ionSlideDidChange)="slideChanged()">\n  <ion-slide>\n    <h2><img src="assets/images/mypet.png" alt=""></h2>\n    <h4>Manage Info on Your Pets</h4>\n    <p>Create a profile for the pets of every pet owners.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/registerpet.png" alt=""></h2>\n    <h4>Register your pet</h4>\n    <p>Pet owners can register their pet to have an active account.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/searchpet.png" alt=""></h2>\n    <h4>Search for Vet Clinic Around You</h4>\n    <p>Pet with diseases, disorders, and injuries can be treated, find all available vet clinics around you!</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/buyandsell.png" alt=""></h2>\n    <h4>For Breeders, Buy, Sell And Adopt</h4>\n    <p>Are you a pet lover or have a pet for adoption? With this app\'s feature, you can buy, sell and adopt pets from people around the world.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <ion-spinner name="crescent" class="pageLoader"></ion-spinner>\n  </ion-slide>\n</ion-slides>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
     ], HomePage);
     return HomePage;
 }());

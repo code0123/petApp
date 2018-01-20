@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 561:
+/***/ 566:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(581);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs__ = __webpack_require__(586);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var TabsPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__tabs__["a" /* TabsPage */]),
             ],
         })
     ], TabsPageModule);
@@ -38,13 +38,13 @@ var TabsPageModule = (function () {
 
 /***/ }),
 
-/***/ 581:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(329);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -78,24 +78,13 @@ var TabsPage = (function () {
             }
         });
     };
-    TabsPage.prototype.ionViewCanLeave = function () {
-        // here we can either return true or false
-        // depending on if we want to leave this view
-        if (localStorage.getItem('userId') != '') {
-            return false;
-        }
-        else {
-            return true;
-        }
-    };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-tabs',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/'\n\n<ion-tabs color="light-blue">\n  <ion-tab tabIcon="paw" [rootParams]="tabsParam" tabTitle="Pets" [root]="tab1" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="sad" tabTitle="Lost Pets" [root]="tab2" [rootParams]="tabsParam" tabBadgeStyle="danger"></ion-tab>\n  <ion-tab tabIcon="person" tabTitle="Profile" [rootParams]="tabsParam" [root]="tab3"></ion-tab>\n  <ion-tab tabIcon="apps" tabTitle="Others" [rootParams]="tabsParam" [root]="tab4"></ion-tab>\n</ion-tabs>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\tabs\tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
     ], TabsPage);
     return TabsPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=tabs.js.map

@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 558:
+/***/ 564:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterpetsPageModule", function() { return RegisterpetsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registerpets__ = __webpack_require__(578);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registerpets__ = __webpack_require__(584);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var RegisterpetsPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__registerpets__["a" /* RegisterpetsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__registerpets__["a" /* RegisterpetsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__registerpets__["a" /* RegisterpetsPage */]),
             ],
         })
     ], RegisterpetsPageModule);
@@ -38,19 +38,20 @@ var RegisterpetsPageModule = (function () {
 
 /***/ }),
 
-/***/ 578:
+/***/ 584:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterpetsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_pet_form_register_pet_form__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_pet_form_register_pet_form__ = __webpack_require__(340);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__registered_pet_details_registered_pet_details__ = __webpack_require__(182);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__edit_registered_pet_edit_registered_pet__ = __webpack_require__(338);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,13 +67,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RegisterpetsPage = (function () {
-    function RegisterpetsPage(navCtrl, navParams, modalCtrl, alertCtrl, toastCtrl) {
+    function RegisterpetsPage(navCtrl, navParams, modalCtrl, alertCtrl, toastCtrl, actionSheetCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.modalCtrl = modalCtrl;
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
         this.petsCount = 0;
         this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
         this.pageLoaded = false;
@@ -175,15 +178,51 @@ var RegisterpetsPage = (function () {
         });
         modal.present();
     };
+    RegisterpetsPage.prototype.action = function (petId) {
+        var _this = this;
+        console.log('petId', petId);
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your post',
+            buttons: [
+                {
+                    text: 'Remove',
+                    icon: 'trash',
+                    handler: function () {
+                        _this.removeRegisteredPet(petId);
+                    }
+                }, {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        var data = {
+                            petId: petId
+                        };
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */], data);
+                        modal.onDidDismiss(function (data) {
+                        });
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    icon: 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
     RegisterpetsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-registerpets',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpets\registerpets.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Registered Pets</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="700"\n            placeholder="Search Name or Breed"\n        >\n        </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No registered pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="removeRegisteredPet(pet.regPetId)"><ion-icon name="close"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="registeredPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Date added: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addPet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpets\registerpets.html"*/,
+            selector: 'page-registerpets',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpets\registerpets.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Registered Pets</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="700"\n            placeholder="Search Name or Breed"\n        >\n        </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No registered pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Breed:</span>\n                        <span>{{pet.breed}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Age:</span>\n                        <span>{{pet.age}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="action(pet.regPetId)"><ion-icon name="open"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="registeredPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Date added: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addPet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n  </ion-content>\n  '/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpets\registerpets.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* ToastController */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
     ], RegisterpetsPage);
     return RegisterpetsPage;
 }());

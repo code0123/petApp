@@ -25808,6 +25808,15 @@ ion-fab[bottom] {
   background: #E91E63;
 }
 
+.action-sheet-md .action-sheet-icon {
+  margin: 0 15px 0 0 !important;
+}
+
+ion-spinner {
+  width: 22px !important;
+  height: 22px !important;
+}
+
 page-add-for-sale-pet .btnSave {
   margin: 15px 0 0;
 }
@@ -26100,6 +26109,84 @@ page-buy-pet-details .profileTbl tr:first-child:after {
 
 page-buy-pet-details .profileTbl {
   margin-top: 0;
+}
+
+page-edit-for-sale-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-for-sale-pet .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-edit-for-sale-pet .profileBlock .camera {
+  position: absolute;
+  color: #fff;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 87px;
+  font-size: 26px;
+}
+
+page-edit-for-sale-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+page-edit-lost-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-lost-pet .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-edit-lost-pet .profileBlock .camera {
+  position: absolute;
+  color: #fff;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 87px;
+  font-size: 26px;
+}
+
+page-edit-lost-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+page-edit-registered-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-registered-pet .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-edit-registered-pet .profileBlock .camera {
+  position: absolute;
+  color: #fff;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 87px;
+  font-size: 26px;
+}
+
+page-edit-registered-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
 }
 
 page-editprofile .btnSave {
@@ -26450,11 +26537,6 @@ page-register .btnRegister {
   margin: 15px 0 0;
 }
 
-page-register ion-spinner {
-  width: 22px;
-  height: 22px;
-}
-
 page-register-pet-form .btnSave {
   margin: 15px 0 0;
 }
@@ -26467,12 +26549,12 @@ page-register-pet-form .profileBlock {
 
 page-register-pet-form .profileBlock .camera {
   position: absolute;
-  color: #bbb;
+  color: #fff;
   width: 24px;
   left: 0;
   right: 0;
   margin: auto;
-  top: 65px;
+  top: 87px;
   font-size: 26px;
 }
 
