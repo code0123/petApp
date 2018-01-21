@@ -1,6 +1,6 @@
 webpackJsonp([16],{
 
-/***/ 543:
+/***/ 544:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGroomPetPageModule", function() { return AdminGroomPetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__ = __webpack_require__(572);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__ = __webpack_require__(574);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,13 +38,14 @@ var AdminGroomPetPageModule = (function () {
 
 /***/ }),
 
-/***/ 572:
+/***/ 574:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminGroomPetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__ = __webpack_require__(341);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,21 +57,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AdminGroomPetPage = (function () {
-    function AdminGroomPetPage(navCtrl, navParams) {
+    function AdminGroomPetPage(navCtrl, navParams, streamingMedia) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.streamingMedia = streamingMedia;
+        this.videos = [
+            {
+                title: 'Sample Video',
+                video: 'https://www.youtube.com/embed/9yZEvkofi24'
+            }
+        ];
     }
     AdminGroomPetPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad AdminGroomPetPage');
     };
+    AdminGroomPetPage.prototype.playVideo = function (videoLink) {
+        console.log('videoLink', videoLink);
+        var options = {
+            successCallback: function () { console.log('Video played'); },
+            errorCallback: function (e) { console.log('Error streaming'); },
+            orientation: 'landscape'
+        };
+        this.streamingMedia.playVideo(videoLink, options);
+    };
     AdminGroomPetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-groom-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Groom Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding overflow-scroll="true">\n\n\n  <div class="videoPlayList">\n    <h5>How to Use Clippers when Grooming a Shaggy-Haired Dog : Dog Grooming</h5>\n    <video width="100%" height="100%" poster="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/images%2Ficon.png?alt=media&token=78c28f13-9417-43a9-bea7-d5feb44dacb7" controls>\n      <source src="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=50637728-adb6-4c52-810e-77c51d34a7f8" type="video/mp4">\n    </video>\n  </div>\n\n  <div class="videoPlayList">\n    <h5>How to Use Clippers when Grooming a Shaggy-Haired Dog : Dog Grooming</h5>\n    <video width="100%" height="100%" poster="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/images%2Ficon.png?alt=media&token=78c28f13-9417-43a9-bea7-d5feb44dacb7" controls>\n      <source src="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=50637728-adb6-4c52-810e-77c51d34a7f8" type="video/mp4">\n    </video>\n  </div>\n\n  <div class="videoPlayList">\n    <h5>How to Use Clippers when Grooming a Shaggy-Haired Dog : Dog Grooming</h5>\n    <video width="100%" height="100%" poster="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/images%2Ficon.png?alt=media&token=78c28f13-9417-43a9-bea7-d5feb44dacb7" controls>\n      <source src="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=50637728-adb6-4c52-810e-77c51d34a7f8" type="video/mp4">\n    </video>\n  </div>\n\n  <ion-fab bottom right>\n      <button ion-fab (click)="addVideo()"><ion-icon name="add"></ion-icon></button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/,
+            selector: 'page-admin-groom-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Groom Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <div class="videoPlayList">\n    <h5>How to Use Clippers when Grooming a Shaggy-Haired Dog : Dog Grooming</h5>\n    <video width="100%" height="100%" (click)="playVideo(\'https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=4a42aa3e-6427-40ac-833d-bd2e154e49a6\')" poster="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/images%2Ficon.png?alt=media&token=78c28f13-9417-43a9-bea7-d5feb44dacb7" controls>\n      <source src="" type="video/mp4">\n    </video>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */]) === "function" && _c || Object])
     ], AdminGroomPetPage);
     return AdminGroomPetPage;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=admin-groom-pet.js.map

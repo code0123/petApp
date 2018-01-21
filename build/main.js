@@ -1,122 +1,6 @@
 webpackJsonp([31],{
 
-/***/ 105:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuypetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var BuypetProvider = (function () {
-    function BuypetProvider(http) {
-        this.http = http;
-        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
-        this.basePath = '/uploads';
-        this.userId = localStorage.getItem('userId');
-    }
-    BuypetProvider.prototype.randomCharacters = function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        for (var i = 0; i < 20; i++)
-            text += possible.charAt(Math.floor(Math.random() * possible.length));
-        return text;
-    };
-    BuypetProvider.prototype.uploadPhoto = function (upload) {
-        var _this = this;
-        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
-        Object.defineProperty(upload, 'name', {
-            writable: true,
-            value: uploadName
-        });
-        var promise = new Promise(function (resolve, reject) {
-            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
-            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
-            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
-                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
-            }, function (error) {
-                reject(error);
-            }, function () {
-                resolve(uploadTask.snapshot.downloadURL);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.saveLostPet = function (pet) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            pet['uid'] = _this.userId;
-            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
-            _this.db.collection('buypets').doc().set(pet).then(function (res) {
-                resolve(1);
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.saveUpdatedPetInfo = function (pet, petId) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
-            _this.db.collection('buypets').doc(petId).update(pet).then(function (res) {
-                resolve(1);
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.ownerInfo = function (uid) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
-                resolve(snapshots.data());
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider.prototype.getPetInfo = function (petId) {
-        var _this = this;
-        var promise = new Promise(function (resolve, reject) {
-            _this.db.collection('buypets').doc(petId).get().then(function (pet) {
-                resolve(pet.data());
-            }).catch(function (err) {
-                reject(err);
-            });
-        });
-        return promise;
-    };
-    BuypetProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], BuypetProvider);
-    return BuypetProvider;
-}());
-
-//# sourceMappingURL=buypet.js.map
-
-/***/ }),
-
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -240,7 +124,7 @@ var RegisterPetProvider = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisteredPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -633,23 +517,23 @@ webpackEmptyAsyncContext.id = 197;
 
 var map = {
 	"../pages/add-for-sale-pet/add-for-sale-pet.module": [
-		541,
+		542,
 		30
 	],
 	"../pages/add-lost-pet-form/add-lost-pet-form.module": [
-		540,
+		551,
 		29
 	],
 	"../pages/admin-buy-and-sell/admin-buy-and-sell.module": [
-		542,
+		543,
 		17
 	],
 	"../pages/admin-groom-pet/admin-groom-pet.module": [
-		543,
+		544,
 		16
 	],
 	"../pages/admin-home/admin-home.module": [
-		544,
+		546,
 		15
 	],
 	"../pages/admin-lost-pets/admin-lost-pets.module": [
@@ -657,15 +541,15 @@ var map = {
 		14
 	],
 	"../pages/admin-registered-user/admin-registered-user.module": [
-		546,
+		547,
 		13
 	],
 	"../pages/admin-train-pet/admin-train-pet.module": [
-		547,
+		548,
 		12
 	],
 	"../pages/admin-view-profile/admin-view-profile.module": [
-		548,
+		549,
 		28
 	],
 	"../pages/admin-view-user-registered-pets/admin-view-user-registered-pets.module": [
@@ -673,63 +557,63 @@ var map = {
 		27
 	],
 	"../pages/buy-pet-details/buy-pet-details.module": [
-		549,
+		562,
 		26
 	],
 	"../pages/edit-for-sale-pet/edit-for-sale-pet.module": [
-		551,
+		553,
 		25
 	],
 	"../pages/edit-lost-pet/edit-lost-pet.module": [
-		553,
+		552,
 		24
 	],
 	"../pages/edit-registered-pet/edit-registered-pet.module": [
-		554,
+		555,
 		23
 	],
 	"../pages/editprofile/editprofile.module": [
-		552,
+		554,
 		22
 	],
 	"../pages/groompet/groompet.module": [
-		555,
+		556,
 		11
 	],
 	"../pages/home/home.module": [
-		556,
+		559,
 		10
 	],
 	"../pages/login/login.module": [
-		557,
+		563,
 		9
 	],
 	"../pages/lost-pet-details/lost-pet-details.module": [
-		558,
+		557,
 		21
 	],
 	"../pages/lostpets/lostpets.module": [
-		560,
+		558,
 		8
 	],
 	"../pages/other/other.module": [
-		559,
+		566,
 		7
 	],
 	"../pages/pet/pet.module": [
-		561,
+		560,
 		6
 	],
 	"../pages/place-detail/place-detail.module": [
-		562,
+		561,
 		20
 	],
 	"../pages/profile/profile.module": [
-		563,
+		565,
 		5
 	],
 	"../pages/register-pet-form/register-pet-form.module": [
-		565,
+		572,
 		19
 	],
 	"../pages/register/register.module": [
@@ -737,23 +621,23 @@ var map = {
 		4
 	],
 	"../pages/registered-pet-details/registered-pet-details.module": [
-		566,
+		569,
 		18
 	],
 	"../pages/registerpets/registerpets.module": [
-		568,
+		571,
 		3
 	],
 	"../pages/searchvet/searchvet.module": [
-		569,
+		567,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		570,
+		568,
 		1
 	],
 	"../pages/trainpets/trainpets.module": [
-		567,
+		570,
 		0
 	]
 };
@@ -917,169 +801,11 @@ var AuthProvider = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddLostPetFormPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(84);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var AddLostPetFormPage = (function () {
-    function AddLostPetFormPage(navCtrl, navParams, viewCtrl, loadingCtrl, toastCtrl, lostpetProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.toastCtrl = toastCtrl;
-        this.lostpetProvider = lostpetProvider;
-        this.image = '';
-        this.name = '';
-        this.petType = '';
-        this.breed = '';
-        this.color = '';
-        this.age = '';
-        this.gender = '';
-        this.placeLost = '';
-        this.lostDate = '';
-        this.remarks = '';
-        this.isSubmitting = false;
-        this.imageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.breedCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.colorCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.ageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.genderCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.placeLostCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.petTypeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.lostDateCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.remarksCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.addLostPetForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
-            image: this.imageCtrl,
-            name: this.nameCtrl,
-            petType: this.petTypeCtrl,
-            breed: this.breedCtrl,
-            color: this.colorCtrl,
-            age: this.ageCtrl,
-            gender: this.genderCtrl,
-            placeLost: this.placeLostCtrl,
-            lostDate: this.lostDateCtrl,
-            remarks: this.remarksCtrl
-        });
-    }
-    AddLostPetFormPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    AddLostPetFormPage.prototype.petPicUploadEvent = function (event) {
-        var _this = this;
-        var loading = this.loadingCtrl.create({
-            content: 'Uploading your pet photo...'
-        });
-        loading.present();
-        this.lostpetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-            console.log('photo', photo);
-            _this.image = photo;
-            loading.dismiss();
-            var toast = _this.toastCtrl.create({
-                message: 'Photo was uploaded',
-                duration: 5000,
-                position: 'bottom'
-            });
-        }).catch(function (err) {
-            loading.dismiss();
-            var toast = _this.toastCtrl.create({
-                message: err.message,
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
-        });
-    };
-    AddLostPetFormPage.prototype.petLostSubmit = function () {
-        var _this = this;
-        this.isSubmitting = true;
-        if (this.addLostPetForm.valid) {
-            console.log('valid');
-            var petInfo = {
-                name: this.name,
-                petType: this.petType,
-                image: this.image,
-                breed: this.breed,
-                color: this.color,
-                age: this.age,
-                gender: this.gender,
-                placeLost: this.placeLost,
-                lostDate: this.lostDate,
-                remarks: this.remarks,
-            };
-            this.lostpetProvider.saveLostPet(petInfo).then(function (res) {
-                _this.isSubmitting = false;
-                _this.viewCtrl.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: 'Lost pet was posted',
-                    duration: 4000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }).catch(function (err) {
-                console.log('err', err);
-                _this.isSubmitting = false;
-                var toast = _this.toastCtrl.create({
-                    message: err.message,
-                    duration: 4000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            this.isSubmitting = false;
-            var toast = this.toastCtrl.create({
-                message: 'Post failed, please fill up all required fields',
-                duration: 4000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
-    };
-    AddLostPetFormPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-lost-pet-form',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Lost Pet\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="addLostPetForm" (ngSubmit)="petLostSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="gender">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Place of lost</ion-label>\n      <ion-input type="text" formControlName="placeLost" [(ngModel)]="placeLost" name="placeLost"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Lost Date</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="lostDate" [(ngModel)]="lostDate" name="lostDate"></ion-datetime>\n    </ion-item>\n\n      <ion-item>\n        <ion-label floating>Remarks</ion-label>\n        <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
-    ], AddLostPetFormPage);
-    return AddLostPetFormPage;
-}());
-
-//# sourceMappingURL=add-lost-pet-form.js.map
-
-/***/ }),
-
-/***/ 331:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddForSalePetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(91);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1230,14 +956,14 @@ var AddForSalePetPage = (function () {
 
 /***/ }),
 
-/***/ 332:
+/***/ 331:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuyPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(91);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1294,7 +1020,7 @@ var BuyPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 333:
+/***/ 332:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1302,7 +1028,7 @@ var BuyPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(91);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1470,6 +1196,164 @@ var EditForSalePetPage = (function () {
 
 /***/ }),
 
+/***/ 333:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddLostPetFormPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(85);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AddLostPetFormPage = (function () {
+    function AddLostPetFormPage(navCtrl, navParams, viewCtrl, loadingCtrl, toastCtrl, lostpetProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.toastCtrl = toastCtrl;
+        this.lostpetProvider = lostpetProvider;
+        this.image = '';
+        this.name = '';
+        this.petType = '';
+        this.breed = '';
+        this.color = '';
+        this.age = '';
+        this.gender = '';
+        this.placeLost = '';
+        this.lostDate = '';
+        this.remarks = '';
+        this.isSubmitting = false;
+        this.imageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.breedCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.colorCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.ageCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.genderCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.placeLostCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.petTypeCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.lostDateCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.remarksCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.addLostPetForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            image: this.imageCtrl,
+            name: this.nameCtrl,
+            petType: this.petTypeCtrl,
+            breed: this.breedCtrl,
+            color: this.colorCtrl,
+            age: this.ageCtrl,
+            gender: this.genderCtrl,
+            placeLost: this.placeLostCtrl,
+            lostDate: this.lostDateCtrl,
+            remarks: this.remarksCtrl
+        });
+    }
+    AddLostPetFormPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    AddLostPetFormPage.prototype.petPicUploadEvent = function (event) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Uploading your pet photo...'
+        });
+        loading.present();
+        this.lostpetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+            console.log('photo', photo);
+            _this.image = photo;
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: 'Photo was uploaded',
+                duration: 5000,
+                position: 'bottom'
+            });
+        }).catch(function (err) {
+            loading.dismiss();
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
+    };
+    AddLostPetFormPage.prototype.petLostSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.addLostPetForm.valid) {
+            console.log('valid');
+            var petInfo = {
+                name: this.name,
+                petType: this.petType,
+                image: this.image,
+                breed: this.breed,
+                color: this.color,
+                age: this.age,
+                gender: this.gender,
+                placeLost: this.placeLost,
+                lostDate: this.lostDate,
+                remarks: this.remarks,
+            };
+            this.lostpetProvider.saveLostPet(petInfo).then(function (res) {
+                _this.isSubmitting = false;
+                _this.viewCtrl.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: 'Lost pet was posted',
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                console.log('err', err);
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 4000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Post failed, please fill up all required fields',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    AddLostPetFormPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-add-lost-pet-form',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Lost Pet\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="petPicUploadEvent($event)">\n    <img [src]="image != \'\' && image != null ? image : \'assets/images/icon.png\' " width="124" height="124"\n      alt="" (click)="petPicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="petPicUpload.click()"></ion-icon>\n  </div>\n\n  <form [formGroup]="addLostPetForm" (ngSubmit)="petLostSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Image</ion-label>\n      <ion-input type="text" formControlName="image" [(ngModel)]="image" name="image"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Pet Type</ion-label>\n      <ion-select formControlName="petType" [(ngModel)]="petType" name="gender">\n        <ion-option value="Dog">Dog</ion-option>\n        <ion-option value="Cat">Cat</ion-option>\n      </ion-select>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Breed</ion-label>\n      <ion-input type="text" formControlName="breed" [(ngModel)]="breed" name="breed"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Color</ion-label>\n      <ion-input type="text" formControlName="color" [(ngModel)]="color" name="color"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Age</ion-label>\n      <ion-input type="text" formControlName="age" [(ngModel)]="age" name="age"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Gender</ion-label>\n      <ion-select formControlName="gender" [(ngModel)]="gender" name="gender">\n        <ion-option value="Female">Female</ion-option>\n        <ion-option value="Male">Male</ion-option>\n      </ion-select>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Place of lost</ion-label>\n      <ion-input type="text" formControlName="placeLost" [(ngModel)]="placeLost" name="placeLost"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Lost Date</ion-label>\n      <ion-datetime displayFormat="MM/DD/YYYY" formControlName="lostDate" [(ngModel)]="lostDate" name="lostDate"></ion-datetime>\n    </ion-item>\n\n      <ion-item>\n        <ion-label floating>Remarks</ion-label>\n        <ion-textarea type="text" formControlName="remarks" [(ngModel)]="remarks" name="remarks"></ion-textarea>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\add-lost-pet-form\add-lost-pet-form.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */]])
+    ], AddLostPetFormPage);
+    return AddLostPetFormPage;
+}());
+
+//# sourceMappingURL=add-lost-pet-form.js.map
+
+/***/ }),
+
 /***/ 334:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1477,7 +1361,7 @@ var EditForSalePetPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1543,7 +1427,7 @@ var LostPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(85);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1895,7 +1779,7 @@ var EditprofilePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2113,7 +1997,7 @@ var PlaceDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2258,13 +2142,13 @@ var RegisterPetFormPage = (function () {
 
 /***/ }),
 
-/***/ 342:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(365);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2272,7 +2156,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 364:
+/***/ 365:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2285,34 +2169,38 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(538);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_place_detail_place_detail__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(182);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_profile_profile__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(539);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_lostpet_lostpet__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_buypet_buypet__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_register_pet_register_pet__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_admin_admin__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_video_player__ = __webpack_require__(539);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_streaming_media__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(540);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(331);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(182);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__providers_auth_auth__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_profile_profile__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(541);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__providers_lostpet_lostpet__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__providers_buypet_buypet__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__providers_register_pet_register_pet__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_admin_admin__ = __webpack_require__(183);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2361,92 +2249,94 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__["a" /* EditprofilePage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__["a" /* EditprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {
                     tabsPlacement: 'top',
                     tabsHideOnSubPages: true
                 }, {
                     links: [
-                        { loadChildren: '../pages/add-lost-pet-form/add-lost-pet-form.module#AddLostPetFormPageModule', name: 'AddLostPetFormPage', segment: 'add-lost-pet-form', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-for-sale-pet/add-for-sale-pet.module#AddForSalePetPageModule', name: 'AddForSalePetPage', segment: 'add-for-sale-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-buy-and-sell/admin-buy-and-sell.module#AdminBuyAndSellPageModule', name: 'AdminBuyAndSellPage', segment: 'admin-buy-and-sell', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-groom-pet/admin-groom-pet.module#AdminGroomPetPageModule', name: 'AdminGroomPetPage', segment: 'admin-groom-pet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/admin-home/admin-home.module#AdminHomePageModule', name: 'AdminHomePage', segment: 'admin-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-lost-pets/admin-lost-pets.module#AdminLostPetsPageModule', name: 'AdminLostPetsPage', segment: 'admin-lost-pets', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/admin-home/admin-home.module#AdminHomePageModule', name: 'AdminHomePage', segment: 'admin-home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-registered-user/admin-registered-user.module#AdminRegisteredUserPageModule', name: 'AdminRegisteredUserPage', segment: 'admin-registered-user', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-train-pet/admin-train-pet.module#AdminTrainPetPageModule', name: 'AdminTrainPetPage', segment: 'admin-train-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-view-profile/admin-view-profile.module#AdminViewProfilePageModule', name: 'AdminViewProfilePage', segment: 'admin-view-profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/buy-pet-details/buy-pet-details.module#BuyPetDetailsPageModule', name: 'BuyPetDetailsPage', segment: 'buy-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-view-user-registered-pets/admin-view-user-registered-pets.module#AdminViewUserRegisteredPetsPageModule', name: 'AdminViewUserRegisteredPetsPage', segment: 'admin-view-user-registered-pets', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/add-lost-pet-form/add-lost-pet-form.module#AddLostPetFormPageModule', name: 'AddLostPetFormPage', segment: 'add-lost-pet-form', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-lost-pet/edit-lost-pet.module#EditLostPetPageModule', name: 'EditLostPetPage', segment: 'edit-lost-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-for-sale-pet/edit-for-sale-pet.module#EditForSalePetPageModule', name: 'EditForSalePetPage', segment: 'edit-for-sale-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-lost-pet/edit-lost-pet.module#EditLostPetPageModule', name: 'EditLostPetPage', segment: 'edit-lost-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-registered-pet/edit-registered-pet.module#EditRegisteredPetPageModule', name: 'EditRegisteredPetPage', segment: 'edit-registered-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/groompet/groompet.module#GroompetPageModule', name: 'GroompetPage', segment: 'groompet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost-pet-details/lost-pet-details.module#LostPetDetailsPageModule', name: 'LostPetDetailsPage', segment: 'lost-pet-details', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/other/other.module#OtherPageModule', name: 'OtherPage', segment: 'other', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lostpets/lostpets.module#LostpetsPageModule', name: 'LostpetsPage', segment: 'lostpets', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/place-detail/place-detail.module#PlaceDetailPageModule', name: 'PlaceDetailPage', segment: 'place-detail', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/buy-pet-details/buy-pet-details.module#BuyPetDetailsPageModule', name: 'BuyPetDetailsPage', segment: 'buy-pet-details', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/other/other.module#OtherPageModule', name: 'OtherPage', segment: 'other', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/searchvet/searchvet.module#SearchvetPageModule', name: 'SearchvetPage', segment: 'searchvet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registered-pet-details/registered-pet-details.module#RegisteredPetDetailsPageModule', name: 'RegisteredPetDetailsPage', segment: 'registered-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trainpets/trainpets.module#TrainpetsPageModule', name: 'TrainpetsPage', segment: 'trainpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registerpets/registerpets.module#RegisterpetsPageModule', name: 'RegisterpetsPage', segment: 'registerpets', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/searchvet/searchvet.module#SearchvetPageModule', name: 'SearchvetPage', segment: 'searchvet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_editprofile_editprofile__["a" /* EditprofilePage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
+                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__["a" /* EditprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_22__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_23__providers_profile_profile__["a" /* ProfileProvider */],
-                __WEBPACK_IMPORTED_MODULE_24__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
-                __WEBPACK_IMPORTED_MODULE_7__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_25__providers_lostpet_lostpet__["a" /* LostpetProvider */],
-                __WEBPACK_IMPORTED_MODULE_26__providers_buypet_buypet__["a" /* BuypetProvider */],
-                __WEBPACK_IMPORTED_MODULE_27__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
-                __WEBPACK_IMPORTED_MODULE_28__providers_admin_admin__["a" /* AdminProvider */],
+                __WEBPACK_IMPORTED_MODULE_24__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_25__providers_profile_profile__["a" /* ProfileProvider */],
+                __WEBPACK_IMPORTED_MODULE_26__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_27__providers_lostpet_lostpet__["a" /* LostpetProvider */],
+                __WEBPACK_IMPORTED_MODULE_28__providers_buypet_buypet__["a" /* BuypetProvider */],
+                __WEBPACK_IMPORTED_MODULE_29__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
+                __WEBPACK_IMPORTED_MODULE_30__providers_admin_admin__["a" /* AdminProvider */],
+                __WEBPACK_IMPORTED_MODULE_7__ionic_native_video_player__["a" /* VideoPlayer */],
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_streaming_media__["a" /* StreamingMedia */]
             ]
         })
     ], AppModule);
@@ -2457,7 +2347,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 538:
+/***/ 540:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2511,7 +2401,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 539:
+/***/ 541:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2545,7 +2435,7 @@ var GoogleCloudVisionProvider = (function () {
 
 /***/ }),
 
-/***/ 84:
+/***/ 85:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2659,7 +2549,123 @@ var LostpetProvider = (function () {
 
 //# sourceMappingURL=lostpet.js.map
 
+/***/ }),
+
+/***/ 91:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuypetProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BuypetProvider = (function () {
+    function BuypetProvider(http) {
+        this.http = http;
+        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
+        this.basePath = '/uploads';
+        this.userId = localStorage.getItem('userId');
+    }
+    BuypetProvider.prototype.randomCharacters = function () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < 20; i++)
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    };
+    BuypetProvider.prototype.uploadPhoto = function (upload) {
+        var _this = this;
+        var uploadName = upload['name'] + '-' + this.randomCharacters(); // create a random name for the upload name
+        Object.defineProperty(upload, 'name', {
+            writable: true,
+            value: uploadName
+        });
+        var promise = new Promise(function (resolve, reject) {
+            var storageRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]().ref();
+            var uploadTask = storageRef.child(_this.basePath + "/" + upload.name).put(upload);
+            uploadTask.on(__WEBPACK_IMPORTED_MODULE_2_firebase__["storage"].TaskEvent.STATE_CHANGED, function (snapshot) {
+                upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
+            }, function (error) {
+                reject(error);
+            }, function () {
+                resolve(uploadTask.snapshot.downloadURL);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.saveLostPet = function (pet) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            pet['uid'] = _this.userId;
+            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
+            _this.db.collection('buypets').doc().set(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.saveUpdatedPetInfo = function (pet, petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            pet['datePosted'] = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"].FieldValue.serverTimestamp();
+            _this.db.collection('buypets').doc(petId).update(pet).then(function (res) {
+                resolve(1);
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.ownerInfo = function (uid) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('users').doc(uid).get().then(function (snapshots) {
+                resolve(snapshots.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider.prototype.getPetInfo = function (petId) {
+        var _this = this;
+        var promise = new Promise(function (resolve, reject) {
+            _this.db.collection('buypets').doc(petId).get().then(function (pet) {
+                resolve(pet.data());
+            }).catch(function (err) {
+                reject(err);
+            });
+        });
+        return promise;
+    };
+    BuypetProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
+    ], BuypetProvider);
+    return BuypetProvider;
+}());
+
+//# sourceMappingURL=buypet.js.map
+
 /***/ })
 
-},[342]);
+},[343]);
 //# sourceMappingURL=main.js.map
