@@ -25984,6 +25984,25 @@ page-admin-groom-pet .videoPlayList {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
   padding: 12px;
   margin-bottom: 30px;
+  position: relative;
+}
+
+page-admin-groom-pet .videoPlayList button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  height: 57px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  background: #673AB7;
+  padding: 10px;
+}
+
+page-admin-groom-pet .videoPlayList button ion-icon {
+  font-size: 40px;
+  color: #fff;
 }
 
 page-admin-home .back-button.show-back-button {
