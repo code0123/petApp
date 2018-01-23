@@ -1,14 +1,14 @@
 webpackJsonp([21],{
 
-/***/ 558:
+/***/ 573:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LostPetDetailsPageModule", function() { return LostPetDetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPetFormPageModule", function() { return RegisterPetFormPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lost_pet_details__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_pet_form__ = __webpack_require__(343);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LostPetDetailsPageModule = (function () {
-    function LostPetDetailsPageModule() {
+var RegisterPetFormPageModule = (function () {
+    function RegisterPetFormPageModule() {
     }
-    LostPetDetailsPageModule = __decorate([
+    RegisterPetFormPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__lost_pet_details__["a" /* LostPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__register_pet_form__["a" /* RegisterPetFormPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lost_pet_details__["a" /* LostPetDetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register_pet_form__["a" /* RegisterPetFormPage */]),
             ],
         })
-    ], LostPetDetailsPageModule);
-    return LostPetDetailsPageModule;
+    ], RegisterPetFormPageModule);
+    return RegisterPetFormPageModule;
 }());
 
-//# sourceMappingURL=lost-pet-details.module.js.map
+//# sourceMappingURL=register-pet-form.module.js.map
 
 /***/ })
 

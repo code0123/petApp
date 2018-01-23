@@ -1,14 +1,14 @@
 webpackJsonp([15],{
 
-/***/ 545:
+/***/ 553:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminHomePageModule", function() { return AdminHomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRegisteredUserPageModule", function() { return AdminRegisteredUserPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_home__ = __webpack_require__(575);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(585);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminHomePageModule = (function () {
-    function AdminHomePageModule() {
+var AdminRegisteredUserPageModule = (function () {
+    function AdminRegisteredUserPageModule() {
     }
-    AdminHomePageModule = __decorate([
+    AdminRegisteredUserPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
             ],
         })
-    ], AdminHomePageModule);
-    return AdminHomePageModule;
+    ], AdminRegisteredUserPageModule);
+    return AdminRegisteredUserPageModule;
 }());
 
-//# sourceMappingURL=admin-home.module.js.map
+//# sourceMappingURL=admin-registered-user.module.js.map
 
 /***/ }),
 
-/***/ 575:
+/***/ 585:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegisteredUserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(183);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(338);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,46 +63,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AdminHomePage = (function () {
-    function AdminHomePage(navCtrl, navParams, authProvider, alertCtrl, toastCtrl, adminProvider) {
+
+var AdminRegisteredUserPage = (function () {
+    function AdminRegisteredUserPage(navCtrl, navParams, alertCtrl, toastCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.authProvider = authProvider;
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.adminProvider = adminProvider;
+        this.modalCtrl = modalCtrl;
+        this.usersCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
         this.pageLoaded = false;
     }
-    AdminHomePage.prototype.ionViewDidLoad = function () {
-        this.registeredUserCount();
+    AdminRegisteredUserPage.prototype.ionViewDidLoad = function () {
+        this.loadRegisteredUsers();
     };
-    AdminHomePage.prototype.registeredUserCount = function () {
+    AdminRegisteredUserPage.prototype.viewProfile = function (userId) {
+        var user = {
+            userId: userId
+        };
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */], user);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
+    AdminRegisteredUserPage.prototype.loadRegisteredUsers = function () {
         var _this = this;
-        this.adminProvider.registeredUserCount().then(function (count01) {
-            _this.userCount = count01;
-            _this.adminProvider.buySellPetCount().then(function (count02) {
-                _this.buySellPetCount = count02;
-                _this.adminProvider.lostPetCount().then(function (count03) {
-                    _this.lostPetsCount = count03;
-                    _this.pageLoaded = true;
-                }).catch(function (err) {
-                    console.log('err', err);
-                });
-            }).catch(function (err) {
-                console.log('err', err);
+        this.db.collection('users').where("isAdmin", "==", 0).onSnapshot(function (res) {
+            var users = [];
+            res.forEach(function (doc) {
+                users.push(doc.data());
             });
-        }).catch(function (err) {
+            _this.pageLoaded = true;
+            _this.users = users;
+        }), (function (err) {
             console.log('err', err);
         });
     };
-    AdminHomePage.prototype.pushPage = function (page) {
-        this.navCtrl.push(page);
-    };
-    AdminHomePage.prototype.logout = function () {
+    AdminRegisteredUserPage.prototype.deleteUser = function (event, uid, name) {
         var _this = this;
+        event.stopPropagation();
+        console.log('uid', uid);
         var confirm = this.alertCtrl.create({
-            title: 'Logout Confirmation?',
-            message: 'Are you sure do you want to log out?',
+            title: 'Delete User?',
+            message: "Are you sure do you want to delete <strong>" + name + "</strong> user account?",
             buttons: [
                 {
                     text: 'Cancel',
@@ -109,13 +119,17 @@ var AdminHomePage = (function () {
                 {
                     text: 'Ok',
                     handler: function () {
-                        _this.authProvider.logout().then(function () {
-                            localStorage.clear();
-                            _this.navCtrl.push('HomePage');
+                        _this.db.collection('users').doc(uid).delete().then(function () {
+                            var toast = _this.toastCtrl.create({
+                                message: 'User was deleted',
+                                duration: 4000,
+                                position: 'bottom'
+                            });
+                            toast.present();
                         }).catch(function (err) {
                             var toast = _this.toastCtrl.create({
                                 message: err.message,
-                                duration: 5000,
+                                duration: 4000,
                                 position: 'bottom'
                             });
                             toast.present();
@@ -125,22 +139,22 @@ var AdminHomePage = (function () {
             ]
         });
         confirm.present();
+        return false;
     };
-    AdminHomePage = __decorate([
+    AdminRegisteredUserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-home',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Purrs &amp; Paws Admin Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <div class="box green" (click)="pushPage(\'AdminRegisteredUserPage\')">\n        <div class="iconBlock">\n          <ion-icon name="people"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{userCount}}</p>\n          <h3>Registered Users</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box blue" (click)="pushPage(\'AdminBuyAndSellPage\')">\n        <div class="iconBlock">\n          <ion-icon name="pricetag"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{buySellPetCount}}</p>\n          <h3>Buy &amp; Sell Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box pink" (click)="pushPage(\'AdminLostPetsPage\')">\n        <div class="iconBlock">\n          <ion-icon name="paw"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{lostPetsCount}}</p>\n          <h3>Lost Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n      <div class="box indigo" (click)="pushPage(\'AdminGroomPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="shirt"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">2</p>\n          <h3>Groom Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n      <div class="box amber" (click)="pushPage(\'AdminTrainPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="help-buoy"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">1</p>\n          <h3>Train Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <ion-fab bottom right>\n        <button ion-fab (click)="logout()" class="logout"><ion-icon name="log-out"></ion-icon></button>\n      </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/,
+            selector: 'page-admin-registered-user',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="list-avatar-page" padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <ion-list *ngIf="pageLoaded">\n    <a ion-item detail-none *ngFor="let user of users" (click)="viewProfile(user?.uid)">\n      <ion-avatar item-left>\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\'" >\n      </ion-avatar>\n      <ion-label>\n          <h2>{{user?.name}}</h2>\n          <p>{{user?.email}}</p>\n      </ion-label>\n      <button item-right ion-button type="button" class="deleteBtn" (click)="deleteUser($event, user?.uid, user?.name)"><ion-icon name="trash"></ion-icon></button>\n    </a>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */]])
-    ], AdminHomePage);
-    return AdminHomePage;
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
+    ], AdminRegisteredUserPage);
+    return AdminRegisteredUserPage;
 }());
 
-//# sourceMappingURL=admin-home.js.map
+//# sourceMappingURL=admin-registered-user.js.map
 
 /***/ })
 

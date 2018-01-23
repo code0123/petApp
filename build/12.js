@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 548:
+/***/ 563:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTrainPetPageModule", function() { return AdminTrainPetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroompetPageModule", function() { return GroompetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__ = __webpack_require__(578);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__groompet__ = __webpack_require__(587);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminTrainPetPageModule = (function () {
-    function AdminTrainPetPageModule() {
+var GroompetPageModule = (function () {
+    function GroompetPageModule() {
     }
-    AdminTrainPetPageModule = __decorate([
+    GroompetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__groompet__["a" /* GroompetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__groompet__["a" /* GroompetPage */]),
             ],
         })
-    ], AdminTrainPetPageModule);
-    return AdminTrainPetPageModule;
+    ], GroompetPageModule);
+    return GroompetPageModule;
 }());
 
-//# sourceMappingURL=admin-train-pet.module.js.map
+//# sourceMappingURL=groompet.module.js.map
 
 /***/ }),
 
-/***/ 578:
+/***/ 587:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminTrainPetPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GroompetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,24 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AdminTrainPetPage = (function () {
-    function AdminTrainPetPage(navCtrl, navParams) {
+/**
+ * Generated class for the GroompetPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var GroompetPage = (function () {
+    function GroompetPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
     }
-    AdminTrainPetPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdminTrainPetPage');
+    GroompetPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad GroompetPage');
     };
-    AdminTrainPetPage = __decorate([
+    GroompetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-train-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Train Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/,
+            selector: 'page-groompet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\groompet\groompet.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Groom your pet</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\groompet\groompet.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
-    ], AdminTrainPetPage);
-    return AdminTrainPetPage;
+    ], GroompetPage);
+    return GroompetPage;
 }());
 
-//# sourceMappingURL=admin-train-pet.js.map
+//# sourceMappingURL=groompet.js.map
 
 /***/ })
 

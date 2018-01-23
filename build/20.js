@@ -1,14 +1,14 @@
 webpackJsonp([20],{
 
-/***/ 564:
+/***/ 574:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlaceDetailPageModule", function() { return PlaceDetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisteredPetDetailsPageModule", function() { return RegisteredPetDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__place_detail__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registered_pet_details__ = __webpack_require__(183);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PlaceDetailPageModule = (function () {
-    function PlaceDetailPageModule() {
+var RegisteredPetDetailsPageModule = (function () {
+    function RegisteredPetDetailsPageModule() {
     }
-    PlaceDetailPageModule = __decorate([
+    RegisteredPetDetailsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__place_detail__["a" /* PlaceDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__registered_pet_details__["a" /* RegisteredPetDetailsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__place_detail__["a" /* PlaceDetailPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__registered_pet_details__["a" /* RegisteredPetDetailsPage */]),
             ],
         })
-    ], PlaceDetailPageModule);
-    return PlaceDetailPageModule;
+    ], RegisteredPetDetailsPageModule);
+    return RegisteredPetDetailsPageModule;
 }());
 
-//# sourceMappingURL=place-detail.module.js.map
+//# sourceMappingURL=registered-pet-details.module.js.map
 
 /***/ })
 

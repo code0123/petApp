@@ -1,14 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 543:
+/***/ 549:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminBuyAndSellPageModule", function() { return AdminBuyAndSellPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminHomePageModule", function() { return AdminHomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_buy_and_sell__ = __webpack_require__(573);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_home__ = __webpack_require__(581);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,41 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminBuyAndSellPageModule = (function () {
-    function AdminBuyAndSellPageModule() {
+var AdminHomePageModule = (function () {
+    function AdminHomePageModule() {
     }
-    AdminBuyAndSellPageModule = __decorate([
+    AdminHomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_buy_and_sell__["a" /* AdminBuyAndSellPage */],
+                __WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_buy_and_sell__["a" /* AdminBuyAndSellPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */]),
             ],
         })
-    ], AdminBuyAndSellPageModule);
-    return AdminBuyAndSellPageModule;
+    ], AdminHomePageModule);
+    return AdminHomePageModule;
 }());
 
-//# sourceMappingURL=admin-buy-and-sell.module.js.map
+//# sourceMappingURL=admin-home.module.js.map
 
 /***/ }),
 
-/***/ 573:
+/***/ 581:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminBuyAndSellPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(332);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(184);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,98 +60,46 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-
-var AdminBuyAndSellPage = (function () {
-    function AdminBuyAndSellPage(navCtrl, navParams, authProvider, modalCtrl, alertCtrl, toastCtrl, actionSheetCtrl) {
+var AdminHomePage = (function () {
+    function AdminHomePage(navCtrl, navParams, authProvider, alertCtrl, toastCtrl, adminProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authProvider = authProvider;
-        this.modalCtrl = modalCtrl;
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.petsCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
+        this.adminProvider = adminProvider;
         this.pageLoaded = false;
-        this.userId = localStorage.getItem('userId');
-        this.getItems();
     }
-    AdminBuyAndSellPage.prototype.onSearch = function (ev) {
+    AdminHomePage.prototype.ionViewDidLoad = function () {
+        this.registeredUserCount();
+    };
+    AdminHomePage.prototype.registeredUserCount = function () {
         var _this = this;
-        this.pageLoaded = false;
-        var val = ev.target.value;
-        this.db.collection('buypets').where("isactive", "==", true).onSnapshot(function (snapshots) {
-            console.log('snapshots', snapshots);
-            var pets = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                var interestedUsers = docData['interestedUsers'];
-                if (interestedUsers.indexOf(_this.userId) == -1) {
-                    docData['interested'] = false;
-                }
-                else {
-                    docData['interested'] = true;
-                }
-                docData['buyPetId'] = doc.id;
-                pets.push(docData);
-            });
-            _this.pets = pets;
-            _this.petsCount = Object.keys(pets).length;
-            if (val && val.trim() != '') {
-                _this.pets = _this.pets.filter(function (el) {
-                    return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
-                        (el.breed.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        this.adminProvider.registeredUserCount().then(function (count01) {
+            _this.userCount = count01;
+            _this.adminProvider.buySellPetCount().then(function (count02) {
+                _this.buySellPetCount = count02;
+                _this.adminProvider.lostPetCount().then(function (count03) {
+                    _this.lostPetsCount = count03;
+                    _this.pageLoaded = true;
+                }).catch(function (err) {
+                    console.log('err', err);
                 });
-            }
-            setTimeout(function () {
-                _this.pageLoaded = true;
-            }, 700);
-        }), (function (err) {
-            console.log('err', err);
-        });
-    };
-    AdminBuyAndSellPage.prototype.onCancel = function (ev) {
-        this.getItems();
-    };
-    AdminBuyAndSellPage.prototype.getItems = function () {
-        var _this = this;
-        this.db.collection('buypets').where("isactive", "==", true).onSnapshot(function (snapshots) {
-            console.log('snapshots', snapshots);
-            var pets = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                var interestedUsers = docData['interestedUsers'];
-                if (interestedUsers.indexOf(_this.userId) == -1) {
-                    docData['interested'] = false;
-                }
-                else {
-                    docData['interested'] = true;
-                }
-                docData['buyPetId'] = doc.id;
-                pets.push(docData);
+            }).catch(function (err) {
+                console.log('err', err);
             });
-            _this.pets = pets;
-            console.log('this.pets', _this.pets);
-            _this.petsCount = Object.keys(pets).length;
-            _this.pageLoaded = true;
-        }), (function (err) {
+        }).catch(function (err) {
             console.log('err', err);
         });
     };
-    AdminBuyAndSellPage.prototype.addForSalePet = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */]);
-        modal.onDidDismiss(function (data) {
-        });
-        modal.present();
+    AdminHomePage.prototype.pushPage = function (page) {
+        this.navCtrl.push(page);
     };
-    AdminBuyAndSellPage.prototype.removePost = function (buyPetId) {
+    AdminHomePage.prototype.logout = function () {
         var _this = this;
         var confirm = this.alertCtrl.create({
-            title: 'Your pet was sold?',
-            message: 'Are you sure do you want to remove your post?',
+            title: 'Logout Confirmation?',
+            message: 'Are you sure do you want to log out?',
             buttons: [
                 {
                     text: 'Cancel',
@@ -167,119 +109,38 @@ var AdminBuyAndSellPage = (function () {
                 {
                     text: 'Ok',
                     handler: function () {
-                        _this.db.collection('buypets').doc(buyPetId).update({
-                            isactive: false
+                        _this.authProvider.logout().then(function () {
+                            localStorage.clear();
+                            _this.navCtrl.push('HomePage');
+                        }).catch(function (err) {
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
                         });
-                        var toast = _this.toastCtrl.create({
-                            message: 'Post was removed',
-                            duration: 5000,
-                            position: 'bottom'
-                        });
-                        toast.present();
                     }
                 }
             ]
         });
         confirm.present();
     };
-    AdminBuyAndSellPage.prototype.action = function (petId) {
-        var _this = this;
-        console.log('petId', petId);
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Modify your post',
-            buttons: [
-                {
-                    text: 'Purchase',
-                    icon: 'cart',
-                    handler: function () {
-                        _this.removePost(petId);
-                    }
-                }, {
-                    text: 'Edit',
-                    icon: 'create',
-                    handler: function () {
-                        var data = {
-                            petId: petId
-                        };
-                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */], data);
-                        modal.onDidDismiss(function (data) {
-                        });
-                        modal.present();
-                    }
-                }, {
-                    text: 'Cancel',
-                    icon: 'close',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }
-            ]
-        });
-        actionSheet.present();
-    };
-    AdminBuyAndSellPage.prototype.buyPetDetails = function (pet) {
-        console.log('pet', pet);
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */], pet);
-        modal.onDidDismiss(function (data) {
-            if (data) {
-                // this.loadProfile();
-            }
-        });
-        modal.present();
-    };
-    AdminBuyAndSellPage.prototype.thumbsUp = function (petId) {
-        var _this = this;
-        var petRef = this.db.collection('buypets').doc(petId);
-        petRef.get().then(function (pet) {
-            var data = pet.data();
-            var interestedUsers = data['interestedUsers'];
-            if (interestedUsers.indexOf(_this.userId) == -1) {
-                interestedUsers.push(_this.userId);
-                petRef.update({
-                    interestedUsers: interestedUsers
-                });
-                var toast = _this.toastCtrl.create({
-                    message: 'Interested!',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }
-            else {
-                interestedUsers.splice(_this.userId, 1);
-                petRef.update({
-                    interestedUsers: interestedUsers
-                });
-                var toast = _this.toastCtrl.create({
-                    message: 'Not interested!',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }
-            petRef.update({
-                interestedCount: interestedUsers.length
-            });
-        }).catch(function (err) {
-            console.log('err', err);
-        });
-    };
-    AdminBuyAndSellPage = __decorate([
+    AdminHomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-buy-and-sell',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-buy-and-sell\admin-buy-and-sell.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Buy &amp; Sell Pets</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="card-background-page">\n  <form action="" class="searchBar">\n      <ion-searchbar\n          [showCancelButton]="shouldShowCancel"\n          (ionInput)="onSearch($event)"\n          (ionCancel)="onCancel($event)"\n          [debounce]="700"\n          placeholder="Search Name or Breed"\n      >\n      </ion-searchbar>\n  </form>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <p *ngIf="pets?.length == 0" class="noPetResult">No posted pet yet.</p>\n      <div *ngIf="pets?.length">\n          <ion-card *ngFor="let pet of pets">\n              <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n              <ion-card-content>\n                  <ion-card-title>{{pet.name}}  <span class="price">{{pet.price | currency:\'PHP\':true}}</span></ion-card-title>\n                  <div>\n                      <span class="bold">Breed:</span>\n                      <span>{{pet.breed}}</span>\n                  </div>\n                  <div>\n                      <span class="bold">Age:</span>\n                      <span>{{pet.age}}</span>\n                  </div>\n                  <button ion-button type="button" class="removeBtn" (click)="action(pet.buyPetId)"><ion-icon name="more"></ion-icon></button>\n                  <button ion-button type="submit" class="btnDetails" (click)="buyPetDetails(pet)">More Details</button>\n                  <span class="datePosted">Posted: {{pet.datePosted | date:\'mediumDate\'}}</span>\n                  <button ion-button type="button" class="thumbsUpBtn" [class.blue]="pet.interested" (click)="thumbsUp(pet.buyPetId)"><ion-icon name="thumbs-up"></ion-icon> &nbsp;Interested ({{pet.interestedCount}})</button>\n              </ion-card-content>\n          </ion-card>\n      </div>\n  </div>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-buy-and-sell\admin-buy-and-sell.html"*/,
+            selector: 'page-admin-home',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Purrs &amp; Paws Admin Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <div class="box green" (click)="pushPage(\'AdminRegisteredUserPage\')">\n        <div class="iconBlock">\n          <ion-icon name="people"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{userCount}}</p>\n          <h3>Registered Users</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box blue" (click)="pushPage(\'AdminBuyAndSellPage\')">\n        <div class="iconBlock">\n          <ion-icon name="pricetag"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{buySellPetCount}}</p>\n          <h3>Buy &amp; Sell Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box pink" (click)="pushPage(\'AdminLostPetsPage\')">\n        <div class="iconBlock">\n          <ion-icon name="paw"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{lostPetsCount}}</p>\n          <h3>Lost Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box cyan" (click)="pushPage(\'VaccinationSchedulePage\')">\n        <div class="iconBlock">\n          <ion-icon name="calendar"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{vaccineSchedCount}}</p>\n          <h3>Vaccination Schedule</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box indigo" (click)="pushPage(\'AdminGroomPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="shirt"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">2</p>\n          <h3>Groom Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n      <div class="box amber" (click)="pushPage(\'AdminTrainPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="help-buoy"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">1</p>\n          <h3>Train Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <ion-fab bottom right>\n        <button ion-fab (click)="logout()" class="logout"><ion-icon name="log-out"></ion-icon></button>\n      </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
-    ], AdminBuyAndSellPage);
-    return AdminBuyAndSellPage;
+            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */]])
+    ], AdminHomePage);
+    return AdminHomePage;
 }());
 
-//# sourceMappingURL=admin-buy-and-sell.js.map
+//# sourceMappingURL=admin-home.js.map
 
 /***/ })
 

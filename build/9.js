@@ -1,14 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 562:
+/***/ 567:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LostpetsPageModule", function() { return LostpetsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(583);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lostpets__ = __webpack_require__(590);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,41 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = (function () {
-    function LoginPageModule() {
+var LostpetsPageModule = (function () {
+    function LostpetsPageModule() {
     }
-    LoginPageModule = __decorate([
+    LostpetsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__lostpets__["a" /* LostpetsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__lostpets__["a" /* LostpetsPage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], LostpetsPageModule);
+    return LostpetsPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=lostpets.module.js.map
 
 /***/ }),
 
-/***/ 583:
+/***/ 590:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostpetsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(329);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lost_pet_details_lost_pet_details__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__edit_lost_pet_edit_lost_pet__ = __webpack_require__(336);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,124 +67,168 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-var LoginPage = (function () {
-    function LoginPage(navCtrl, navParams, authProvider, toastCtrl) {
+
+
+
+var LostpetsPage = (function () {
+    function LostpetsPage(navCtrl, navParams, modalCtrl, lostpetProvider, alertCtrl, toastCtrl, actionSheetCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.authProvider = authProvider;
+        this.modalCtrl = modalCtrl;
+        this.lostpetProvider = lostpetProvider;
+        this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.isSubmitting = false;
-        this.userId = '';
-        this.isAdmin = 0;
-        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
-        this.passwordCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
-        this.loginForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
-            email: this.emailCtrl,
-            password: this.passwordCtrl
-        });
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.petsCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
+        this.pageLoaded = false;
+        this.userId = localStorage.getItem('userId');
+        this.getItems();
     }
-    LoginPage.prototype.ionViewDidEnter = function () {
-        if (this.userId != '') {
-            if (this.isAdmin == 1) {
-                this.navCtrl.push('AdminHomePage');
-            }
-            else {
-                this.navCtrl.push('TabsPage');
-            }
-        }
-        else {
-            return true;
-        }
-        // this.authProvider.isAuthenticated().then(isAuth => {
-        //   if(isAuth) {
-        //     this.authProvider.loadProfile(this.userId).then(res => {
-        //       if(res['isAdmin'] == 1) { // admin redirect
-        //         this.navCtrl.push('AdminHomePage');
-        //       }else { // normal user redirect
-        //         this.navCtrl.push('TabsPage');
-        //       }
-        //     }).catch(err => {
-        //       console.log(err);
-        //     });
-        //   }else {
-        //     return true;
-        //   }
-        // });
-    };
-    LoginPage.prototype.goToRegisterPage = function () {
-        this.navCtrl.push('RegisterPage');
-    };
-    LoginPage.prototype.loginSubmit = function () {
+    LostpetsPage.prototype.action = function (petId) {
         var _this = this;
-        if (this.loginForm.valid) {
-            this.isSubmitting = true;
-            this.authProvider.login(this.email, this.password).then(function (user) {
-                console.log('user', user);
-                if (user['emailVerified']) {
-                    _this.isSubmitting = false;
-                    _this.userId = user['uid'];
-                    localStorage.setItem('userId', user['uid']);
-                    localStorage.setItem('email', user['email']);
-                    _this.authProvider.loadProfile(user['uid']).then(function (res) {
-                        localStorage.setItem('isAdmin', res['isAdmin']);
-                        if (res['isAdmin'] == 1) {
-                            _this.isAdmin = 1;
-                            _this.navCtrl.push('AdminHomePage');
-                        }
-                        else {
-                            _this.isAdmin = 0;
-                            _this.navCtrl.push('TabsPage');
-                        }
-                    }).catch(function (err) {
-                        _this.isSubmitting = false;
+        console.log('petId', petId);
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your post',
+            buttons: [
+                {
+                    text: 'Found',
+                    icon: 'checkbox-outline',
+                    handler: function () {
+                        _this.removeLostPet(petId);
+                    }
+                }, {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        var data = {
+                            petId: petId
+                        };
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */], data);
+                        modal.onDidDismiss(function (data) {
+                        });
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    icon: 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    LostpetsPage.prototype.onSearch = function (ev) {
+        var _this = this;
+        this.pageLoaded = false;
+        var val = ev.target.value;
+        this.db.collection('lostpets').where("status", "==", false).onSnapshot(function (snapshots) {
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['lostPetId'] = doc.id;
+                pets.push(docData);
+            });
+            _this.pets = pets;
+            _this.petsCount = Object.keys(pets).length;
+            if (val && val.trim() != '') {
+                _this.pets = _this.pets.filter(function (el) {
+                    return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
+                        (el.placeLost.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
+                        (el.petType.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                });
+            }
+            setTimeout(function () {
+                _this.pageLoaded = true;
+            }, 700);
+        }), (function (err) {
+            console.log('err', err);
+        });
+    };
+    LostpetsPage.prototype.onCancel = function (ev) {
+        this.getItems();
+    };
+    LostpetsPage.prototype.addLostPet = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */]);
+        modal.onDidDismiss(function (data) {
+        });
+        modal.present();
+    };
+    LostpetsPage.prototype.getItems = function () {
+        var _this = this;
+        this.db.collection('lostpets').where("status", "==", false).onSnapshot(function (snapshots) {
+            console.log('snapshots', snapshots);
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['lostPetId'] = doc.id;
+                pets.push(docData);
+            });
+            _this.pets = pets;
+            console.log('this.pets', _this.pets);
+            _this.petsCount = Object.keys(pets).length;
+            _this.pageLoaded = true;
+        }), (function (err) {
+            console.log('err', err);
+        });
+    };
+    LostpetsPage.prototype.lostPetDetails = function (pet) {
+        console.log('pet', pet);
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */], pet);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
+    LostpetsPage.prototype.removeLostPet = function (lostPetId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Lost pet was found?',
+            message: 'Are you sure do you want to remove your post?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.db.collection('lostpets').doc(lostPetId).update({
+                            status: true
+                        });
                         var toast = _this.toastCtrl.create({
-                            message: 'Invalid email or password',
+                            message: 'Lost pet was removed',
                             duration: 5000,
                             position: 'bottom'
                         });
                         toast.present();
-                    });
+                    }
                 }
-                else {
-                    _this.isSubmitting = false;
-                    var toast = _this.toastCtrl.create({
-                        message: 'Login failed, your email address is not verified yet',
-                        duration: 5000,
-                        position: 'bottom'
-                    });
-                    toast.present();
-                }
-            }).catch(function (err) {
-                _this.isSubmitting = false;
-                var toast = _this.toastCtrl.create({
-                    message: 'Invalid email or password',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            this.isSubmitting = false;
-            var toast = this.toastCtrl.create({
-                message: 'Login failed',
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
+            ]
+        });
+        confirm.present();
     };
-    LoginPage = __decorate([
+    LostpetsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/'<ion-content padding>\n  <div>\n    <h1 class="headerLogo"><img src="assets/images/logo.png" alt=""></h1>\n    <p class="subTitle">Welcome to Purrs and Paws,<br> Login to your account</p>\n    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">\n      <ion-item>\n        <ion-label floating>Email</ion-label>\n        <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password"></ion-input>\n      </ion-item>\n      <p>Don\'t have an account? <a (click)="goToRegisterPage()" class="blue">Sign Up</a></p>\n      <button ion-button type="submit" class="btnLogin" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="log-in" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Login</button>\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/,
+            selector: 'page-lostpets',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/'\n<ion-content class="card-background-page">\n    <form action="" class="searchBar">\n        <ion-searchbar\n            [showCancelButton]="shouldShowCancel"\n            (ionInput)="onSearch($event)"\n            (ionCancel)="onCancel($event)"\n            [debounce]="700"\n            placeholder="Search Name, Place of lost, Type"\n        >\n    </ion-searchbar>\n    </form>\n    <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n    <div *ngIf="pageLoaded">\n        <p *ngIf="pets?.length == 0" class="noPetResult">No lost pet yet.</p>\n        <div *ngIf="pets?.length">\n            <ion-card *ngFor="let pet of pets">\n                <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n                <ion-card-content>\n                    <ion-card-title>{{pet.name}}</ion-card-title>\n                    <div>\n                        <span class="bold">Place of lost:</span>\n                        <span>{{pet.placeLost}}</span>\n                    </div>\n                    <div>\n                        <span class="bold">Lost date #:</span>\n                        <span>{{pet.lostDate | date:\'mediumDate\'}}</span>\n                    </div>\n                    <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="action(pet.lostPetId)"><ion-icon name="more"></ion-icon></button>\n                    <button ion-button type="submit" class="btnDetails" (click)="lostPetDetails(pet)">More Details</button>\n                    <span class="datePosted">Posted: {{pet.lostDate | date:\'mediumDate\'}}</span>\n                </ion-card-content>\n            </ion-card>\n        </div>\n    </div>\n    <ion-fab bottom right>\n        <button ion-fab (click)="addLostPet()"><ion-icon name="add"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\lostpets\lostpets.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
+    ], LostpetsPage);
+    return LostpetsPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=lostpets.js.map
 
 /***/ })
 

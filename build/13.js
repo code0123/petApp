@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 547:
+/***/ 562:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRegisteredUserPageModule", function() { return AdminRegisteredUserPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPassPageModule", function() { return ForgotPassPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(577);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgot_pass__ = __webpack_require__(586);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminRegisteredUserPageModule = (function () {
-    function AdminRegisteredUserPageModule() {
+var ForgotPassPageModule = (function () {
+    function ForgotPassPageModule() {
     }
-    AdminRegisteredUserPageModule = __decorate([
+    ForgotPassPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */],
+                __WEBPACK_IMPORTED_MODULE_2__forgot_pass__["a" /* ForgotPassPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__forgot_pass__["a" /* ForgotPassPage */]),
             ],
         })
-    ], AdminRegisteredUserPageModule);
-    return AdminRegisteredUserPageModule;
+    ], ForgotPassPageModule);
+    return ForgotPassPageModule;
 }());
 
-//# sourceMappingURL=admin-registered-user.module.js.map
+//# sourceMappingURL=forgot-pass.module.js.map
 
 /***/ }),
 
-/***/ 577:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegisteredUserPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPassPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(330);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,97 +61,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AdminRegisteredUserPage = (function () {
-    function AdminRegisteredUserPage(navCtrl, navParams, alertCtrl, toastCtrl, modalCtrl) {
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+var ForgotPassPage = (function () {
+    function ForgotPassPage(navCtrl, navParams, toastCtrl, authProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.modalCtrl = modalCtrl;
-        this.usersCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
-        this.pageLoaded = false;
+        this.authProvider = authProvider;
+        this.isSubmitting = false;
+        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
+        this.forgotPassForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            email: this.emailCtrl,
+        });
     }
-    AdminRegisteredUserPage.prototype.ionViewDidLoad = function () {
-        this.loadRegisteredUsers();
-    };
-    AdminRegisteredUserPage.prototype.viewProfile = function (userId) {
-        var user = {
-            userId: userId
-        };
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */], user);
-        modal.onDidDismiss(function (data) {
-            if (data) {
-                // this.loadProfile();
-            }
-        });
-        modal.present();
-    };
-    AdminRegisteredUserPage.prototype.loadRegisteredUsers = function () {
+    ForgotPassPage.prototype.forgotPasswordSubmit = function () {
         var _this = this;
-        this.db.collection('users').where("isAdmin", "==", 0).onSnapshot(function (res) {
-            var users = [];
-            res.forEach(function (doc) {
-                users.push(doc.data());
+        this.isSubmitting = true;
+        if (this.forgotPassForm.valid) {
+            this.authProvider.forgotPass(this.email).then(function (res) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: 'Password reset email sent',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                _this.email = '';
+                _this.navCtrl.push('LoginPage');
+                toast.present();
+            }).catch(function (err) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
             });
-            _this.pageLoaded = true;
-            _this.users = users;
-        }), (function (err) {
-            console.log('err', err);
-        });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Invalid email address',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
     };
-    AdminRegisteredUserPage.prototype.deleteUser = function (event, uid, name) {
-        var _this = this;
-        event.stopPropagation();
-        console.log('uid', uid);
-        var confirm = this.alertCtrl.create({
-            title: 'Delete User?',
-            message: "Are you sure do you want to delete <strong>" + name + "</strong> user account?",
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function () {
-                    }
-                },
-                {
-                    text: 'Ok',
-                    handler: function () {
-                        _this.db.collection('users').doc(uid).delete().then(function () {
-                            var toast = _this.toastCtrl.create({
-                                message: 'User was deleted',
-                                duration: 4000,
-                                position: 'bottom'
-                            });
-                            toast.present();
-                        }).catch(function (err) {
-                            var toast = _this.toastCtrl.create({
-                                message: err.message,
-                                duration: 4000,
-                                position: 'bottom'
-                            });
-                            toast.present();
-                        });
-                    }
-                }
-            ]
-        });
-        confirm.present();
-        return false;
-    };
-    AdminRegisteredUserPage = __decorate([
+    ForgotPassPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-registered-user',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="list-avatar-page" padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <ion-list *ngIf="pageLoaded">\n    <a ion-item detail-none *ngFor="let user of users" (click)="viewProfile(user?.uid)">\n      <ion-avatar item-left>\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\'" >\n      </ion-avatar>\n      <ion-label>\n          <h2>{{user?.name}}</h2>\n          <p>{{user?.email}}</p>\n      </ion-label>\n      <button item-right ion-button type="button" class="deleteBtn" (click)="deleteUser($event, user?.uid, user?.name)"><ion-icon name="trash"></ion-icon></button>\n    </a>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/,
+            selector: 'page-forgot-pass',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\forgot-pass\forgot-pass.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Forgot Password</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="forgotPassForm" (ngSubmit)="forgotPasswordSubmit()">\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n\n    <button ion-button class="btnForgotPass" type="submit" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="send" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Send</button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\forgot-pass\forgot-pass.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
-    ], AdminRegisteredUserPage);
-    return AdminRegisteredUserPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
+    ], ForgotPassPage);
+    return ForgotPassPage;
 }());
 
-//# sourceMappingURL=admin-registered-user.js.map
+//# sourceMappingURL=forgot-pass.js.map
 
 /***/ })
 

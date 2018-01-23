@@ -25817,6 +25817,10 @@ ion-spinner {
   height: 22px !important;
 }
 
+ion-fab {
+  position: fixed !important;
+}
+
 page-add-for-sale-pet .btnSave {
   margin: 15px 0 0;
 }
@@ -25865,6 +25869,32 @@ page-add-lost-pet-form .profileBlock .camera {
 }
 
 page-add-lost-pet-form .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+page-add-vaccination-schedule-form .btnSave {
+  margin: 15px 0 0;
+}
+
+page-add-vaccination-schedule-form .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-add-vaccination-schedule-form .profileBlock .camera {
+  position: absolute;
+  color: #fff;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 87px;
+  font-size: 26px;
+}
+
+page-add-vaccination-schedule-form .profileBlock img {
   border-radius: 50%;
   border: 1px solid #eee;
 }
@@ -26037,6 +26067,10 @@ page-admin-home .box.amber {
 
 page-admin-home .box.indigo {
   background: #673AB7;
+}
+
+page-admin-home .box.cyan {
+  background: #00BCD4;
 }
 
 page-admin-home .iconBlock {
@@ -26416,6 +26450,32 @@ page-edit-registered-pet .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-edit-vaccination-sched .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-vaccination-sched .profileBlock {
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+}
+
+page-edit-vaccination-sched .profileBlock .camera {
+  position: absolute;
+  color: #fff;
+  width: 24px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 87px;
+  font-size: 26px;
+}
+
+page-edit-vaccination-sched .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-editprofile .btnSave {
   margin: 15px 0 0;
 }
@@ -26423,6 +26483,11 @@ page-editprofile .btnSave {
 page-editprofile ion-spinner {
   width: 22px;
   height: 22px;
+}
+
+page-forgot-pass .btnForgotPass {
+  background: #488aff;
+  margin: 15px 0 0;
 }
 
 page-home ion-slide {
@@ -26488,6 +26553,12 @@ page-login .btnLogin {
 page-login ion-spinner {
   width: 22px;
   height: 22px;
+}
+
+page-login .forgotPassBtn {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
 }
 
 page-lost-pet-details .profileTbl tr:first-child:after {
@@ -26715,6 +26786,12 @@ page-pet .thumbsUpBtn ion-icon {
 
 page-pet .thumbsUpBtn.blue ion-icon {
   color: #4080ff;
+}
+
+page-pet .interestedBlock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 page-place-detail .profileTbl tr:nth-child(1):after {
@@ -26961,4 +27038,116 @@ page-tabs .tabs-md .tab-button {
 page-tabs .tabs-md .tab-button[aria-selected=true] .tab-button-icon,
 page-tabs .tabs-md .tab-button[aria-selected=true] {
   color: #fff !important;
+}
+
+page-vaccination-schedule ion-card-title,
+page-vaccination-schedule ion-card {
+  position: relative;
+}
+
+page-vaccination-schedule ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-vaccination-schedule .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-vaccination-schedule .bold {
+  font-weight: bold;
+}
+
+page-vaccination-schedule .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-vaccination-schedule .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-vaccination-schedule .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-vaccination-schedule .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-vaccination-schedule .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-vaccination-schedule .noResult {
+  padding: 0 16px;
+}
+
+page-vaccination-schedule .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-vaccination-schedule .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-vaccination-schedule .thumbsUpBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  padding: 0;
+  height: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+page-vaccination-schedule .thumbsUpBtn ion-icon {
+  color: #333;
+  font-size: 17px;
+  position: relative;
+  top: -2px;
+}
+
+page-vaccination-schedule .thumbsUpBtn.blue ion-icon {
+  color: #4080ff;
+}
+
+page-vaccination-schedule .interestedBlock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
