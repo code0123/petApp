@@ -1,14 +1,14 @@
 webpackJsonp([18],{
 
-/***/ 550:
+/***/ 555:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGroomPetPageModule", function() { return AdminGroomPetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__ = __webpack_require__(582);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__ = __webpack_require__(589);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,14 +38,19 @@ var AdminGroomPetPageModule = (function () {
 
 /***/ }),
 
-/***/ 582:
+/***/ 589:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminGroomPetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_groom_pet_edit_groom_pet__ = __webpack_require__(340);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,31 +63,131 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var AdminGroomPetPage = (function () {
-    function AdminGroomPetPage(navCtrl, navParams, streamingMedia) {
+    function AdminGroomPetPage(navCtrl, navParams, modalCtrl, toastCtrl, actionSheetCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.streamingMedia = streamingMedia;
+        this.modalCtrl = modalCtrl;
+        this.toastCtrl = toastCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.alertCtrl = alertCtrl;
+        this.videosCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_3_firebase__["firestore"]();
+        this.pageLoaded = false;
+        this.userId = localStorage.getItem('userId');
+        this.isAdmin = parseInt(localStorage.getItem('isAdmin'));
+        this.getGroomPetVideos();
     }
-    AdminGroomPetPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AdminGroomPetPage');
+    AdminGroomPetPage.prototype.getGroomPetVideos = function () {
+        var _this = this;
+        this.db.collection('groompetsvideos').where("isactive", "==", true).orderBy("datePosted", "desc").limit(1000).onSnapshot(function (snapshots) {
+            var videos = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['videoId'] = doc.id;
+                videos.push(docData);
+            });
+            _this.videos = videos;
+            _this.videosCount = Object.keys(videos).length;
+            _this.pageLoaded = true;
+            console.log('this.videos', _this.videos);
+        }), (function (err) {
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
     };
-    AdminGroomPetPage.prototype.playVideo = function (videoLink) {
-        console.log('videoLink', videoLink);
-        var options = {
-            successCallback: function () { console.log('Video played'); },
-            errorCallback: function (e) { console.log('Error streaming'); },
-            orientation: 'portrait'
-        };
-        this.streamingMedia.playVideo(videoLink, options);
+    AdminGroomPetPage.prototype.addGroomPetVideos = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */]);
+        modal.onDidDismiss(function (data) {
+        });
+        modal.present();
+    };
+    AdminGroomPetPage.prototype.removePost = function (videoId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Remove this post?',
+            message: 'Are you sure do you want to remove your post?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.db.collection('groompetsvideos').doc(videoId).update({
+                            isactive: false
+                        }).then(function (res) {
+                            var toast = _this.toastCtrl.create({
+                                message: 'Video was deleted',
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        }).catch(function (err) {
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    AdminGroomPetPage.prototype.action = function (videoId) {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your post',
+            buttons: [
+                {
+                    text: 'Remove',
+                    icon: 'trash',
+                    handler: function () {
+                        _this.removePost(videoId);
+                    }
+                }, {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        var data = {
+                            videoId: videoId
+                        };
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */], data);
+                        modal.onDidDismiss(function (data) {
+                        });
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    icon: 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
     };
     AdminGroomPetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-groom-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Groom Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <div class="videoPlayList">\n    <h5>How to Use Clippers when Grooming a Shaggy-Haired Dog : Dog Grooming</h5>\n    <!-- <video width="100%" poster="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=3d227d77-1170-434b-9f87-22ace107e66d">\n      <source src="" type="video/mp4">\n    </video> -->\n\n    <video width="100%" controls>\n      <source src="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=3d227d77-1170-434b-9f87-22ace107e66d" type="video/mp4">\n      <source src="https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=3d227d77-1170-434b-9f87-22ace107e66d" type="video/ogg"> Your browser does not support HTML5 video.\n    </video>\n    <button (click)="playVideo(\'https://firebasestorage.googleapis.com/v0/b/purrspaws-87594.appspot.com/o/videos%2Fgroom%2Fdog%20grooming.MP4?alt=media&token=3d227d77-1170-434b-9f87-22ace107e66d\')"><ion-icon name="play"></ion-icon></button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/,
+            selector: 'page-admin-groom-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Groom Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="videos?.length == 0" class="noPetResult">No groom pet video yet.</p>\n      <div *ngIf="videos?.length">\n        <div class="videoPlayList" *ngFor="let video of videos">\n          <h5>{{video?.title}}</h5>\n          <video width="100%" controls poster="assets/images/icon.png">\n            <source src="{{video?.video}}" type="video/mp4">\n            <source src="{{video?.video}}" type="video/ogg"> Your browser does not support HTML5 video.\n          </video>\n          <button ion-button type="button" *ngIf="isAdmin == \'1\'" class="listBtn" (click)="action(video.videoId)">\n            <ion-icon name="more"></ion-icon>\n          </button>\n          <span class="datePosted">Posted: {{video.datePosted | date:\'mediumDate\'}}</span>\n        </div>\n      </div>\n    <ion-fab bottom right *ngIf="isAdmin == 1">\n      <button ion-fab (click)="addGroomPetVideos()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_streaming_media__["a" /* StreamingMedia */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object])
     ], AdminGroomPetPage);
     return AdminGroomPetPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=admin-groom-pet.js.map

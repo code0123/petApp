@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 568:
+/***/ 575:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OtherPageModule", function() { return OtherPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__other__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__other__ = __webpack_require__(598);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,13 +38,13 @@ var OtherPageModule = (function () {
 
 /***/ }),
 
-/***/ 591:
+/***/ 598:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OtherPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -69,7 +69,7 @@ var OtherPage = (function () {
     };
     OtherPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-other',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\other\other.html"*/'<ion-content>\n  <ion-list>\n    <button ion-item (click)="goToPage(\'RegisterpetsPage\')">\n      <ion-icon name="paw" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Registered Pets</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'VaccinationSchedulePage\')">\n      <ion-icon name="calendar" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Vaccination Schedules</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'TrainpetsPage\')">\n      <ion-icon name="help-buoy" class="preIcon"></ion-icon> &nbsp;<span class="listName">Train Your Pet</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'GroompetPage\')">\n      <ion-icon name="shirt" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Groom Pet</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'SearchvetPage\')">\n      <ion-icon name="search" class="preIcon"></ion-icon> &nbsp;<span class="listName">Find Vet Clinics</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\other\other.html"*/,
+            selector: 'page-other',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\other\other.html"*/'<ion-content>\n  <ion-list>\n    <button ion-item (click)="goToPage(\'RegisterpetsPage\')">\n      <ion-icon name="paw" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Registered Pets</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'VaccinationSchedulePage\')">\n      <ion-icon name="calendar" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Vaccination Schedules</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'AdminTrainPetPage\')">\n      <ion-icon name="help-buoy" class="preIcon"></ion-icon> &nbsp;<span class="listName">Train Your Pet</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'AdminGroomPetPage\')">\n      <ion-icon name="shirt" class="preIcon"></ion-icon> &nbsp;\n      <span class="listName">Groom Pet</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n    <button ion-item (click)="goToPage(\'SearchvetPage\')">\n      <ion-icon name="search" class="preIcon"></ion-icon> &nbsp;<span class="listName">Find Vet Clinics</span>\n      <ion-icon name="arrow-dropright" class="arrow"></ion-icon>\n    </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\other\other.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], OtherPage);

@@ -1,14 +1,14 @@
 webpackJsonp([30],{
 
-/***/ 555:
+/***/ 563:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminViewUserRegisteredPetsPageModule", function() { return AdminViewUserRegisteredPetsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditForSalePetPageModule", function() { return EditForSalePetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_view_user_registered_pets__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__ = __webpack_require__(334);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminViewUserRegisteredPetsPageModule = (function () {
-    function AdminViewUserRegisteredPetsPageModule() {
+var EditForSalePetPageModule = (function () {
+    function EditForSalePetPageModule() {
     }
-    AdminViewUserRegisteredPetsPageModule = __decorate([
+    EditForSalePetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__["a" /* EditForSalePetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__["a" /* EditForSalePetPage */]),
             ],
         })
-    ], AdminViewUserRegisteredPetsPageModule);
-    return AdminViewUserRegisteredPetsPageModule;
+    ], EditForSalePetPageModule);
+    return EditForSalePetPageModule;
 }());
 
-//# sourceMappingURL=admin-view-user-registered-pets.module.js.map
+//# sourceMappingURL=edit-for-sale-pet.module.js.map
 
 /***/ })
 

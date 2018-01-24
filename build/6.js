@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 571:
+/***/ 578:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(593);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(600);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var ProfilePageModule = (function () {
 
 /***/ }),
 
-/***/ 593:
+/***/ 600:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editprofile_editprofile__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editprofile_editprofile__ = __webpack_require__(345);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(186);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -92,20 +92,32 @@ var ProfilePage = (function () {
             content: 'Uploading your profile picture, please wait...'
         });
         loading.present();
-        this.profileProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-            _this.profileProvider.saveFileData(photo).then(function (res) {
-                _this.loadProfile();
+        var imageType = ['image/gif', 'image/png', 'image/jpeg', 'image/bmp', 'image/webp'];
+        if (imageType.indexOf(event.target.files.item(0)['type']) != -1) {
+            this.profileProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+                _this.profileProvider.saveFileData(photo).then(function (res) {
+                    _this.loadProfile();
+                    loading.dismiss();
+                });
+            }).catch(function (err) {
                 loading.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
             });
-        }).catch(function (err) {
+        }
+        else {
             loading.dismiss();
-            var toast = _this.toastCtrl.create({
-                message: err.message,
+            var toast = this.toastCtrl.create({
+                message: 'Invalid file type, only allowed file types are gif, png, jpeg, bmp, webp',
                 duration: 5000,
                 position: 'bottom'
             });
             toast.present();
-        });
+        }
     };
     ProfilePage.prototype.editProfile = function () {
         var _this = this;

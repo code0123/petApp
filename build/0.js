@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 578:
+/***/ 586:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VaccinationSchedulePageModule", function() { return VaccinationSchedulePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__ = __webpack_require__(598);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__ = __webpack_require__(606);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var VaccinationSchedulePageModule = (function () {
 
 /***/ }),
 
-/***/ 598:
+/***/ 606:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VaccinationSchedulePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(43);
@@ -78,6 +78,7 @@ var VaccinationSchedulePage = (function () {
         this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
         this.pageLoaded = false;
         this.userId = localStorage.getItem('userId');
+        this.isAdmin = localStorage.getItem('isAdmin');
         this.getVaccinationSched();
     }
     VaccinationSchedulePage.prototype.addVaccinationSched = function () {
@@ -106,7 +107,7 @@ var VaccinationSchedulePage = (function () {
     VaccinationSchedulePage.prototype.removePost = function (postId) {
         var _this = this;
         var confirm = this.alertCtrl.create({
-            title: 'Your pet was sold?',
+            title: 'Remove your post?',
             message: 'Are you sure do you want to remove your post?',
             buttons: [
                 {

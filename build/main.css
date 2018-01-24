@@ -25899,6 +25899,82 @@ page-add-vaccination-schedule-form .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-add-vaccination-schedule-form .toolbar-background, page-add-vaccination-schedule-form .fab-md, page-add-vaccination-schedule-form .btnSave {
+  background: #00BCD4 !important;
+}
+
+page-add-vaccination-schedule-form .item-inner {
+  border-bottom: 1px solid #00BCD4 !important;
+}
+
+page-admin-add-groom-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-admin-add-groom-pet .profileBlock {
+  margin-top: 20px;
+  position: relative;
+}
+
+page-admin-add-groom-pet .profileBlock .uploadIcon {
+  color: #673AB7;
+  width: 24px;
+  margin: auto;
+  font-size: 26px;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+}
+
+page-admin-add-groom-pet .profileBlock span {
+  color: #673AB7;
+  text-decoration: underline;
+}
+
+page-admin-add-groom-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
+page-admin-add-groom-pet .toolbar-background {
+  background: #673AB7 !important;
+}
+
+page-admin-add-groom-pet .btnSave {
+  background: #673AB7;
+}
+
+page-admin-add-groom-pet .item-inner {
+  border-bottom: 1px solid #673AB7 !important;
+}
+
+page-admin-add-train-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-admin-add-train-pet .profileBlock {
+  margin-top: 20px;
+  position: relative;
+}
+
+page-admin-add-train-pet .profileBlock .uploadIcon {
+  width: 24px;
+  margin: auto;
+  font-size: 26px;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+}
+
+page-admin-add-train-pet .profileBlock span {
+  text-decoration: underline;
+}
+
+page-admin-add-train-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-admin-buy-and-sell ion-card-title,
 page-admin-buy-and-sell ion-card {
   position: relative;
@@ -26005,34 +26081,60 @@ page-admin-buy-and-sell .thumbsUpBtn.blue ion-icon {
   color: #4080ff;
 }
 
-page-admin-groom-pet .toolbar-background {
+page-admin-groom-pet .toolbar-background, page-admin-groom-pet .fab-md, page-admin-groom-pet .button-md {
+  background: #4080ff !important;
+}
+
+page-admin-groom-pet .admin .toolbar-background, page-admin-groom-pet .admin .fab-md, page-admin-groom-pet .admin .button-md {
   background: #673AB7 !important;
 }
 
 page-admin-groom-pet .videoPlayList {
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
-  padding: 12px;
+  padding: 20px 12px 12px;
   margin-bottom: 30px;
   position: relative;
 }
 
-page-admin-groom-pet .videoPlayList button {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 55px;
-  height: 57px;
-  margin: auto;
-  left: 0;
-  right: 0;
-  background: #673AB7;
-  padding: 10px;
+page-admin-groom-pet .videoPlayList h5 {
+  margin-bottom: 20px;
 }
 
 page-admin-groom-pet .videoPlayList button ion-icon {
-  font-size: 40px;
   color: #fff;
+}
+
+page-admin-groom-pet .listBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-admin-groom-pet .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-groom-pet .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-admin-groom-pet .admin .spinner-md-crescent circle {
+  stroke: #673AB7 !important;
 }
 
 page-admin-home .back-button.show-back-button {
@@ -26271,8 +26373,60 @@ page-admin-registered-user .item-md .item-button {
   padding: 8px !important;
 }
 
-page-admin-train-pet .toolbar-background {
+page-admin-train-pet .toolbar-background, page-admin-train-pet .fab-md, page-admin-train-pet .button-md {
+  background: #4080ff !important;
+}
+
+page-admin-train-pet .admin .toolbar-background, page-admin-train-pet .admin .fab-md, page-admin-train-pet .admin .button-md {
   background: #FFC107 !important;
+}
+
+page-admin-train-pet .videoPlayList {
+  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28) !important;
+  padding: 20px 12px 12px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+page-admin-train-pet .videoPlayList h5 {
+  margin-bottom: 20px;
+}
+
+page-admin-train-pet .videoPlayList button ion-icon {
+  color: #fff;
+}
+
+page-admin-train-pet .listBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-admin-train-pet .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-admin-train-pet .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-admin-train-pet .admin .spinner-md-crescent circle {
+  stroke: #FFC107 !important;
 }
 
 page-admin-view-profile .toolbar-background {
@@ -26398,6 +26552,33 @@ page-edit-for-sale-pet .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-edit-groom-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-groom-pet .profileBlock {
+  margin-top: 20px;
+  position: relative;
+}
+
+page-edit-groom-pet .profileBlock .uploadIcon {
+  width: 24px;
+  margin: auto;
+  font-size: 26px;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+}
+
+page-edit-groom-pet .profileBlock span {
+  text-decoration: underline;
+}
+
+page-edit-groom-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-edit-lost-pet .btnSave {
   margin: 15px 0 0;
 }
@@ -26450,6 +26631,33 @@ page-edit-registered-pet .profileBlock img {
   border: 1px solid #eee;
 }
 
+page-edit-train-pet .btnSave {
+  margin: 15px 0 0;
+}
+
+page-edit-train-pet .profileBlock {
+  margin-top: 20px;
+  position: relative;
+}
+
+page-edit-train-pet .profileBlock .uploadIcon {
+  width: 24px;
+  margin: auto;
+  font-size: 26px;
+  margin-right: 3px;
+  position: relative;
+  top: 3px;
+}
+
+page-edit-train-pet .profileBlock span {
+  text-decoration: underline;
+}
+
+page-edit-train-pet .profileBlock img {
+  border-radius: 50%;
+  border: 1px solid #eee;
+}
+
 page-edit-vaccination-sched .btnSave {
   margin: 15px 0 0;
 }
@@ -26474,6 +26682,10 @@ page-edit-vaccination-sched .profileBlock .camera {
 page-edit-vaccination-sched .profileBlock img {
   border-radius: 50%;
   border: 1px solid #eee;
+}
+
+page-edit-vaccination-sched .toolbar-background, page-edit-vaccination-sched .fab-md, page-edit-vaccination-sched .button-md {
+  background: #00BCD4 !important;
 }
 
 page-editprofile .btnSave {
@@ -27150,4 +27362,8 @@ page-vaccination-schedule .interestedBlock {
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+page-vaccination-schedule .toolbar-background, page-vaccination-schedule .fab-md, page-vaccination-schedule .button-md {
+  background: #00BCD4 !important;
 }
