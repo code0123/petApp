@@ -1,15 +1,15 @@
 webpackJsonp([39],{
 
-/***/ 108:
+/***/ 116:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -117,16 +117,16 @@ var RegisterPetProvider = (function () {
 
 /***/ }),
 
-/***/ 161:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VaccineProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -223,14 +223,14 @@ var VaccineProvider = (function () {
 
 /***/ }),
 
-/***/ 184:
+/***/ 193:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisteredPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,7 +290,7 @@ var RegisteredPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 185:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -299,9 +299,9 @@ var RegisteredPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registered_pet_details_registered_pet_details__ = __webpack_require__(184);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registered_pet_details_registered_pet_details__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -410,16 +410,16 @@ var AdminViewUserRegisteredPetsPage = (function () {
 
 /***/ }),
 
-/***/ 186:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -515,7 +515,7 @@ var ProfileProvider = (function () {
 
 /***/ }),
 
-/***/ 198:
+/***/ 207:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -528,168 +528,168 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 198;
+webpackEmptyAsyncContext.id = 207;
 
 /***/ }),
 
-/***/ 240:
+/***/ 249:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/add-for-sale-pet/add-for-sale-pet.module": [
-		549,
+		593,
 		38
 	],
 	"../pages/add-lost-pet-form/add-lost-pet-form.module": [
-		550,
+		594,
 		37
 	],
 	"../pages/add-vaccination-schedule-form/add-vaccination-schedule-form.module": [
-		551,
+		595,
 		36
 	],
 	"../pages/admin-add-groom-pet/admin-add-groom-pet.module": [
-		552,
+		596,
 		35
 	],
 	"../pages/admin-add-train-pet/admin-add-train-pet.module": [
-		553,
+		597,
 		34
 	],
 	"../pages/admin-buy-and-sell/admin-buy-and-sell.module": [
-		554,
+		598,
 		19
 	],
 	"../pages/admin-groom-pet/admin-groom-pet.module": [
-		555,
+		599,
 		18
 	],
 	"../pages/admin-home/admin-home.module": [
-		556,
+		600,
 		17
 	],
 	"../pages/admin-lost-pets/admin-lost-pets.module": [
-		557,
+		601,
 		16
 	],
 	"../pages/admin-registered-user/admin-registered-user.module": [
-		558,
+		602,
 		15
 	],
 	"../pages/admin-train-pet/admin-train-pet.module": [
-		559,
+		603,
 		14
 	],
 	"../pages/admin-view-profile/admin-view-profile.module": [
-		560,
+		604,
 		33
 	],
 	"../pages/admin-view-user-registered-pets/admin-view-user-registered-pets.module": [
-		561,
+		605,
 		32
 	],
 	"../pages/buy-pet-details/buy-pet-details.module": [
-		562,
+		606,
 		31
 	],
 	"../pages/edit-for-sale-pet/edit-for-sale-pet.module": [
-		563,
+		607,
 		30
 	],
 	"../pages/edit-groom-pet/edit-groom-pet.module": [
-		564,
+		608,
 		29
 	],
 	"../pages/edit-lost-pet/edit-lost-pet.module": [
-		565,
+		609,
 		28
 	],
 	"../pages/edit-registered-pet/edit-registered-pet.module": [
-		566,
+		610,
 		27
 	],
 	"../pages/edit-train-pet/edit-train-pet.module": [
-		567,
+		611,
 		26
 	],
 	"../pages/edit-vaccination-sched/edit-vaccination-sched.module": [
-		568,
+		613,
 		25
 	],
 	"../pages/editprofile/editprofile.module": [
-		569,
+		612,
 		24
 	],
 	"../pages/forgot-pass/forgot-pass.module": [
-		570,
+		614,
 		13
 	],
 	"../pages/groompet/groompet.module": [
-		571,
+		615,
 		12
 	],
 	"../pages/home/home.module": [
-		572,
+		617,
 		11
 	],
 	"../pages/login/login.module": [
-		573,
+		616,
 		10
 	],
 	"../pages/lost-pet-details/lost-pet-details.module": [
-		574,
+		618,
 		23
 	],
 	"../pages/lostpets/lostpets.module": [
-		587,
+		620,
 		9
 	],
 	"../pages/other/other.module": [
-		575,
+		619,
 		8
 	],
 	"../pages/pet/pet.module": [
-		576,
+		622,
 		7
 	],
 	"../pages/place-detail/place-detail.module": [
-		577,
+		621,
 		22
 	],
 	"../pages/profile/profile.module": [
-		578,
+		623,
 		6
 	],
 	"../pages/register-pet-form/register-pet-form.module": [
-		579,
+		624,
 		21
 	],
 	"../pages/register/register.module": [
-		580,
+		631,
 		5
 	],
 	"../pages/registered-pet-details/registered-pet-details.module": [
-		581,
+		625,
 		20
 	],
 	"../pages/registerpets/registerpets.module": [
-		582,
+		626,
 		4
 	],
 	"../pages/searchvet/searchvet.module": [
-		583,
+		627,
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		584,
+		628,
 		2
 	],
 	"../pages/trainpets/trainpets.module": [
-		585,
+		629,
 		1
 	],
 	"../pages/vaccination-schedule/vaccination-schedule.module": [
-		586,
+		630,
 		0
 	]
 };
@@ -704,21 +704,21 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 240;
+webpackAsyncContext.id = 249;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 330:
+/***/ 343:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -859,7 +859,7 @@ var AuthProvider = (function () {
 
 /***/ }),
 
-/***/ 331:
+/***/ 344:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -867,7 +867,9 @@ var AuthProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_clarifai__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -881,6 +883,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var app = new __WEBPACK_IMPORTED_MODULE_4_clarifai__["App"]({
+    apiKey: 'b1c9abe51ae7422a8cf6f0977081d9aa'
+});
 var AddForSalePetPage = (function () {
     function AddForSalePetPage(navCtrl, navParams, viewCtrl, loadingCtrl, buypetProvider, toastCtrl) {
         this.navCtrl = navCtrl;
@@ -986,6 +992,11 @@ var AddForSalePetPage = (function () {
             this.buypetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
                 console.log('photo', photo);
                 _this.image = photo;
+                app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["COLOR_MODEL"], photo).then(function (response) {
+                    console.log('response_CLARIFAI', response);
+                }, function (err) {
+                    console.error('err_CLARIFAI', err);
+                });
                 loading.dismiss();
                 var toast = _this.toastCtrl.create({
                     message: 'Photo was uploaded',
@@ -1030,7 +1041,7 @@ var AddForSalePetPage = (function () {
 
 /***/ }),
 
-/***/ 332:
+/***/ 345:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1038,7 +1049,7 @@ var AddForSalePetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1199,14 +1210,14 @@ var AddLostPetFormPage = (function () {
 
 /***/ }),
 
-/***/ 333:
+/***/ 346:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuyPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_buypet_buypet__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1263,7 +1274,7 @@ var BuyPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 334:
+/***/ 347:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1271,7 +1282,7 @@ var BuyPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(99);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1439,14 +1450,14 @@ var EditForSalePetPage = (function () {
 
 /***/ }),
 
-/***/ 335:
+/***/ 348:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lostpet_lostpet__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1504,7 +1515,7 @@ var LostPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 336:
+/***/ 349:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1512,7 +1523,7 @@ var LostPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(93);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1680,7 +1691,7 @@ var EditLostPetPage = (function () {
 
 /***/ }),
 
-/***/ 337:
+/***/ 350:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1688,7 +1699,7 @@ var EditLostPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1802,7 +1813,7 @@ var AddVaccinationScheduleFormPage = (function () {
 
 /***/ }),
 
-/***/ 338:
+/***/ 351:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1810,7 +1821,7 @@ var AddVaccinationScheduleFormPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1938,7 +1949,7 @@ var AdminAddGroomPetPage = (function () {
 
 /***/ }),
 
-/***/ 339:
+/***/ 352:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1946,7 +1957,7 @@ var AdminAddGroomPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2074,7 +2085,7 @@ var AdminAddTrainPetPage = (function () {
 
 /***/ }),
 
-/***/ 340:
+/***/ 353:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2082,7 +2093,7 @@ var AdminAddTrainPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2228,15 +2239,15 @@ var EditGroomPetPage = (function () {
 
 /***/ }),
 
-/***/ 341:
+/***/ 354:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminViewProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(185);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2300,7 +2311,7 @@ var AdminViewProfilePage = (function () {
 
 /***/ }),
 
-/***/ 342:
+/***/ 355:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2308,7 +2319,7 @@ var AdminViewProfilePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2454,7 +2465,7 @@ var EditTrainPetPage = (function () {
 
 /***/ }),
 
-/***/ 343:
+/***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2462,7 +2473,7 @@ var EditTrainPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2626,7 +2637,111 @@ var EditRegisteredPetPage = (function () {
 
 /***/ }),
 
-/***/ 344:
+/***/ 357:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditprofilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(195);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+var EditprofilePage = (function () {
+    function EditprofilePage(navCtrl, navParams, viewCtrl, toastCtrl, profileProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.toastCtrl = toastCtrl;
+        this.profileProvider = profileProvider;
+        this.isSubmitting = false;
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
+        this.phoneCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.addressCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
+        this.editForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            name: this.nameCtrl,
+            email: this.emailCtrl,
+            phone: this.phoneCtrl,
+            address: this.addressCtrl
+        });
+        this.name = navParams.get('name');
+        this.email = navParams.get('email');
+        this.phone = navParams.get('phone');
+        this.address = navParams.get('address');
+        this.userId = navParams.get('uid');
+    }
+    EditprofilePage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    EditprofilePage.prototype.editProfileSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.editForm.valid) {
+            var userData = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                address: this.address,
+                uid: this.userId
+            };
+            this.profileProvider.editProfile(userData).then(function (res) {
+                _this.viewCtrl.dismiss(1);
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: 'Profile information was updated',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Invalid email address',
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    EditprofilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-editprofile',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Edit Profile\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="editForm" (ngSubmit)="editProfileSubmit()">\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Phone number</ion-label>\n      <ion-input type="text" formControlName="phone" [(ngModel)]="phone" name="phone"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Address</ion-label>\n        <ion-input type="text" formControlName="address" [(ngModel)]="address" name="address"></ion-input>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
+    ], EditprofilePage);
+    return EditprofilePage;
+}());
+
+//# sourceMappingURL=editprofile.js.map
+
+/***/ }),
+
+/***/ 358:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2634,7 +2749,7 @@ var EditRegisteredPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2760,111 +2875,7 @@ var EditVaccinationSchedPage = (function () {
 
 /***/ }),
 
-/***/ 345:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditprofilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(186);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-var EditprofilePage = (function () {
-    function EditprofilePage(navCtrl, navParams, viewCtrl, toastCtrl, profileProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.toastCtrl = toastCtrl;
-        this.profileProvider = profileProvider;
-        this.isSubmitting = false;
-        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
-        this.phoneCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.addressCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('');
-        this.editForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
-            name: this.nameCtrl,
-            email: this.emailCtrl,
-            phone: this.phoneCtrl,
-            address: this.addressCtrl
-        });
-        this.name = navParams.get('name');
-        this.email = navParams.get('email');
-        this.phone = navParams.get('phone');
-        this.address = navParams.get('address');
-        this.userId = navParams.get('uid');
-    }
-    EditprofilePage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    EditprofilePage.prototype.editProfileSubmit = function () {
-        var _this = this;
-        this.isSubmitting = true;
-        if (this.editForm.valid) {
-            var userData = {
-                name: this.name,
-                email: this.email,
-                phone: this.phone,
-                address: this.address,
-                uid: this.userId
-            };
-            this.profileProvider.editProfile(userData).then(function (res) {
-                _this.viewCtrl.dismiss(1);
-                _this.isSubmitting = false;
-                var toast = _this.toastCtrl.create({
-                    message: 'Profile information was updated',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }).catch(function (err) {
-                _this.isSubmitting = false;
-                var toast = _this.toastCtrl.create({
-                    message: err.message,
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            this.isSubmitting = false;
-            var toast = this.toastCtrl.create({
-                message: 'Invalid email address',
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
-    };
-    EditprofilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-editprofile',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Edit Profile\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <form [formGroup]="editForm" (ngSubmit)="editProfileSubmit()">\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Phone number</ion-label>\n      <ion-input type="text" formControlName="phone" [(ngModel)]="phone" name="phone"></ion-input>\n    </ion-item>\n\n    <ion-item>\n        <ion-label floating>Address</ion-label>\n        <ion-input type="text" formControlName="address" [(ngModel)]="address" name="address"></ion-input>\n      </ion-item>\n  \n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\editprofile\editprofile.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__["a" /* ProfileProvider */]])
-    ], EditprofilePage);
-    return EditprofilePage;
-}());
-
-//# sourceMappingURL=editprofile.js.map
-
-/***/ }),
-
-/***/ 346:
+/***/ 359:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2910,7 +2921,7 @@ var PlaceDetailPage = (function () {
 
 /***/ }),
 
-/***/ 347:
+/***/ 360:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2918,7 +2929,7 @@ var PlaceDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(116);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3075,13 +3086,13 @@ var RegisterPetFormPage = (function () {
 
 /***/ }),
 
-/***/ 349:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(350);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(371);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(363);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(384);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -3089,56 +3100,59 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 371:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_video_player__ = __webpack_require__(545);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_streaming_media__ = __webpack_require__(546);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(547);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__ = __webpack_require__(346);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(331);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__ = __webpack_require__(347);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(184);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(185);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(344);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(338);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_edit_groom_pet_edit_groom_pet__ = __webpack_require__(340);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(339);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_edit_train_pet_edit_train_pet__ = __webpack_require__(342);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_auth_auth__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_profile_profile__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(548);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_lostpet_lostpet__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_buypet_buypet__ = __webpack_require__(92);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_register_pet_register_pet__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_admin_admin__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_vaccine_vaccine__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_clarifai__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_clarifai__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_video_player__ = __webpack_require__(589);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_streaming_media__ = __webpack_require__(590);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_geolocation__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__app_component__ = __webpack_require__(591);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_editprofile_editprofile__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_place_detail_place_detail__ = __webpack_require__(359);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_lost_pet_details_lost_pet_details__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_register_pet_form_register_pet_form__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(356);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_edit_groom_pet_edit_groom_pet__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_edit_train_pet_edit_train_pet__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_auth_auth__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_lostpet_lostpet__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_buypet_buypet__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_register_pet_register_pet__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_admin_admin__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_vaccine_vaccine__ = __webpack_require__(170);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -3199,37 +3213,40 @@ var config = {
     messagingSenderId: "744188651812"
 };
 __WEBPACK_IMPORTED_MODULE_6_firebase__["initializeApp"](config);
+var app = new __WEBPACK_IMPORTED_MODULE_7_clarifai__["App"]({
+    apiKey: 'YOUR_API_KEY'
+});
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__["a" /* EditprofilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__["a" /* AddVaccinationScheduleFormPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_vaccination_sched_edit_vaccination_sched__["a" /* EditVaccinationSchedPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_editprofile_editprofile__["a" /* EditprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__["a" /* AddVaccinationScheduleFormPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_vaccination_sched_edit_vaccination_sched__["a" /* EditVaccinationSchedPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */], {
                     tabsPlacement: 'top',
                     tabsHideOnSubPages: true
                 }, {
@@ -3253,67 +3270,67 @@ var AppModule = (function () {
                         { loadChildren: '../pages/edit-lost-pet/edit-lost-pet.module#EditLostPetPageModule', name: 'EditLostPetPage', segment: 'edit-lost-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-registered-pet/edit-registered-pet.module#EditRegisteredPetPageModule', name: 'EditRegisteredPetPage', segment: 'edit-registered-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-train-pet/edit-train-pet.module#EditTrainPetPageModule', name: 'EditTrainPetPage', segment: 'edit-train-pet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-vaccination-sched/edit-vaccination-sched.module#EditVaccinationSchedPageModule', name: 'EditVaccinationSchedPage', segment: 'edit-vaccination-sched', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-vaccination-sched/edit-vaccination-sched.module#EditVaccinationSchedPageModule', name: 'EditVaccinationSchedPage', segment: 'edit-vaccination-sched', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/forgot-pass/forgot-pass.module#ForgotPassPageModule', name: 'ForgotPassPage', segment: 'forgot-pass', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/groompet/groompet.module#GroompetPageModule', name: 'GroompetPage', segment: 'groompet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost-pet-details/lost-pet-details.module#LostPetDetailsPageModule', name: 'LostPetDetailsPage', segment: 'lost-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/other/other.module#OtherPageModule', name: 'OtherPage', segment: 'other', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/lostpets/lostpets.module#LostpetsPageModule', name: 'LostpetsPage', segment: 'lostpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/place-detail/place-detail.module#PlaceDetailPageModule', name: 'PlaceDetailPage', segment: 'place-detail', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registered-pet-details/registered-pet-details.module#RegisteredPetDetailsPageModule', name: 'RegisteredPetDetailsPage', segment: 'registered-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registerpets/registerpets.module#RegisterpetsPageModule', name: 'RegisterpetsPage', segment: 'registerpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/searchvet/searchvet.module#SearchvetPageModule', name: 'SearchvetPage', segment: 'searchvet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trainpets/trainpets.module#TrainpetsPageModule', name: 'TrainpetsPage', segment: 'trainpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vaccination-schedule/vaccination-schedule.module#VaccinationSchedulePageModule', name: 'VaccinationSchedulePage', segment: 'vaccination-schedule', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/lostpets/lostpets.module#LostpetsPageModule', name: 'LostpetsPage', segment: 'lostpets', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_editprofile_editprofile__["a" /* EditprofilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__["a" /* AddVaccinationScheduleFormPage */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_vaccination_sched_edit_vaccination_sched__["a" /* EditVaccinationSchedPage */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */]
+                __WEBPACK_IMPORTED_MODULE_11__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_editprofile_editprofile__["a" /* EditprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_place_detail_place_detail__["a" /* PlaceDetailPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_add_for_sale_pet_add_for_sale_pet__["a" /* AddForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_buy_pet_details_buy_pet_details__["a" /* BuyPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__["a" /* AdminViewUserRegisteredPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_for_sale_pet_edit_for_sale_pet__["a" /* EditForSalePetPage */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__["a" /* AddVaccinationScheduleFormPage */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_vaccination_sched_edit_vaccination_sched__["a" /* EditVaccinationSchedPage */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_30__providers_auth_auth__["a" /* AuthProvider */],
-                __WEBPACK_IMPORTED_MODULE_31__providers_profile_profile__["a" /* ProfileProvider */],
-                __WEBPACK_IMPORTED_MODULE_32__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
-                __WEBPACK_IMPORTED_MODULE_9__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_33__providers_lostpet_lostpet__["a" /* LostpetProvider */],
-                __WEBPACK_IMPORTED_MODULE_34__providers_buypet_buypet__["a" /* BuypetProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
-                __WEBPACK_IMPORTED_MODULE_36__providers_admin_admin__["a" /* AdminProvider */],
-                __WEBPACK_IMPORTED_MODULE_7__ionic_native_video_player__["a" /* VideoPlayer */],
-                __WEBPACK_IMPORTED_MODULE_8__ionic_native_streaming_media__["a" /* StreamingMedia */],
-                __WEBPACK_IMPORTED_MODULE_37__providers_vaccine_vaccine__["a" /* VaccineProvider */]
+                __WEBPACK_IMPORTED_MODULE_31__providers_auth_auth__["a" /* AuthProvider */],
+                __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__["a" /* ProfileProvider */],
+                __WEBPACK_IMPORTED_MODULE_33__providers_google_cloud_vision_google_cloud_vision__["a" /* GoogleCloudVisionProvider */],
+                __WEBPACK_IMPORTED_MODULE_10__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_34__providers_lostpet_lostpet__["a" /* LostpetProvider */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_buypet_buypet__["a" /* BuypetProvider */],
+                __WEBPACK_IMPORTED_MODULE_36__providers_register_pet_register_pet__["a" /* RegisterPetProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_admin_admin__["a" /* AdminProvider */],
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_video_player__["a" /* VideoPlayer */],
+                __WEBPACK_IMPORTED_MODULE_9__ionic_native_streaming_media__["a" /* StreamingMedia */],
+                __WEBPACK_IMPORTED_MODULE_38__providers_vaccine_vaccine__["a" /* VaccineProvider */]
             ]
         })
     ], AppModule);
@@ -3324,15 +3341,15 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 547:
+/***/ 591:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(341);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3378,12 +3395,12 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 548:
+/***/ 592:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GoogleCloudVisionProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3412,16 +3429,16 @@ var GoogleCloudVisionProvider = (function () {
 
 /***/ }),
 
-/***/ 57:
+/***/ 62:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3618,16 +3635,16 @@ var AdminProvider = (function () {
 
 /***/ }),
 
-/***/ 86:
+/***/ 93:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LostpetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3734,16 +3751,16 @@ var LostpetProvider = (function () {
 
 /***/ }),
 
-/***/ 92:
+/***/ 99:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BuypetProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3850,5 +3867,5 @@ var BuypetProvider = (function () {
 
 /***/ })
 
-},[349]);
+},[362]);
 //# sourceMappingURL=main.js.map
