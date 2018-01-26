@@ -1,6 +1,6 @@
 webpackJsonp([39],{
 
-/***/ 116:
+/***/ 117:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -117,7 +117,7 @@ var RegisterPetProvider = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -223,14 +223,14 @@ var VaccineProvider = (function () {
 
 /***/ }),
 
-/***/ 193:
+/***/ 194:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisteredPetDetailsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_register_pet_register_pet__ = __webpack_require__(117);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,7 +290,7 @@ var RegisteredPetDetailsPage = (function () {
 
 /***/ }),
 
-/***/ 194:
+/***/ 195:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -301,7 +301,7 @@ var RegisteredPetDetailsPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registered_pet_details_registered_pet_details__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registered_pet_details_registered_pet_details__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -410,7 +410,7 @@ var AdminViewUserRegisteredPetsPage = (function () {
 
 /***/ }),
 
-/***/ 195:
+/***/ 196:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -515,7 +515,7 @@ var ProfileProvider = (function () {
 
 /***/ }),
 
-/***/ 207:
+/***/ 208:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -528,11 +528,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 207;
+webpackEmptyAsyncContext.id = 208;
 
 /***/ }),
 
-/***/ 249:
+/***/ 250:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -549,11 +549,11 @@ var map = {
 		36
 	],
 	"../pages/admin-add-groom-pet/admin-add-groom-pet.module": [
-		596,
+		597,
 		35
 	],
 	"../pages/admin-add-train-pet/admin-add-train-pet.module": [
-		597,
+		596,
 		34
 	],
 	"../pages/admin-buy-and-sell/admin-buy-and-sell.module": [
@@ -561,15 +561,15 @@ var map = {
 		19
 	],
 	"../pages/admin-groom-pet/admin-groom-pet.module": [
-		599,
+		600,
 		18
 	],
 	"../pages/admin-home/admin-home.module": [
-		600,
+		601,
 		17
 	],
 	"../pages/admin-lost-pets/admin-lost-pets.module": [
-		601,
+		599,
 		16
 	],
 	"../pages/admin-registered-user/admin-registered-user.module": [
@@ -605,11 +605,11 @@ var map = {
 		28
 	],
 	"../pages/edit-registered-pet/edit-registered-pet.module": [
-		610,
+		611,
 		27
 	],
 	"../pages/edit-train-pet/edit-train-pet.module": [
-		611,
+		610,
 		26
 	],
 	"../pages/edit-vaccination-sched/edit-vaccination-sched.module": [
@@ -621,11 +621,11 @@ var map = {
 		24
 	],
 	"../pages/forgot-pass/forgot-pass.module": [
-		614,
+		615,
 		13
 	],
 	"../pages/groompet/groompet.module": [
-		615,
+		614,
 		12
 	],
 	"../pages/home/home.module": [
@@ -657,15 +657,15 @@ var map = {
 		22
 	],
 	"../pages/profile/profile.module": [
-		623,
+		631,
 		6
 	],
 	"../pages/register-pet-form/register-pet-form.module": [
-		624,
+		623,
 		21
 	],
 	"../pages/register/register.module": [
-		631,
+		624,
 		5
 	],
 	"../pages/registered-pet-details/registered-pet-details.module": [
@@ -704,7 +704,7 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 249;
+webpackAsyncContext.id = 250;
 module.exports = webpackAsyncContext;
 
 /***/ }),
@@ -868,7 +868,7 @@ var AuthProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_buypet_buypet__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_clarifai__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -981,6 +981,9 @@ var AddForSalePetPage = (function () {
     AddForSalePetPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
+    AddForSalePetPage.prototype.capitalizeFirstLetter = function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
     AddForSalePetPage.prototype.petPicUploadEvent = function (event) {
         var _this = this;
         var loading = this.loadingCtrl.create({
@@ -991,18 +994,61 @@ var AddForSalePetPage = (function () {
         if (imageType.indexOf(event.target.files.item(0)['type']) != -1) {
             this.buypetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
                 console.log('photo', photo);
-                _this.image = photo;
-                app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["COLOR_MODEL"], photo).then(function (response) {
-                    console.log('response_CLARIFAI', response);
+                app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["GENERAL_MODEL"], photo).then(function (res) {
+                    var tagArray = res.rawData.outputs[0].data.concepts;
+                    var isValid = 0;
+                    for (var other = 0; other < tagArray.length; other++) {
+                        if (tagArray[other].name == 'dog' || tagArray[other].name == 'cat') {
+                            isValid = 1;
+                            var name_1 = tagArray[other].name;
+                            _this.petType = _this.capitalizeFirstLetter(name_1);
+                        }
+                    }
+                    if (isValid) {
+                        app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["COLOR_MODEL"], photo).then(function (res) {
+                            var tagArray = res.rawData.outputs[0].data.colors;
+                            _this.color = tagArray[0].w3c.name;
+                            _this.image = photo;
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: 'Photo was uploaded',
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                        }, function (err) {
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                    else {
+                        loading.dismiss();
+                        var toast = _this.toastCtrl.create({
+                            message: 'Upload failed, pet photo must be a cat or dog',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    }
                 }, function (err) {
-                    console.error('err_CLARIFAI', err);
+                    loading.dismiss();
+                    var toast = _this.toastCtrl.create({
+                        message: err.message,
+                        duration: 5000,
+                        position: 'bottom'
+                    });
+                    toast.present();
                 });
-                loading.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: 'Photo was uploaded',
-                    duration: 5000,
-                    position: 'bottom'
-                });
+                // function (response) {
+                //   console.log('response_CLARIFAI', response);
+                // },
+                // function (err) {
+                //   console.error('err_CLARIFAI', err);
+                // }
             }).catch(function (err) {
                 loading.dismiss();
                 var toast = _this.toastCtrl.create({
@@ -1050,6 +1096,8 @@ var AddForSalePetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(93);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_clarifai__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1064,6 +1112,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var app = new __WEBPACK_IMPORTED_MODULE_4_clarifai__["App"]({
+    apiKey: 'b1c9abe51ae7422a8cf6f0977081d9aa'
+});
 var AddLostPetFormPage = (function () {
     function AddLostPetFormPage(navCtrl, navParams, viewCtrl, loadingCtrl, toastCtrl, lostpetProvider) {
         this.navCtrl = navCtrl;
@@ -1109,6 +1161,9 @@ var AddLostPetFormPage = (function () {
     AddLostPetFormPage.prototype.dismiss = function () {
         this.viewCtrl.dismiss();
     };
+    AddLostPetFormPage.prototype.capitalizeFirstLetter = function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
     AddLostPetFormPage.prototype.petPicUploadEvent = function (event) {
         var _this = this;
         var loading = this.loadingCtrl.create({
@@ -1118,12 +1173,54 @@ var AddLostPetFormPage = (function () {
         var imageType = ['image/gif', 'image/png', 'image/jpeg', 'image/bmp', 'image/webp'];
         if (imageType.indexOf(event.target.files.item(0)['type']) != -1) {
             this.lostpetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-                _this.image = photo;
-                loading.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: 'Photo was uploaded',
-                    duration: 5000,
-                    position: 'bottom'
+                app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["GENERAL_MODEL"], photo).then(function (res) {
+                    var tagArray = res.rawData.outputs[0].data.concepts;
+                    var isValid = 0;
+                    for (var other = 0; other < tagArray.length; other++) {
+                        if (tagArray[other].name == 'dog' || tagArray[other].name == 'cat') {
+                            isValid = 1;
+                            var name_1 = tagArray[other].name;
+                            _this.petType = _this.capitalizeFirstLetter(name_1);
+                        }
+                    }
+                    if (isValid) {
+                        app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["COLOR_MODEL"], photo).then(function (res) {
+                            var tagArray = res.rawData.outputs[0].data.colors;
+                            _this.color = tagArray[0].w3c.name;
+                            _this.image = photo;
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: 'Photo was uploaded',
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                        }, function (err) {
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                    else {
+                        loading.dismiss();
+                        var toast = _this.toastCtrl.create({
+                            message: 'Upload failed, pet photo must be a cat or dog',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    }
+                }, function (err) {
+                    loading.dismiss();
+                    var toast = _this.toastCtrl.create({
+                        message: err.message,
+                        duration: 5000,
+                        position: 'bottom'
+                    });
+                    toast.present();
                 });
             }).catch(function (err) {
                 loading.dismiss();
@@ -1699,7 +1796,7 @@ var EditLostPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1817,142 +1914,6 @@ var AddVaccinationScheduleFormPage = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAddGroomPetPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var AdminAddGroomPetPage = (function () {
-    function AdminAddGroomPetPage(navCtrl, navParams, viewCtrl, loadingCtrl, adminProvider, toastCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.adminProvider = adminProvider;
-        this.toastCtrl = toastCtrl;
-        this.videoCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.titleCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.isSubmitting = false;
-        this.addGroomPetVideo = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
-            video: this.videoCtrl,
-            title: this.titleCtrl
-        });
-    }
-    AdminAddGroomPetPage.prototype.addGroomPetVideoSubmit = function () {
-        var _this = this;
-        this.isSubmitting = true;
-        if (this.addGroomPetVideo.valid) {
-            var data = {
-                video: this.video,
-                title: this.title,
-                videoTitle: this.videoTitle,
-                isactive: true
-            };
-            this.adminProvider.saveGroomPetVideo(data).then(function (res) {
-                _this.isSubmitting = false;
-                _this.navCtrl.push('AdminGroomPetPage');
-                var toast = _this.toastCtrl.create({
-                    message: 'Groom pet video was posted',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }).catch(function (err) {
-                _this.isSubmitting = false;
-                var toast = _this.toastCtrl.create({
-                    message: err.message,
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            this.isSubmitting = false;
-            var toast = this.toastCtrl.create({
-                message: 'Title and Video is required',
-                duration: 4000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
-    };
-    AdminAddGroomPetPage.prototype.dismiss = function () {
-        this.viewCtrl.dismiss();
-    };
-    AdminAddGroomPetPage.prototype.photoUploadEvent = function (event) {
-        var _this = this;
-        var loading = this.loadingCtrl.create({
-            content: 'Uploading your video...'
-        });
-        loading.present();
-        var videoType = ['video/avi', 'video/mp4', 'video/quicktime', 'video/mp4', 'video/mpeg', 'video/x-ms-wmv'];
-        if (videoType.indexOf(event.target.files.item(0)['type']) != -1) {
-            this.videoTitle = event.target.files.item(0)['name'];
-            this.adminProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-                _this.video = photo;
-                loading.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: 'Video was uploaded',
-                    duration: 5000,
-                    position: 'bottom'
-                });
-            }).catch(function (err) {
-                loading.dismiss();
-                _this.navCtrl.push('AdminGroomPetPage');
-                var toast = _this.toastCtrl.create({
-                    message: err.message,
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            loading.dismiss();
-            var toast = this.toastCtrl.create({
-                message: 'Invalid file type, only allowed file types are mp4, m4v, mov, avi, flv, mpg and wmv',
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
-    };
-    AdminAddGroomPetPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-add-groom-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-add-groom-pet\admin-add-groom-pet.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Groom Pet Video\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="photoUploadEvent($event)">\n    <ion-icon name="cloud-upload" class="uploadIcon" (click)="petPicUpload.click()"></ion-icon>\n    <span (click)="petPicUpload.click()">Upload Video</span> - {{videoTitle}}\n  </div>\n\n  <form [formGroup]="addGroomPetVideo" (ngSubmit)="addGroomPetVideoSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Video</ion-label>\n      <ion-input type="text" formControlName="video" [(ngModel)]="video" name="video"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Title</ion-label>\n      <ion-input type="text" formControlName="title" [(ngModel)]="title" name="title"></ion-input>\n    </ion-item>\n\n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-add-groom-pet\admin-add-groom-pet.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
-    ], AdminAddGroomPetPage);
-    return AdminAddGroomPetPage;
-}());
-
-//# sourceMappingURL=admin-add-groom-pet.js.map
-
-/***/ }),
-
-/***/ 352:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAddTrainPetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
@@ -2035,7 +1996,8 @@ var AdminAddTrainPetPage = (function () {
             content: 'Uploading your video...'
         });
         loading.present();
-        var videoType = ['video/avi', 'video/mp4', 'video/quicktime', 'video/mp4', 'video/mpeg', 'video/x-ms-wmv'];
+        // let videoType = ['video/avi', 'video/mp4', 'video/quicktime', 'video/mp4', 'video/mpeg', 'video/x-ms-wmv'];
+        var videoType = ['video/mp4'];
         if (videoType.indexOf(event.target.files.item(0)['type']) != -1) {
             this.videoTitle = event.target.files.item(0)['name'];
             this.adminProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
@@ -2060,7 +2022,7 @@ var AdminAddTrainPetPage = (function () {
         else {
             loading.dismiss();
             var toast = this.toastCtrl.create({
-                message: 'Invalid file type, only allowed file types are mp4, m4v, mov, avi, flv, mpg and wmv',
+                message: 'Upload failed, file type must be mp4 format',
                 duration: 5000,
                 position: 'bottom'
             });
@@ -2082,6 +2044,143 @@ var AdminAddTrainPetPage = (function () {
 }());
 
 //# sourceMappingURL=admin-add-train-pet.js.map
+
+/***/ }),
+
+/***/ 352:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminAddGroomPetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminAddGroomPetPage = (function () {
+    function AdminAddGroomPetPage(navCtrl, navParams, viewCtrl, loadingCtrl, adminProvider, toastCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.adminProvider = adminProvider;
+        this.toastCtrl = toastCtrl;
+        this.videoCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.titleCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.isSubmitting = false;
+        this.addGroomPetVideo = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            video: this.videoCtrl,
+            title: this.titleCtrl
+        });
+    }
+    AdminAddGroomPetPage.prototype.addGroomPetVideoSubmit = function () {
+        var _this = this;
+        this.isSubmitting = true;
+        if (this.addGroomPetVideo.valid) {
+            var data = {
+                video: this.video,
+                title: this.title,
+                videoTitle: this.videoTitle,
+                isactive: true
+            };
+            this.adminProvider.saveGroomPetVideo(data).then(function (res) {
+                _this.isSubmitting = false;
+                _this.navCtrl.push('AdminGroomPetPage');
+                var toast = _this.toastCtrl.create({
+                    message: 'Groom pet video was posted',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }).catch(function (err) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Title and Video is required',
+                duration: 4000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    AdminAddGroomPetPage.prototype.dismiss = function () {
+        this.viewCtrl.dismiss();
+    };
+    AdminAddGroomPetPage.prototype.photoUploadEvent = function (event) {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Uploading your video...'
+        });
+        loading.present();
+        // let videoType = ['video/avi', 'video/mp4', 'video/quicktime', 'video/mp4', 'video/mpeg', 'video/x-ms-wmv']; 
+        var videoType = ['video/mp4'];
+        if (videoType.indexOf(event.target.files.item(0)['type']) != -1) {
+            this.videoTitle = event.target.files.item(0)['name'];
+            this.adminProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
+                _this.video = photo;
+                loading.dismiss();
+                var toast = _this.toastCtrl.create({
+                    message: 'Video was uploaded',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+            }).catch(function (err) {
+                loading.dismiss();
+                _this.navCtrl.push('AdminGroomPetPage');
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            loading.dismiss();
+            var toast = this.toastCtrl.create({
+                message: 'Upload failed, file type must be mp4 format',
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    AdminAddGroomPetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-admin-add-groom-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-add-groom-pet\admin-add-groom-pet.html"*/'<ion-header>\n  <ion-toolbar>\n    <ion-title>\n      Add Groom Pet Video\n    </ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android, windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="profileBlock">\n    <input type="file" hidden #petPicUpload name="petPicUpload" (change)="photoUploadEvent($event)">\n    <ion-icon name="cloud-upload" class="uploadIcon" (click)="petPicUpload.click()"></ion-icon>\n    <span (click)="petPicUpload.click()">Upload Video</span> - {{videoTitle}}\n  </div>\n\n  <form [formGroup]="addGroomPetVideo" (ngSubmit)="addGroomPetVideoSubmit()">\n    <ion-item hidden>\n      <ion-label floating>Video</ion-label>\n      <ion-input type="text" formControlName="video" [(ngModel)]="video" name="video"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Title</ion-label>\n      <ion-input type="text" formControlName="title" [(ngModel)]="title" name="title"></ion-input>\n    </ion-item>\n\n    <button ion-button type="submit" class="btnSave" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="cloud-download" *ngIf="isSubmitting == false"></ion-icon> &nbsp; Save</button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-add-groom-pet\admin-add-groom-pet.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
+    ], AdminAddGroomPetPage);
+    return AdminAddGroomPetPage;
+}());
+
+//# sourceMappingURL=admin-add-groom-pet.js.map
 
 /***/ }),
 
@@ -2247,7 +2346,7 @@ var EditGroomPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_admin_admin__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2473,7 +2572,7 @@ var EditTrainPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(117);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2645,7 +2744,7 @@ var EditRegisteredPetPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_profile_profile__ = __webpack_require__(196);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2749,7 +2848,7 @@ var EditprofilePage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_vaccine_vaccine__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2929,7 +3028,9 @@ var PlaceDetailPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_register_pet_register_pet__ = __webpack_require__(117);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai__ = __webpack_require__(115);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_clarifai__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2943,6 +3044,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var app = new __WEBPACK_IMPORTED_MODULE_4_clarifai__["App"]({
+    apiKey: 'b1c9abe51ae7422a8cf6f0977081d9aa'
+});
 var RegisterPetFormPage = (function () {
     function RegisterPetFormPage(navCtrl, navParams, viewCtrl, loadingCtrl, registerPetProvider, toastCtrl) {
         this.navCtrl = navCtrl;
@@ -2982,6 +3087,9 @@ var RegisterPetFormPage = (function () {
             remarks: this.remarksCtrl
         });
     }
+    RegisterPetFormPage.prototype.capitalizeFirstLetter = function (string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
     RegisterPetFormPage.prototype.petPicUploadEvent = function (event) {
         var _this = this;
         var loading = this.loadingCtrl.create({
@@ -2991,13 +3099,54 @@ var RegisterPetFormPage = (function () {
         var imageType = ['image/gif', 'image/png', 'image/jpeg', 'image/bmp', 'image/webp'];
         if (imageType.indexOf(event.target.files.item(0)['type']) != -1) {
             this.registerPetProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-                console.log('photo', photo);
-                _this.image = photo;
-                loading.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: 'Photo was uploaded',
-                    duration: 5000,
-                    position: 'bottom'
+                app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["GENERAL_MODEL"], photo).then(function (res) {
+                    var tagArray = res.rawData.outputs[0].data.concepts;
+                    var isValid = 0;
+                    for (var other = 0; other < tagArray.length; other++) {
+                        if (tagArray[other].name == 'dog' || tagArray[other].name == 'cat') {
+                            isValid = 1;
+                            var name_1 = tagArray[other].name;
+                            _this.petType = _this.capitalizeFirstLetter(name_1);
+                        }
+                    }
+                    if (isValid) {
+                        app.models.predict(__WEBPACK_IMPORTED_MODULE_4_clarifai__["COLOR_MODEL"], photo).then(function (res) {
+                            var tagArray = res.rawData.outputs[0].data.colors;
+                            _this.color = tagArray[0].w3c.name;
+                            _this.image = photo;
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: 'Photo was uploaded',
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                        }, function (err) {
+                            loading.dismiss();
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                    else {
+                        loading.dismiss();
+                        var toast = _this.toastCtrl.create({
+                            message: 'Upload failed, pet photo must be a cat or dog',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    }
+                }, function (err) {
+                    loading.dismiss();
+                    var toast = _this.toastCtrl.create({
+                        message: err.message,
+                        duration: 5000,
+                        position: 'bottom'
+                    });
+                    toast.present();
                 });
             }).catch(function (err) {
                 loading.dismiss();
@@ -3113,7 +3262,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_clarifai__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_clarifai__ = __webpack_require__(115);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_clarifai___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_clarifai__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_video_player__ = __webpack_require__(589);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ionic_native_streaming_media__ = __webpack_require__(590);
@@ -3126,26 +3275,26 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_add_for_sale_pet_add_for_sale_pet__ = __webpack_require__(344);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_buy_pet_details_buy_pet_details__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_register_pet_form_register_pet_form__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_registered_pet_details_registered_pet_details__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_admin_view_profile_admin_view_profile__ = __webpack_require__(354);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_admin_view_user_registered_pets_admin_view_user_registered_pets__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_for_sale_pet_edit_for_sale_pet__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_lost_pet_edit_lost_pet__ = __webpack_require__(349);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_edit_registered_pet_edit_registered_pet__ = __webpack_require__(356);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(350);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_edit_groom_pet_edit_groom_pet__ = __webpack_require__(353);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(351);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_edit_train_pet_edit_train_pet__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_auth_auth__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_profile_profile__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_google_cloud_vision_google_cloud_vision__ = __webpack_require__(592);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_lostpet_lostpet__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_buypet_buypet__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_register_pet_register_pet__ = __webpack_require__(116);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_register_pet_register_pet__ = __webpack_require__(117);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_admin_admin__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_vaccine_vaccine__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_vaccine_vaccine__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3254,12 +3403,12 @@ var AppModule = (function () {
                         { loadChildren: '../pages/add-for-sale-pet/add-for-sale-pet.module#AddForSalePetPageModule', name: 'AddForSalePetPage', segment: 'add-for-sale-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-lost-pet-form/add-lost-pet-form.module#AddLostPetFormPageModule', name: 'AddLostPetFormPage', segment: 'add-lost-pet-form', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/add-vaccination-schedule-form/add-vaccination-schedule-form.module#AddVaccinationScheduleFormPageModule', name: 'AddVaccinationScheduleFormPage', segment: 'add-vaccination-schedule-form', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/admin-add-groom-pet/admin-add-groom-pet.module#AdminAddGroomPetPageModule', name: 'AdminAddGroomPetPage', segment: 'admin-add-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-add-train-pet/admin-add-train-pet.module#AdminAddTrainPetPageModule', name: 'AdminAddTrainPetPage', segment: 'admin-add-train-pet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/admin-add-groom-pet/admin-add-groom-pet.module#AdminAddGroomPetPageModule', name: 'AdminAddGroomPetPage', segment: 'admin-add-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-buy-and-sell/admin-buy-and-sell.module#AdminBuyAndSellPageModule', name: 'AdminBuyAndSellPage', segment: 'admin-buy-and-sell', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/admin-lost-pets/admin-lost-pets.module#AdminLostPetsPageModule', name: 'AdminLostPetsPage', segment: 'admin-lost-pets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-groom-pet/admin-groom-pet.module#AdminGroomPetPageModule', name: 'AdminGroomPetPage', segment: 'admin-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-home/admin-home.module#AdminHomePageModule', name: 'AdminHomePage', segment: 'admin-home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/admin-lost-pets/admin-lost-pets.module#AdminLostPetsPageModule', name: 'AdminLostPetsPage', segment: 'admin-lost-pets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-registered-user/admin-registered-user.module#AdminRegisteredUserPageModule', name: 'AdminRegisteredUserPage', segment: 'admin-registered-user', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-train-pet/admin-train-pet.module#AdminTrainPetPageModule', name: 'AdminTrainPetPage', segment: 'admin-train-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-view-profile/admin-view-profile.module#AdminViewProfilePageModule', name: 'AdminViewProfilePage', segment: 'admin-view-profile', priority: 'low', defaultHistory: [] },
@@ -3268,12 +3417,12 @@ var AppModule = (function () {
                         { loadChildren: '../pages/edit-for-sale-pet/edit-for-sale-pet.module#EditForSalePetPageModule', name: 'EditForSalePetPage', segment: 'edit-for-sale-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-groom-pet/edit-groom-pet.module#EditGroomPetPageModule', name: 'EditGroomPetPage', segment: 'edit-groom-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-lost-pet/edit-lost-pet.module#EditLostPetPageModule', name: 'EditLostPetPage', segment: 'edit-lost-pet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/edit-registered-pet/edit-registered-pet.module#EditRegisteredPetPageModule', name: 'EditRegisteredPetPage', segment: 'edit-registered-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-train-pet/edit-train-pet.module#EditTrainPetPageModule', name: 'EditTrainPetPage', segment: 'edit-train-pet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/edit-registered-pet/edit-registered-pet.module#EditRegisteredPetPageModule', name: 'EditRegisteredPetPage', segment: 'edit-registered-pet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/editprofile/editprofile.module#EditprofilePageModule', name: 'EditprofilePage', segment: 'editprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/edit-vaccination-sched/edit-vaccination-sched.module#EditVaccinationSchedPageModule', name: 'EditVaccinationSchedPage', segment: 'edit-vaccination-sched', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/forgot-pass/forgot-pass.module#ForgotPassPageModule', name: 'ForgotPassPage', segment: 'forgot-pass', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/groompet/groompet.module#GroompetPageModule', name: 'GroompetPage', segment: 'groompet', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/forgot-pass/forgot-pass.module#ForgotPassPageModule', name: 'ForgotPassPage', segment: 'forgot-pass', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/lost-pet-details/lost-pet-details.module#LostPetDetailsPageModule', name: 'LostPetDetailsPage', segment: 'lost-pet-details', priority: 'low', defaultHistory: [] },
@@ -3281,15 +3430,15 @@ var AppModule = (function () {
                         { loadChildren: '../pages/lostpets/lostpets.module#LostpetsPageModule', name: 'LostpetsPage', segment: 'lostpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/place-detail/place-detail.module#PlaceDetailPageModule', name: 'PlaceDetailPage', segment: 'place-detail', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/pet/pet.module#PetPageModule', name: 'PetPage', segment: 'pet', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register-pet-form/register-pet-form.module#RegisterPetFormPageModule', name: 'RegisterPetFormPage', segment: 'register-pet-form', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registered-pet-details/registered-pet-details.module#RegisteredPetDetailsPageModule', name: 'RegisteredPetDetailsPage', segment: 'registered-pet-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/registerpets/registerpets.module#RegisterpetsPageModule', name: 'RegisterpetsPage', segment: 'registerpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/searchvet/searchvet.module#SearchvetPageModule', name: 'SearchvetPage', segment: 'searchvet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trainpets/trainpets.module#TrainpetsPageModule', name: 'TrainpetsPage', segment: 'trainpets', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/vaccination-schedule/vaccination-schedule.module#VaccinationSchedulePageModule', name: 'VaccinationSchedulePage', segment: 'vaccination-schedule', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] }
                     ]
                 }),
             ],

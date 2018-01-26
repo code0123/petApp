@@ -1,6 +1,6 @@
 webpackJsonp([17],{
 
-/***/ 600:
+/***/ 601:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminHomePageModule", function() { return AdminHomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_home__ = __webpack_require__(634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_home__ = __webpack_require__(635);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var AdminHomePageModule = (function () {
 
 /***/ }),
 
-/***/ 634:
+/***/ 635:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -119,7 +119,8 @@ var AdminHomePage = (function () {
                     handler: function () {
                         _this.authProvider.logout().then(function () {
                             localStorage.clear();
-                            _this.navCtrl.push('HomePage');
+                            window.location.href = '#/tabs/pets/pet';
+                            location.reload();
                         }).catch(function (err) {
                             var toast = _this.toastCtrl.create({
                                 message: err.message,
@@ -138,14 +139,10 @@ var AdminHomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-admin-home',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Purrs &amp; Paws Admin Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <div class="box green" (click)="pushPage(\'AdminRegisteredUserPage\')">\n        <div class="iconBlock">\n          <ion-icon name="people"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{userCount}}</p>\n          <h3>Registered Users</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box blue" (click)="pushPage(\'AdminBuyAndSellPage\')">\n        <div class="iconBlock">\n          <ion-icon name="pricetag"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{buySellPetCount}}</p>\n          <h3>Buy &amp; Sell Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box pink" (click)="pushPage(\'AdminLostPetsPage\')">\n        <div class="iconBlock">\n          <ion-icon name="paw"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{lostPetsCount}}</p>\n          <h3>Lost Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box cyan" (click)="pushPage(\'VaccinationSchedulePage\')">\n        <div class="iconBlock">\n          <ion-icon name="calendar"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{vaccineSchedCount}}</p>\n          <h3>Vaccination Schedule</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box indigo" (click)="pushPage(\'AdminGroomPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="shirt"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{groomPetCount}}</p>\n          <h3>Groom Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n      <div class="box amber" (click)="pushPage(\'AdminTrainPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="help-buoy"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">1</p>\n          <h3>Train Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <ion-fab bottom right>\n        <button ion-fab (click)="logout()" class="logout"><ion-icon name="log-out"></ion-icon></button>\n      </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */]) === "function" && _f || Object])
     ], AdminHomePage);
     return AdminHomePage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=admin-home.js.map

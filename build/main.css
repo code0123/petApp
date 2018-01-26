@@ -26315,7 +26315,15 @@ page-admin-lost-pets .pageLoader {
 }
 
 page-admin-lost-pets .spinner-md-crescent circle {
-  stroke: #4080ff !important;
+  stroke: #e31b25 !important;
+}
+
+page-admin-lost-pets .toolbar-background, page-admin-lost-pets .fab-md, page-admin-lost-pets .button-md {
+  background: #e31b25 !important;
+}
+
+page-admin-lost-pets .removeBtn {
+  background: #488aff !important;
 }
 
 page-admin-registered-user .toolbar-background {
@@ -26860,7 +26868,15 @@ page-lostpets .pageLoader {
 }
 
 page-lostpets .spinner-md-crescent circle {
-  stroke: #4080ff !important;
+  stroke: #e31b25 !important;
+}
+
+page-lostpets .toolbar-background, page-lostpets .fab-md, page-lostpets .button-md {
+  background: #e31b25 !important;
+}
+
+page-lostpets .removeBtn {
+  background: #488aff !important;
 }
 
 page-other .item {
@@ -27365,5 +27381,9 @@ page-vaccination-schedule .interestedBlock {
 }
 
 page-vaccination-schedule .toolbar-background, page-vaccination-schedule .fab-md, page-vaccination-schedule .button-md {
+  background: #4080ff !important;
+}
+
+page-vaccination-schedule .admin .toolbar-background, page-vaccination-schedule .fab-md, page-vaccination-schedule .button-md {
   background: #00BCD4 !important;
 }
