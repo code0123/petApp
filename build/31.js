@@ -5,10 +5,10 @@ webpackJsonp([31],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BuyPetDetailsPageModule", function() { return BuyPetDetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditForSalePetPageModule", function() { return EditForSalePetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__buy_pet_details__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__ = __webpack_require__(347);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var BuyPetDetailsPageModule = (function () {
-    function BuyPetDetailsPageModule() {
+var EditForSalePetPageModule = (function () {
+    function EditForSalePetPageModule() {
     }
-    BuyPetDetailsPageModule = __decorate([
+    EditForSalePetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__buy_pet_details__["a" /* BuyPetDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__["a" /* EditForSalePetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__buy_pet_details__["a" /* BuyPetDetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_for_sale_pet__["a" /* EditForSalePetPage */]),
             ],
         })
-    ], BuyPetDetailsPageModule);
-    return BuyPetDetailsPageModule;
+    ], EditForSalePetPageModule);
+    return EditForSalePetPageModule;
 }());
 
-//# sourceMappingURL=buy-pet-details.module.js.map
+//# sourceMappingURL=edit-for-sale-pet.module.js.map
 
 /***/ })
 

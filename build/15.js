@@ -5,10 +5,10 @@ webpackJsonp([15],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRegisteredUserPageModule", function() { return AdminRegisteredUserPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTrainPetPageModule", function() { return AdminTrainPetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(636);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__ = __webpack_require__(637);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminRegisteredUserPageModule = (function () {
-    function AdminRegisteredUserPageModule() {
+var AdminTrainPetPageModule = (function () {
+    function AdminTrainPetPageModule() {
     }
-    AdminRegisteredUserPageModule = __decorate([
+    AdminTrainPetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */],
+                __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */]),
             ],
         })
-    ], AdminRegisteredUserPageModule);
-    return AdminRegisteredUserPageModule;
+    ], AdminTrainPetPageModule);
+    return AdminTrainPetPageModule;
 }());
 
-//# sourceMappingURL=admin-registered-user.module.js.map
+//# sourceMappingURL=admin-train-pet.module.js.map
 
 /***/ }),
 
-/***/ 636:
+/***/ 637:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegisteredUserPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminTrainPetPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(354);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_train_pet_edit_train_pet__ = __webpack_require__(356);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,52 +65,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var AdminRegisteredUserPage = (function () {
-    function AdminRegisteredUserPage(navCtrl, navParams, alertCtrl, toastCtrl, modalCtrl) {
+
+var AdminTrainPetPage = (function () {
+    function AdminTrainPetPage(navCtrl, navParams, modalCtrl, toastCtrl, actionSheetCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.toastCtrl = toastCtrl;
         this.modalCtrl = modalCtrl;
-        this.usersCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
+        this.toastCtrl = toastCtrl;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.alertCtrl = alertCtrl;
+        this.videosCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_3_firebase__["firestore"]();
         this.pageLoaded = false;
+        this.userId = localStorage.getItem('userId');
+        this.isAdmin = parseInt(localStorage.getItem('isAdmin'));
+        this.getTrainPetVideos();
+        console.log('type', this.isAdmin);
     }
-    AdminRegisteredUserPage.prototype.ionViewDidLoad = function () {
-        this.loadRegisteredUsers();
+    AdminTrainPetPage.prototype.getTrainPetVideos = function () {
+        var _this = this;
+        this.db.collection('trainpetsvideos').where("isactive", "==", true).orderBy("datePosted", "desc").limit(1000).onSnapshot(function (snapshots) {
+            var videos = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['videoId'] = doc.id;
+                videos.push(docData);
+            });
+            _this.videos = videos;
+            _this.videosCount = Object.keys(videos).length;
+            _this.pageLoaded = true;
+            console.log('this.videos', _this.videos);
+        }), (function (err) {
+            var toast = _this.toastCtrl.create({
+                message: err.message,
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        });
     };
-    AdminRegisteredUserPage.prototype.viewProfile = function (userId) {
-        var user = {
-            userId: userId
-        };
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */], user);
+    AdminTrainPetPage.prototype.addTrainPetVideos = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */]);
         modal.onDidDismiss(function (data) {
-            if (data) {
-                // this.loadProfile();
-            }
         });
         modal.present();
     };
-    AdminRegisteredUserPage.prototype.loadRegisteredUsers = function () {
+    AdminTrainPetPage.prototype.removePost = function (videoId) {
         var _this = this;
-        this.db.collection('users').where("isAdmin", "==", 0).onSnapshot(function (res) {
-            var users = [];
-            res.forEach(function (doc) {
-                users.push(doc.data());
-            });
-            _this.pageLoaded = true;
-            _this.users = users;
-        }), (function (err) {
-            console.log('err', err);
-        });
-    };
-    AdminRegisteredUserPage.prototype.deleteUser = function (event, uid, name) {
-        var _this = this;
-        event.stopPropagation();
-        console.log('uid', uid);
         var confirm = this.alertCtrl.create({
-            title: 'Delete User?',
-            message: "Are you sure do you want to delete <strong>" + name + "</strong> user account?",
+            title: 'Remove this post?',
+            message: 'Are you sure do you want to remove your post?',
             buttons: [
                 {
                     text: 'Cancel',
@@ -119,17 +124,19 @@ var AdminRegisteredUserPage = (function () {
                 {
                     text: 'Ok',
                     handler: function () {
-                        _this.db.collection('users').doc(uid).delete().then(function () {
+                        _this.db.collection('trainpetsvideos').doc(videoId).update({
+                            isactive: false
+                        }).then(function (res) {
                             var toast = _this.toastCtrl.create({
-                                message: 'User was deleted',
-                                duration: 4000,
+                                message: 'Video was deleted',
+                                duration: 5000,
                                 position: 'bottom'
                             });
                             toast.present();
                         }).catch(function (err) {
                             var toast = _this.toastCtrl.create({
                                 message: err.message,
-                                duration: 4000,
+                                duration: 5000,
                                 position: 'bottom'
                             });
                             toast.present();
@@ -139,22 +146,56 @@ var AdminRegisteredUserPage = (function () {
             ]
         });
         confirm.present();
-        return false;
     };
-    AdminRegisteredUserPage = __decorate([
+    AdminTrainPetPage.prototype.action = function (videoId) {
+        var _this = this;
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your post',
+            buttons: [
+                {
+                    text: 'Remove',
+                    icon: 'trash',
+                    handler: function () {
+                        _this.removePost(videoId);
+                    }
+                }, {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        var data = {
+                            videoId: videoId
+                        };
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */], data);
+                        modal.onDidDismiss(function (data) {
+                        });
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    icon: 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    AdminTrainPetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-registered-user',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="list-avatar-page" padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <ion-list *ngIf="pageLoaded">\n    <a ion-item detail-none *ngFor="let user of users" (click)="viewProfile(user?.uid)">\n      <ion-avatar item-left>\n        <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\'" >\n      </ion-avatar>\n      <ion-label>\n          <h2>{{user?.name}}</h2>\n          <p>{{user?.email}}</p>\n      </ion-label>\n      <button item-right ion-button type="button" class="deleteBtn" (click)="deleteUser($event, user?.uid, user?.name)"><ion-icon name="trash"></ion-icon></button>\n    </a>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/,
+            selector: 'page-admin-train-pet',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Train Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="videos?.length == 0" class="noPetResult">No train pet video yet.</p>\n    <div *ngIf="videos?.length">\n      <div class="videoPlayList" *ngFor="let video of videos">\n        <h5>{{video?.title}}</h5>\n        <video width="100%" controls poster="assets/images/icon.png">\n          <source src="{{video?.video}}" type="video/mp4">\n          <source src="{{video?.video}}" type="video/ogg"> Your browser does not support HTML5 video.\n        </video>\n        <button ion-button type="button" *ngIf="isAdmin == 1" class="listBtn" (click)="action(video.videoId)">\n          <ion-icon name="more"></ion-icon>\n        </button>\n        <span class="datePosted">Posted: {{video.datePosted | date:\'mediumDate\'}}</span>\n      </div>\n    </div>\n    <ion-fab bottom right *ngIf="isAdmin == 1">\n      <button ion-fab (click)="addTrainPetVideos()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]])
-    ], AdminRegisteredUserPage);
-    return AdminRegisteredUserPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+    ], AdminTrainPetPage);
+    return AdminTrainPetPage;
 }());
 
-//# sourceMappingURL=admin-registered-user.js.map
+//# sourceMappingURL=admin-train-pet.js.map
 
 /***/ })
 

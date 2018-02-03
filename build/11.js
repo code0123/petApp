@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 617:
+/***/ 616:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(641);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(641);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = (function () {
-    function HomePageModule() {
+var LoginPageModule = (function () {
+    function LoginPageModule() {
     }
-    HomePageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
@@ -42,10 +42,11 @@ var HomePageModule = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(343);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,54 +60,118 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var HomePage = (function () {
-    function HomePage(navCtrl, navParams, authProvider) {
+
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+var LoginPage = (function () {
+    function LoginPage(navCtrl, navParams, authProvider, toastCtrl, app) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authProvider = authProvider;
+        this.toastCtrl = toastCtrl;
+        this.app = app;
+        this.isSubmitting = false;
+        this.userId = '';
+        this.isAdmin = 0;
+        this.isadminSwitchUser = 0;
+        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
+        this.passwordCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required);
+        this.loginForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            email: this.emailCtrl,
+            password: this.passwordCtrl
+        });
     }
-    HomePage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad HomePage');
-    };
-    HomePage.prototype.goToLoginPage = function () {
-        this.navCtrl.push("LoginPage");
-    };
-    HomePage.prototype.ionViewDidEnter = function () {
-        var _this = this;
-        this.authProvider.isAuthenticated().then(function (isAuth) {
-            if (isAuth) {
-                if (localStorage.getItem('isAdmin') == '1') {
-                    _this.navCtrl.push('AdminHomePage');
-                }
-                else {
-                    _this.navCtrl.push('TabsPage');
-                }
+    LoginPage.prototype.ionViewDidEnter = function () {
+        if (this.userId != '') {
+            if (this.isadminSwitchUser == 1) {
+                this.app.getRootNav().setRoot('AdminHomePage');
             }
             else {
-                return true;
+                this.app.getRootNav().setRoot('TabsPage');
             }
-        });
-    };
-    HomePage.prototype.slideChanged = function () {
-        var currentIndex = this.slides.getActiveIndex();
-        if (currentIndex == 4) {
-            this.navCtrl.push("LoginPage");
+        }
+        else {
+            return true;
         }
     };
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Slides */])
-    ], HomePage.prototype, "slides", void 0);
-    HomePage = __decorate([
+    LoginPage.prototype.goToPage = function (page) {
+        this.navCtrl.push(page);
+        return false;
+    };
+    LoginPage.prototype.loginSubmit = function () {
+        var _this = this;
+        if (this.loginForm.valid) {
+            this.isSubmitting = true;
+            this.authProvider.login(this.email, this.password).then(function (user) {
+                console.log('user', user);
+                if (user['emailVerified']) {
+                    _this.isSubmitting = false;
+                    _this.userId = user['uid'];
+                    localStorage.setItem('userId', user['uid']);
+                    localStorage.setItem('email', user['email']);
+                    _this.authProvider.loadProfile(user['uid']).then(function (res) {
+                        localStorage.setItem('isAdmin', res['isAdmin']);
+                        localStorage.setItem('adminSwitchUser', res['adminSwitchUser']);
+                        if (res['adminSwitchUser'] == 1) {
+                            _this.isadminSwitchUser = 1;
+                            _this.navCtrl.push('AdminHomePage');
+                        }
+                        else {
+                            _this.isadminSwitchUser = 0;
+                            _this.navCtrl.push('TabsPage');
+                        }
+                    }).catch(function (err) {
+                        _this.isSubmitting = false;
+                        var toast = _this.toastCtrl.create({
+                            message: 'Invalid email or password',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    });
+                }
+                else {
+                    _this.isSubmitting = false;
+                    var toast = _this.toastCtrl.create({
+                        message: 'Login failed, your email address is not verified yet',
+                        duration: 5000,
+                        position: 'bottom'
+                    });
+                    toast.present();
+                }
+            }).catch(function (err) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: 'Invalid email or password',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
+            });
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Login failed',
+                duration: 5000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
+    };
+    LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\home\home.html"*/'<ion-slides pager (ionSlideDidChange)="slideChanged()">\n  <ion-slide>\n    <h2><img src="assets/images/mypet.png" alt=""></h2>\n    <h4>Manage Info on Your Pets</h4>\n    <p>Create a profile for the pets of every pet owners.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/registerpet.png" alt=""></h2>\n    <h4>Register your pet</h4>\n    <p>Pet owners can register their pet to have an active account.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/searchpet.png" alt=""></h2>\n    <h4>Search for Vet Clinic Around You</h4>\n    <p>Pet with diseases, disorders, and injuries can be treated, find all available vet clinics around you!</p>\n  </ion-slide>\n\n  <ion-slide>\n    <h2><img src="assets/images/buyandsell.png" alt=""></h2>\n    <h4>For Breeders, Buy, Sell And Adopt</h4>\n    <p>Are you a pet lover or have a pet for adoption? With this app\'s feature, you can buy, sell and adopt pets from people around the world.</p>\n  </ion-slide>\n\n  <ion-slide>\n    <ion-spinner name="crescent" class="pageLoader"></ion-spinner>\n  </ion-slide>\n</ion-slides>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\home\home.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/'<ion-content padding>\n  <div>\n    <h1 class="headerLogo"><img src="assets/images/logo.png" alt=""></h1>\n    <p class="subTitle">Welcome to Purrs and Paws,<br> Login to your account</p>\n    <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">\n      <ion-item>\n        <ion-label floating>Email</ion-label>\n        <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n      </ion-item>\n    \n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password"></ion-input>\n      </ion-item>\n      <p>Don\'t have an account? <a (click)="goToPage(\'RegisterPage\')" class="blue">Sign Up</a></p>\n      <button ion-button type="submit" class="btnLogin" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="log-in" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Login</button>\n      <a class="forgotPassBtn" (click)="goToPage(\'ForgotPassPage\')">Forgot Password?</a>\n    </form>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* App */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 

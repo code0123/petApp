@@ -25821,6 +25821,16 @@ ion-fab {
   position: fixed !important;
 }
 
+.sold {
+  width: 120px;
+  position: absolute;
+  top: 100px;
+  height: 91px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 page-add-for-sale-pet .btnSave {
   margin: 15px 0 0;
 }
@@ -26081,6 +26091,14 @@ page-admin-buy-and-sell .thumbsUpBtn.blue ion-icon {
   color: #4080ff;
 }
 
+page-admin-buy-and-sell .red {
+  color: #f53d3d;
+}
+
+page-admin-buy-and-sell .blue {
+  color: #4080ff;
+}
+
 page-admin-groom-pet .toolbar-background, page-admin-groom-pet .fab-md, page-admin-groom-pet .button-md {
   background: #4080ff !important;
 }
@@ -26156,7 +26174,7 @@ page-admin-home .box.blue {
 }
 
 page-admin-home .box.pink {
-  background: #E91E63;
+  background: #e31b25;
 }
 
 page-admin-home .box.green {
@@ -26232,6 +26250,10 @@ page-admin-home .spinner-md-crescent circle {
   stroke: #4080ff !important;
 }
 
+page-admin-home ion-fab[bottom][edge] {
+  bottom: 20px !important;
+}
+
 page-admin-lost-pets .toolbar-background {
   background: #E91E63 !important;
 }
@@ -26280,12 +26302,10 @@ page-admin-lost-pets .searchBar {
 }
 
 page-admin-lost-pets .btnDetails {
-  position: absolute;
-  right: 7px;
-  bottom: 84px;
   font-size: 10px;
   padding: 10px;
   height: auto;
+  margin: 10px 0 0;
 }
 
 page-admin-lost-pets .removeBtn {
@@ -26318,12 +26338,20 @@ page-admin-lost-pets .spinner-md-crescent circle {
   stroke: #e31b25 !important;
 }
 
-page-admin-lost-pets .toolbar-background, page-admin-lost-pets .fab-md, page-admin-lost-pets .button-md {
+page-admin-lost-pets .toolbar-background {
   background: #e31b25 !important;
 }
 
-page-admin-lost-pets .removeBtn {
-  background: #488aff !important;
+page-admin-lost-pets .removeBtn, page-admin-lost-pets .btnDetails {
+  background: #e31b25 !important;
+}
+
+page-admin-lost-pets .red {
+  color: #f53d3d;
+}
+
+page-admin-lost-pets .blue {
+  color: #4080ff;
 }
 
 page-admin-registered-user .toolbar-background {
@@ -26379,6 +26407,14 @@ page-admin-registered-user .item-md .item-button {
   height: auto !important;
   font-size: 16px !important;
   padding: 8px !important;
+}
+
+page-admin-registered-user .input-wrapper h2 {
+  margin-top: 0 !important;
+}
+
+page-admin-registered-user .badge-md {
+  font-size: 11px !important;
 }
 
 page-admin-train-pet .toolbar-background, page-admin-train-pet .fab-md, page-admin-train-pet .button-md {
@@ -26833,12 +26869,10 @@ page-lostpets .searchBar {
 }
 
 page-lostpets .btnDetails {
-  position: absolute;
-  right: 7px;
-  bottom: 84px;
   font-size: 10px;
   padding: 10px;
   height: auto;
+  margin: 10px 0 0;
 }
 
 page-lostpets .removeBtn {
@@ -26871,12 +26905,20 @@ page-lostpets .spinner-md-crescent circle {
   stroke: #e31b25 !important;
 }
 
-page-lostpets .toolbar-background, page-lostpets .fab-md, page-lostpets .button-md {
+page-lostpets .toolbar-background, page-lostpets .fab-md, page-lostpets ion-card .button-md {
   background: #e31b25 !important;
 }
 
 page-lostpets .removeBtn {
   background: #488aff !important;
+}
+
+page-lostpets .red {
+  color: #f53d3d;
+}
+
+page-lostpets .blue {
+  color: #4080ff;
 }
 
 page-other .item {
@@ -27022,6 +27064,14 @@ page-pet .interestedBlock {
   left: 0;
 }
 
+page-pet .red {
+  color: #f53d3d;
+}
+
+page-pet .blue {
+  color: #4080ff;
+}
+
 page-place-detail .profileTbl tr:nth-child(1):after {
   display: none;
 }
@@ -27101,6 +27151,112 @@ page-registered-pet-details .profileTbl tr:first-child:after {
 
 page-registered-pet-details .profileTbl {
   margin-top: 0;
+}
+
+page-registerpet-single ion-card-title,
+page-registerpet-single ion-card {
+  position: relative;
+}
+
+page-registerpet-single ion-card {
+  margin-bottom: 30px !important;
+}
+
+page-registerpet-single .price {
+  font-size: 14px;
+  color: #42b72a;
+  position: absolute;
+  right: 0;
+  top: 13px;
+}
+
+page-registerpet-single .bold {
+  font-weight: bold;
+}
+
+page-registerpet-single .buyBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  padding: 8px 12px !important;
+  font-size: 12px;
+  line-height: 1.2;
+  height: inherit;
+  background: #488aff;
+}
+
+page-registerpet-single .datePosted {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 11px;
+}
+
+page-registerpet-single .searchBar {
+  padding: 10px 3px 0;
+}
+
+page-registerpet-single .btnDetails {
+  font-size: 10px;
+  padding: 10px;
+  height: auto;
+  margin: 10px 0;
+}
+
+page-registerpet-single .removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 6px;
+  font-size: 20px;
+  padding: 5px 10px;
+  height: auto;
+}
+
+page-registerpet-single .noPetResult {
+  padding: 0 16px;
+}
+
+page-registerpet-single .pageLoader {
+  width: 70px !important;
+  height: 70px !important;
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 999 !important;
+  left: 0;
+  right: 0;
+}
+
+page-registerpet-single .spinner-md-crescent circle {
+  stroke: #4080ff !important;
+}
+
+page-registerpet-single .thumbsUpBtn {
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  padding: 0;
+  height: auto;
+  background: none;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+
+page-registerpet-single .thumbsUpBtn ion-icon {
+  color: #333;
+  font-size: 17px;
+  position: relative;
+  top: -2px;
+}
+
+page-registerpet-single .thumbsUpBtn.blue ion-icon {
+  color: #4080ff;
 }
 
 page-registerpets ion-card-title,

@@ -1,14 +1,14 @@
 webpackJsonp([5],{
 
-/***/ 624:
+/***/ 632:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterpetSinglePageModule", function() { return RegisterpetSinglePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(645);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registerpet_single__ = __webpack_require__(653);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var RegisterPageModule = (function () {
-    function RegisterPageModule() {
+var RegisterpetSinglePageModule = (function () {
+    function RegisterpetSinglePageModule() {
     }
-    RegisterPageModule = __decorate([
+    RegisterpetSinglePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_2__registerpet_single__["a" /* RegisterpetSinglePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__registerpet_single__["a" /* RegisterpetSinglePage */]),
             ],
         })
-    ], RegisterPageModule);
-    return RegisterPageModule;
+    ], RegisterpetSinglePageModule);
+    return RegisterpetSinglePageModule;
 }());
 
-//# sourceMappingURL=register.module.js.map
+//# sourceMappingURL=registerpet-single.module.js.map
 
 /***/ }),
 
-/***/ 645:
+/***/ 653:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterpetSinglePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_pet_form_register_pet_form__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__registered_pet_details_registered_pet_details__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__edit_registered_pet_edit_registered_pet__ = __webpack_require__(350);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,116 +65,170 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-var RegisterPage = (function () {
-    function RegisterPage(navCtrl, navParams, authProvider, toastCtrl) {
+
+
+
+var RegisterpetSinglePage = (function () {
+    function RegisterpetSinglePage(navCtrl, navParams, modalCtrl, alertCtrl, toastCtrl, actionSheetCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.authProvider = authProvider;
+        this.modalCtrl = modalCtrl;
+        this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.isSubmitting = false;
-        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
-        this.passwordCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.repasswordCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
-        this.registerForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
-            name: this.nameCtrl,
-            email: this.emailCtrl,
-            password: this.passwordCtrl,
-            repassword: this.repasswordCtrl
-        });
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.petsCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
+        this.pageLoaded = false;
+        this.userId = localStorage.getItem('userId');
+        this.getRegisteredPets();
     }
-    RegisterPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RegisterPage');
-    };
-    RegisterPage.prototype.goToLoginPage = function () {
-        this.navCtrl.push('LoginPage');
-    };
-    RegisterPage.prototype.registerSubmit = function () {
+    RegisterpetSinglePage.prototype.onSearch = function (ev) {
         var _this = this;
-        if (this.registerForm.valid) {
-            this.isSubmitting = true;
-            if (this.password == this.repassword) {
-                var userData_1 = {
-                    name: this.name,
-                    email: this.email,
-                    password: this.password
-                };
-                this.authProvider.register(userData_1).then(function (userId) {
-                    if (userId != '') {
-                        delete userData_1['password']; // delete password key in userData object
-                        _this.authProvider.saveRegisteredUser(userId, userData_1).then(function (res) {
-                            _this.authProvider.sendEmailVerification().then(function (emailRes) {
-                                _this.isSubmitting = false;
-                                _this.name = "";
-                                _this.email = "";
-                                _this.password = "";
-                                _this.navCtrl.push('LoginPage');
-                                var toast = _this.toastCtrl.create({
-                                    message: 'Email verification was sent to your email, please verify your account to login',
-                                    duration: 7000,
-                                    position: 'bottom'
-                                });
-                                toast.present();
-                            }).catch(function (err) {
-                                _this.isSubmitting = false;
-                                var toast = _this.toastCtrl.create({
-                                    message: err.message,
-                                    duration: 5000,
-                                    position: 'bottom'
-                                });
-                                toast.present();
-                            });
-                        }).catch(function (err) {
-                            _this.isSubmitting = false;
-                            var toast = _this.toastCtrl.create({
-                                message: err.message,
-                                duration: 5000,
-                                position: 'bottom'
-                            });
-                            toast.present();
-                        });
-                    }
-                }).catch(function (err) {
-                    _this.isSubmitting = false;
-                    var toast = _this.toastCtrl.create({
-                        message: err.message,
-                        duration: 5000,
-                        position: 'bottom'
-                    });
-                    toast.present();
-                });
-            }
-            else {
-                this.isSubmitting = false;
-                var toast = this.toastCtrl.create({
-                    message: "Re-enter password doesn't match",
-                    duration: 3000,
-                    position: 'bottom'
-                });
-                toast.present();
-            }
-        }
-        else {
-            this.isSubmitting = false;
-            var toast = this.toastCtrl.create({
-                message: 'Please fill out the fields properly',
-                duration: 3000,
-                position: 'bottom'
+        this.pageLoaded = false;
+        var val = ev.target.value;
+        this.db.collection('registerpets').where("isvisible", "==", true).onSnapshot(function (snapshots) {
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['regPetId'] = doc.id;
+                if (docData['uid'] == _this.userId) {
+                    pets.push(docData);
+                }
             });
-            toast.present();
-        }
+            _this.pets = pets;
+            _this.petsCount = Object.keys(pets).length;
+            if (val && val.trim() != '') {
+                _this.pets = _this.pets.filter(function (el) {
+                    return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
+                        (el.breed.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
+                        (el.petType.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                });
+            }
+            setTimeout(function () {
+                _this.pageLoaded = true;
+            }, 700);
+        }), (function (err) {
+            console.log('err', err);
+        });
     };
-    RegisterPage = __decorate([
+    RegisterpetSinglePage.prototype.onCancel = function (ev) {
+        this.getRegisteredPets();
+    };
+    RegisterpetSinglePage.prototype.addPet = function () {
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__register_pet_form_register_pet_form__["a" /* RegisterPetFormPage */]);
+        modal.onDidDismiss(function (data) {
+        });
+        modal.present();
+    };
+    RegisterpetSinglePage.prototype.getRegisteredPets = function () {
+        var _this = this;
+        this.db.collection('registerpets').where("isvisible", "==", true).onSnapshot(function (snapshots) {
+            console.log('snapshots', snapshots);
+            var pets = [];
+            snapshots.forEach(function (doc) {
+                var docData = doc.data();
+                docData['regPetId'] = doc.id;
+                if (docData['uid'] == _this.userId) {
+                    pets.push(docData);
+                }
+            });
+            _this.pets = pets;
+            console.log('this.pets', _this.pets);
+            _this.petsCount = Object.keys(pets).length;
+            _this.pageLoaded = true;
+        }), (function (err) {
+            console.log('err', err);
+        });
+    };
+    RegisterpetSinglePage.prototype.removeRegisteredPet = function (petId) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Remove Confirmation?',
+            message: 'Are you sure do you want to remove your registered pet?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.db.collection('registerpets').doc(petId).update({
+                            isvisible: false
+                        });
+                        var toast = _this.toastCtrl.create({
+                            message: 'Registered pet was removed',
+                            duration: 5000,
+                            position: 'bottom'
+                        });
+                        toast.present();
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    RegisterpetSinglePage.prototype.registeredPetDetails = function (pet) {
+        console.log('pet', pet);
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__registered_pet_details_registered_pet_details__["a" /* RegisteredPetDetailsPage */], pet);
+        modal.onDidDismiss(function (data) {
+            if (data) {
+                // this.loadProfile();
+            }
+        });
+        modal.present();
+    };
+    RegisterpetSinglePage.prototype.action = function (petId) {
+        var _this = this;
+        console.log('petId', petId);
+        var actionSheet = this.actionSheetCtrl.create({
+            title: 'Modify your post',
+            buttons: [
+                {
+                    text: 'Remove',
+                    icon: 'trash',
+                    handler: function () {
+                        _this.removeRegisteredPet(petId);
+                    }
+                }, {
+                    text: 'Edit',
+                    icon: 'create',
+                    handler: function () {
+                        var data = {
+                            petId: petId
+                        };
+                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__edit_registered_pet_edit_registered_pet__["a" /* EditRegisteredPetPage */], data);
+                        modal.onDidDismiss(function (data) {
+                        });
+                        modal.present();
+                    }
+                }, {
+                    text: 'Cancel',
+                    icon: 'close',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        actionSheet.present();
+    };
+    RegisterpetSinglePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\register\register.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Re-enter Password</ion-label>\n      <ion-input type="password" formControlName="repassword" [(ngModel)]="repassword" name="repassword"></ion-input>\n    </ion-item>\n\n    <p>Don\'t have an account? <a (click)="goToLoginPage()" class="blue">Sign in</a></p>\n    <button ion-button class="btnRegister" type="submit" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="person-add" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Register</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\register\register.html"*/,
+            selector: 'page-registerpet-single',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpet-single\registerpet-single.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Pets</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n  <form action="" class="searchBar">\n    <ion-searchbar [showCancelButton]="shouldShowCancel" (ionInput)="onSearch($event)" (ionCancel)="onCancel($event)" [debounce]="700"\n      placeholder="Search Name, Breed, Type">\n    </ion-searchbar>\n  </form>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="pets?.length == 0" class="noPetResult">No registered pet yet.</p>\n    <div *ngIf="pets?.length">\n      <ion-card *ngFor="let pet of pets">\n        <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"\n        />\n        <ion-card-content>\n          <ion-card-title>{{pet.name}}</ion-card-title>\n          <div>\n            <span class="bold">Breed:</span>\n            <span>{{pet.breed}}</span>\n          </div>\n          <div>\n            <span class="bold">Age:</span>\n            <span>{{pet.age}}</span>\n          </div>\n          <button ion-button type="button" *ngIf="userId == pet?.uid" class="removeBtn" (click)="action(pet.regPetId)">\n            <ion-icon name="more"></ion-icon>\n          </button>\n          <button ion-button type="submit" class="btnDetails" (click)="registeredPetDetails(pet)">More Details</button>\n          <span class="datePosted">Date added: {{pet.datePosted | date:\'mediumDate\'}}</span>\n        </ion-card-content>\n      </ion-card>\n    </div>\n  </div>\n  <ion-fab bottom right>\n    <button ion-fab (click)="addPet()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\registerpet-single\registerpet-single.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
-    ], RegisterPage);
-    return RegisterPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
+    ], RegisterpetSinglePage);
+    return RegisterpetSinglePage;
 }());
 
-//# sourceMappingURL=register.js.map
+//# sourceMappingURL=registerpet-single.js.map
 
 /***/ })
 

@@ -1,14 +1,14 @@
 webpackJsonp([16],{
 
-/***/ 599:
+/***/ 625:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLostPetsPageModule", function() { return AdminLostPetsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminRegisteredUserPageModule", function() { return AdminRegisteredUserPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_lost_pets__ = __webpack_require__(633);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__ = __webpack_require__(647);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,41 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminLostPetsPageModule = (function () {
-    function AdminLostPetsPageModule() {
+var AdminRegisteredUserPageModule = (function () {
+    function AdminRegisteredUserPageModule() {
     }
-    AdminLostPetsPageModule = __decorate([
+    AdminRegisteredUserPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_lost_pets__["a" /* AdminLostPetsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_lost_pets__["a" /* AdminLostPetsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_registered_user__["a" /* AdminRegisteredUserPage */]),
             ],
         })
-    ], AdminLostPetsPageModule);
-    return AdminLostPetsPageModule;
+    ], AdminRegisteredUserPageModule);
+    return AdminRegisteredUserPageModule;
 }());
 
-//# sourceMappingURL=admin-lost-pets.module.js.map
+//# sourceMappingURL=admin-registered-user.module.js.map
 
 /***/ }),
 
-/***/ 633:
+/***/ 647:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminLostPetsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminRegisteredUserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__ = __webpack_require__(345);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__ = __webpack_require__(93);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lost_pet_details_lost_pet_details__ = __webpack_require__(348);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__edit_lost_pet_edit_lost_pet__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase__ = __webpack_require__(37);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__ = __webpack_require__(357);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -67,115 +64,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-
-var AdminLostPetsPage = (function () {
-    function AdminLostPetsPage(navCtrl, navParams, modalCtrl, lostpetProvider, alertCtrl, toastCtrl, actionSheetCtrl) {
+var AdminRegisteredUserPage = (function () {
+    function AdminRegisteredUserPage(navCtrl, navParams, alertCtrl, toastCtrl, modalCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.lostpetProvider = lostpetProvider;
         this.alertCtrl = alertCtrl;
         this.toastCtrl = toastCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.petsCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_4_firebase__["firestore"]();
+        this.modalCtrl = modalCtrl;
+        this.usersCount = 0;
+        this.db = __WEBPACK_IMPORTED_MODULE_2_firebase__["firestore"]();
         this.pageLoaded = false;
-        this.userId = localStorage.getItem('userId');
-        this.getItems();
     }
-    AdminLostPetsPage.prototype.action = function (petId) {
-        var _this = this;
-        console.log('petId', petId);
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Modify your post',
-            buttons: [
-                {
-                    text: 'Found',
-                    icon: 'checkbox-outline',
-                    handler: function () {
-                        _this.removeLostPet(petId);
-                    }
-                }, {
-                    text: 'Edit',
-                    icon: 'create',
-                    handler: function () {
-                        var data = {
-                            petId: petId
-                        };
-                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7__edit_lost_pet_edit_lost_pet__["a" /* EditLostPetPage */], data);
-                        modal.onDidDismiss(function (data) {
-                        });
-                        modal.present();
-                    }
-                }, {
-                    text: 'Cancel',
-                    icon: 'close',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }
-            ]
+    AdminRegisteredUserPage.prototype.ionViewDidLoad = function () {
+        this.loadRegisteredUsers();
+        var toast = this.toastCtrl.create({
+            message: 'Slide the list to perform an action',
+            duration: 5000,
+            showCloseButton: true,
+            closeButtonText: 'Ok'
         });
-        actionSheet.present();
+        toast.present();
     };
-    AdminLostPetsPage.prototype.onSearch = function (ev) {
-        var _this = this;
-        this.pageLoaded = false;
-        var val = ev.target.value;
-        this.db.collection('lostpets').where("status", "==", false).onSnapshot(function (snapshots) {
-            var pets = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                docData['lostPetId'] = doc.id;
-                pets.push(docData);
-            });
-            _this.pets = pets;
-            _this.petsCount = Object.keys(pets).length;
-            if (val && val.trim() != '') {
-                _this.pets = _this.pets.filter(function (el) {
-                    return (el.name.toLowerCase().indexOf(val.toLowerCase()) > -1) ||
-                        (el.placeLost.toLowerCase().indexOf(val.toLowerCase()) > -1);
-                });
-            }
-            setTimeout(function () {
-                _this.pageLoaded = true;
-            }, 700);
-        }), (function (err) {
-            console.log('err', err);
-        });
-    };
-    AdminLostPetsPage.prototype.onCancel = function (ev) {
-        this.getItems();
-    };
-    AdminLostPetsPage.prototype.addLostPet = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__add_lost_pet_form_add_lost_pet_form__["a" /* AddLostPetFormPage */]);
-        modal.onDidDismiss(function (data) {
-        });
-        modal.present();
-    };
-    AdminLostPetsPage.prototype.getItems = function () {
-        var _this = this;
-        this.db.collection('lostpets').where("status", "==", false).onSnapshot(function (snapshots) {
-            console.log('snapshots', snapshots);
-            var pets = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                docData['lostPetId'] = doc.id;
-                pets.push(docData);
-            });
-            _this.pets = pets;
-            console.log('this.pets', _this.pets);
-            _this.petsCount = Object.keys(pets).length;
-            _this.pageLoaded = true;
-        }), (function (err) {
-            console.log('err', err);
-        });
-    };
-    AdminLostPetsPage.prototype.lostPetDetails = function (pet) {
-        console.log('pet', pet);
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6__lost_pet_details_lost_pet_details__["a" /* LostPetDetailsPage */], pet);
+    AdminRegisteredUserPage.prototype.viewProfile = function (userId) {
+        var user = {
+            userId: userId
+        };
+        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_4__admin_view_profile_admin_view_profile__["a" /* AdminViewProfilePage */], user);
         modal.onDidDismiss(function (data) {
             if (data) {
                 // this.loadProfile();
@@ -183,11 +97,26 @@ var AdminLostPetsPage = (function () {
         });
         modal.present();
     };
-    AdminLostPetsPage.prototype.removeLostPet = function (lostPetId) {
+    AdminRegisteredUserPage.prototype.loadRegisteredUsers = function () {
         var _this = this;
+        this.db.collection('users').orderBy("dateAdded").limit(1000).onSnapshot(function (res) {
+            var users = [];
+            res.forEach(function (doc) {
+                users.push(doc.data());
+            });
+            _this.pageLoaded = true;
+            _this.users = users;
+        }), (function (err) {
+            console.log('err', err);
+        });
+    };
+    AdminRegisteredUserPage.prototype.deleteUser = function (event, uid, name) {
+        var _this = this;
+        event.stopPropagation();
+        console.log('uid', uid);
         var confirm = this.alertCtrl.create({
-            title: 'Lost pet was found?',
-            message: 'Are you sure do you want to remove your post?',
+            title: 'Delete User?',
+            message: "Are you sure do you want to delete <strong>" + name + "</strong> user account?",
             buttons: [
                 {
                     text: 'Cancel',
@@ -197,37 +126,88 @@ var AdminLostPetsPage = (function () {
                 {
                     text: 'Ok',
                     handler: function () {
-                        _this.db.collection('lostpets').doc(lostPetId).update({
-                            status: true
+                        _this.db.collection('users').doc(uid).delete().then(function () {
+                            var toast = _this.toastCtrl.create({
+                                message: 'User was deleted',
+                                duration: 4000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        }).catch(function (err) {
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 4000,
+                                position: 'bottom'
+                            });
+                            toast.present();
                         });
-                        var toast = _this.toastCtrl.create({
-                            message: 'Lost pet was removed',
-                            duration: 5000,
-                            position: 'bottom'
-                        });
-                        toast.present();
                     }
                 }
             ]
         });
         confirm.present();
+        return false;
     };
-    AdminLostPetsPage = __decorate([
+    AdminRegisteredUserPage.prototype.editRole = function (event, uid, name, isAdmin) {
+        var _this = this;
+        event.stopPropagation();
+        var confirm = this.alertCtrl.create({
+            title: 'Update user role?',
+            message: "Are you sure do you want to update " + name + "'s role in the app?",
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        if (isAdmin == 1) {
+                            isAdmin = 0;
+                        }
+                        else {
+                            isAdmin = 1;
+                        }
+                        _this.db.collection('users').doc(uid).update({
+                            isAdmin: isAdmin,
+                            adminSwitchUser: isAdmin
+                        }).then(function () {
+                            var toast = _this.toastCtrl.create({
+                                message: name + "'s user role was updated",
+                                duration: 4000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        }).catch(function (err) {
+                            var toast = _this.toastCtrl.create({
+                                message: err.message,
+                                duration: 4000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+        return false;
+    };
+    AdminRegisteredUserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-lost-pets',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-lost-pets\admin-lost-pets.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Lost Pets</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="card-background-page">\n  <form action="" class="searchBar">\n      <ion-searchbar\n          [showCancelButton]="shouldShowCancel"\n          (ionInput)="onSearch($event)"\n          (ionCancel)="onCancel($event)"\n          [debounce]="700"\n          placeholder="Search Name or Place of lost"\n      >\n  </ion-searchbar>\n  </form>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <p *ngIf="pets?.length == 0" class="noPetResult">No lost pet yet.</p>\n      <div *ngIf="pets?.length">\n          <ion-card *ngFor="let pet of pets">\n              <img [src]="pet?.image != \'\' && pet?.image != null ? pet?.image : \'assets/images/icon.png\'" [class.noImage]="pet?.image == \'\' || pet?.image == null"/>\n              <ion-card-content>\n                  <ion-card-title>{{pet.name}}</ion-card-title>\n                  <div>\n                      <span class="bold">Place of lost:</span>\n                      <span>{{pet.placeLost}}</span>\n                  </div>\n                  <div>\n                      <span class="bold">Lost date #:</span>\n                      <span>{{pet.lostDate | date:\'mediumDate\'}}</span>\n                  </div>\n                  <button ion-button type="button" class="removeBtn" (click)="action(pet.lostPetId)"><ion-icon name="more"></ion-icon></button>\n                  <button ion-button type="submit" class="btnDetails" (click)="lostPetDetails(pet)">More Details</button>\n                  <span class="datePosted">Posted: {{pet.lostDate | date:\'mediumDate\'}}</span>\n              </ion-card-content>\n          </ion-card>\n      </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-lost-pets\admin-lost-pets.html"*/,
+            selector: 'page-admin-registered-user',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Registered Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="list-avatar-page" padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <ion-list *ngIf="pageLoaded">\n     <ion-item-sliding *ngFor="let user of users" (click)="viewProfile(user?.uid)">\n      <ion-item>\n        <ion-avatar item-start>\n          <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\'">\n        </ion-avatar>\n        <h2>{{user?.name}} <ion-badge color="primary">{{user?.isAdmin == 1 ? \'Admin\' : \'User\'}}</ion-badge></h2>\n        <p>{{user?.email}}</p>\n      </ion-item>\n      <ion-item-options>\n        <button ion-button color="primary" icon-start (click)="editRole($event, user?.uid, user?.name, user?.isAdmin)">\n          <ion-icon name="create"></ion-icon>\n          Role\n        </button>\n        <button ion-button color="danger" icon-start (click)="deleteUser($event, user?.uid, user?.name)">\n          <ion-icon name="trash"></ion-icon>\n          Delete\n        </button>\n      </ion-item-options>\n    </ion-item-sliding>\n  </ion-list>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-registered-user\admin-registered-user.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_3__providers_lostpet_lostpet__["a" /* LostpetProvider */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]])
-    ], AdminLostPetsPage);
-    return AdminLostPetsPage;
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]])
+    ], AdminRegisteredUserPage);
+    return AdminRegisteredUserPage;
 }());
 
-//# sourceMappingURL=admin-lost-pets.js.map
+//# sourceMappingURL=admin-registered-user.js.map
 
 /***/ })
 

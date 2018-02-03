@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 631:
+/***/ 624:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(651);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(646);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,36 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ProfilePageModule = (function () {
-    function ProfilePageModule() {
+var RegisterPageModule = (function () {
+    function RegisterPageModule() {
     }
-    ProfilePageModule = __decorate([
+    RegisterPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* ProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__register__["a" /* RegisterPage */]),
             ],
         })
-    ], ProfilePageModule);
-    return ProfilePageModule;
+    ], RegisterPageModule);
+    return RegisterPageModule;
 }());
 
-//# sourceMappingURL=profile.module.js.map
+//# sourceMappingURL=register.module.js.map
 
 /***/ }),
 
-/***/ 651:
+/***/ 646:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(343);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__editprofile_editprofile__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(343);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,93 +60,68 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var ProfilePage = (function () {
-    function ProfilePage(navCtrl, navParams, authProvider, toastCtrl, modalCtrl, profileProvider, loadingCtrl, alertCtrl) {
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+var RegisterPage = (function () {
+    function RegisterPage(navCtrl, navParams, authProvider, toastCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.authProvider = authProvider;
         this.toastCtrl = toastCtrl;
-        this.modalCtrl = modalCtrl;
-        this.profileProvider = profileProvider;
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
+        this.isSubmitting = false;
+        this.nameCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
+        this.passwordCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.repasswordCtrl = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["g" /* Validators */].required);
+        this.registerForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormGroup */]({
+            name: this.nameCtrl,
+            email: this.emailCtrl,
+            password: this.passwordCtrl,
+            repassword: this.repasswordCtrl
+        });
     }
-    ProfilePage.prototype.ionViewDidLoad = function () {
-        this.loadProfile();
+    RegisterPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad RegisterPage');
     };
-    ProfilePage.prototype.loadProfile = function () {
-        var _this = this;
-        this.profileProvider.loadProfile().then(function (userData) {
-            console.log('userData', userData);
-            _this.user = userData;
-        }).catch(function (err) {
-            console.log(err);
-        });
+    RegisterPage.prototype.goToLoginPage = function () {
+        this.navCtrl.push('LoginPage');
     };
-    ProfilePage.prototype.profileChange = function (event) {
+    RegisterPage.prototype.registerSubmit = function () {
         var _this = this;
-        var loading = this.loadingCtrl.create({
-            content: 'Uploading your profile picture, please wait...'
-        });
-        loading.present();
-        var imageType = ['image/gif', 'image/png', 'image/jpeg', 'image/bmp', 'image/webp'];
-        if (imageType.indexOf(event.target.files.item(0)['type']) != -1) {
-            this.profileProvider.uploadPhoto(event.target.files.item(0)).then(function (photo) {
-                _this.profileProvider.saveFileData(photo).then(function (res) {
-                    _this.loadProfile();
-                    loading.dismiss();
-                });
-            }).catch(function (err) {
-                loading.dismiss();
-                var toast = _this.toastCtrl.create({
-                    message: err.message,
-                    duration: 5000,
-                    position: 'bottom'
-                });
-                toast.present();
-            });
-        }
-        else {
-            loading.dismiss();
-            var toast = this.toastCtrl.create({
-                message: 'Invalid file type, only allowed file types are gif, png, jpeg, bmp, webp',
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
-        }
-    };
-    ProfilePage.prototype.editProfile = function () {
-        var _this = this;
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__editprofile_editprofile__["a" /* EditprofilePage */], this.user);
-        modal.onDidDismiss(function (data) {
-            if (data) {
-                _this.loadProfile();
-            }
-        });
-        modal.present();
-    };
-    ProfilePage.prototype.logout = function () {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Logout Confirmation?',
-            message: 'Are you sure do you want to log out?',
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function () {
-                    }
-                },
-                {
-                    text: 'Ok',
-                    handler: function () {
-                        _this.authProvider.logout().then(function () {
-                            localStorage.clear();
-                            window.location.href = '#/tabs/pets/pet';
-                            location.reload();
+        if (this.registerForm.valid) {
+            this.isSubmitting = true;
+            if (this.password == this.repassword) {
+                var userData_1 = {
+                    name: this.name,
+                    email: this.email,
+                    password: this.password
+                };
+                this.authProvider.register(userData_1).then(function (userId) {
+                    if (userId != '') {
+                        delete userData_1['password']; // delete password key in userData object
+                        _this.authProvider.saveRegisteredUser(userId, userData_1).then(function (res) {
+                            _this.authProvider.sendEmailVerification().then(function (emailRes) {
+                                _this.isSubmitting = false;
+                                _this.name = "";
+                                _this.email = "";
+                                _this.password = "";
+                                _this.navCtrl.push('LoginPage');
+                                var toast = _this.toastCtrl.create({
+                                    message: 'Email verification was sent to your email, please verify your account to login',
+                                    duration: 7000,
+                                    position: 'bottom'
+                                });
+                                toast.present();
+                            }).catch(function (err) {
+                                _this.isSubmitting = false;
+                                var toast = _this.toastCtrl.create({
+                                    message: err.message,
+                                    duration: 5000,
+                                    position: 'bottom'
+                                });
+                                toast.present();
+                            });
                         }).catch(function (err) {
+                            _this.isSubmitting = false;
                             var toast = _this.toastCtrl.create({
                                 message: err.message,
                                 duration: 5000,
@@ -156,25 +130,46 @@ var ProfilePage = (function () {
                             toast.present();
                         });
                     }
-                }
-            ]
-        });
-        confirm.present();
+                }).catch(function (err) {
+                    _this.isSubmitting = false;
+                    var toast = _this.toastCtrl.create({
+                        message: err.message,
+                        duration: 5000,
+                        position: 'bottom'
+                    });
+                    toast.present();
+                });
+            }
+            else {
+                this.isSubmitting = false;
+                var toast = this.toastCtrl.create({
+                    message: "Re-enter password doesn't match",
+                    duration: 3000,
+                    position: 'bottom'
+                });
+                toast.present();
+            }
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Please fill out the fields properly',
+                duration: 3000,
+                position: 'bottom'
+            });
+            toast.present();
+        }
     };
-    ProfilePage.prototype.registeredPetsClick = function () {
-        this.navCtrl.push('RegisterpetsPage');
-    };
-    ProfilePage = __decorate([
+    RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\profile\profile.html"*/'<ion-content>\n<div class="profileBlock">\n    <input type="file" hidden #profilePicUpload name="profilePicUpload" (change)="profileChange($event)">\n    <img [src]="user?.photo != \'\' && user?.photo != null ? user?.photo : \'assets/images/blank-profile.png\' " width="124" height="124" alt="" (click)="profilePicUpload.click()">\n    <ion-icon name="camera" class="camera" (click)="profilePicUpload.click()"></ion-icon>\n    \n    <h3 *ngIf="user?.name != \'\' || user?.name != null">{{user?.name}}</h3>\n    <h3 *ngIf="user?.name == \'\' || user?.name == null">N/A</h3>\n    </div>\n    \n    <table class="profileTbl">\n        <tr>\n            <td><ion-icon name="mail"></ion-icon></td>\n            <td>\n                <strong>Email Address</strong>\n                <p *ngIf="user?.email != \'\' && user?.email != null">{{user?.email}}</p>\n                <p *ngIf="user?.email == \'\' || user?.email == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="call"></ion-icon></td>\n            <td>\n                <strong>Phone Number</strong>\n                <p *ngIf="user?.phone != \'\' && user?.phone != null">{{user?.phone}}</p>\n                <p *ngIf="user?.phone == \'\' || user?.phone == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="locate"></ion-icon></td>\n            <td>\n                <strong>Address</strong>\n                <p *ngIf="user?.address != \'\' && user?.address != null">{{user?.address}}</p>\n                <p *ngIf="user?.address == \'\' || user?.address == null">N/A</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="paw"></ion-icon></td>\n            <td>\n                <strong (click)="registeredPetsClick()">Registered Pets</strong>\n                <p (click)="registeredPetsClick()">Click to see registered pets</p>\n            </td>\n        </tr>\n        <tr>\n            <td><ion-icon name="log-out"></ion-icon></td>\n            <td>\n                <strong (click)="logout()">Log out</strong>\n                <p (click)="logout()">Click to log out</p>\n            </td>\n        </tr>\n    </table>\n    \n    <ion-fab bottom right (click)="editProfile()">\n        <button ion-fab><ion-icon name="create"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\profile\profile.html"*/,
+            selector: 'page-register',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register\register.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">\n    <ion-item>\n      <ion-label floating>Name</ion-label>\n      <ion-input type="text" formControlName="name" [(ngModel)]="name" name="name"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-label floating>Password</ion-label>\n      <ion-input type="password" formControlName="password" [(ngModel)]="password" name="password"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Re-enter Password</ion-label>\n      <ion-input type="password" formControlName="repassword" [(ngModel)]="repassword" name="repassword"></ion-input>\n    </ion-item>\n\n    <p>Don\'t have an account? <a (click)="goToLoginPage()" class="blue">Sign in</a></p>\n    <button ion-button class="btnRegister" type="submit" [disabled]="isSubmitting"><ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner><ion-icon name="person-add" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Register</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_profile_profile__["a" /* ProfileProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object])
-    ], ProfilePage);
-    return ProfilePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
+    ], RegisterPage);
+    return RegisterPage;
 }());
 
-//# sourceMappingURL=profile.js.map
+//# sourceMappingURL=register.js.map
 
 /***/ })
 

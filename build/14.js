@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 603:
+/***/ 611:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminTrainPetPageModule", function() { return AdminTrainPetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPassPageModule", function() { return ForgotPassPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__ = __webpack_require__(637);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgot_pass__ = __webpack_require__(638);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,39 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminTrainPetPageModule = (function () {
-    function AdminTrainPetPageModule() {
+var ForgotPassPageModule = (function () {
+    function ForgotPassPageModule() {
     }
-    AdminTrainPetPageModule = __decorate([
+    ForgotPassPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__forgot_pass__["a" /* ForgotPassPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_train_pet__["a" /* AdminTrainPetPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__forgot_pass__["a" /* ForgotPassPage */]),
             ],
         })
-    ], AdminTrainPetPageModule);
-    return AdminTrainPetPageModule;
+    ], ForgotPassPageModule);
+    return ForgotPassPageModule;
 }());
 
-//# sourceMappingURL=admin-train-pet.module.js.map
+//# sourceMappingURL=forgot-pass.module.js.map
 
 /***/ }),
 
-/***/ 637:
+/***/ 638:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminTrainPetPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotPassPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_add_train_pet_admin_add_train_pet__ = __webpack_require__(351);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_train_pet_edit_train_pet__ = __webpack_require__(355);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__ = __webpack_require__(343);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -65,137 +61,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-var AdminTrainPetPage = (function () {
-    function AdminTrainPetPage(navCtrl, navParams, modalCtrl, toastCtrl, actionSheetCtrl, alertCtrl) {
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+var ForgotPassPage = (function () {
+    function ForgotPassPage(navCtrl, navParams, toastCtrl, authProvider) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
         this.toastCtrl = toastCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.alertCtrl = alertCtrl;
-        this.videosCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_3_firebase__["firestore"]();
-        this.pageLoaded = false;
-        this.userId = localStorage.getItem('userId');
-        this.isAdmin = parseInt(localStorage.getItem('isAdmin'));
-        this.getTrainPetVideos();
-        console.log('type', this.isAdmin);
+        this.authProvider = authProvider;
+        this.isSubmitting = false;
+        this.emailCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["g" /* Validators */].pattern(EMAIL_REGEX)]);
+        this.forgotPassForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormGroup */]({
+            email: this.emailCtrl,
+        });
     }
-    AdminTrainPetPage.prototype.getTrainPetVideos = function () {
+    ForgotPassPage.prototype.forgotPasswordSubmit = function () {
         var _this = this;
-        this.db.collection('trainpetsvideos').where("isactive", "==", true).orderBy("datePosted", "desc").limit(1000).onSnapshot(function (snapshots) {
-            var videos = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                docData['videoId'] = doc.id;
-                videos.push(docData);
+        this.isSubmitting = true;
+        if (this.forgotPassForm.valid) {
+            this.authProvider.forgotPass(this.email).then(function (res) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: 'Password reset email sent',
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                _this.email = '';
+                _this.navCtrl.push('LoginPage');
+                toast.present();
+            }).catch(function (err) {
+                _this.isSubmitting = false;
+                var toast = _this.toastCtrl.create({
+                    message: err.message,
+                    duration: 5000,
+                    position: 'bottom'
+                });
+                toast.present();
             });
-            _this.videos = videos;
-            _this.videosCount = Object.keys(videos).length;
-            _this.pageLoaded = true;
-            console.log('this.videos', _this.videos);
-        }), (function (err) {
-            var toast = _this.toastCtrl.create({
-                message: err.message,
-                duration: 5000,
+        }
+        else {
+            this.isSubmitting = false;
+            var toast = this.toastCtrl.create({
+                message: 'Invalid email address',
+                duration: 4000,
                 position: 'bottom'
             });
             toast.present();
-        });
+        }
     };
-    AdminTrainPetPage.prototype.addTrainPetVideos = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__admin_add_train_pet_admin_add_train_pet__["a" /* AdminAddTrainPetPage */]);
-        modal.onDidDismiss(function (data) {
-        });
-        modal.present();
-    };
-    AdminTrainPetPage.prototype.removePost = function (videoId) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Remove this post?',
-            message: 'Are you sure do you want to remove your post?',
-            buttons: [
-                {
-                    text: 'Cancel',
-                    handler: function () {
-                    }
-                },
-                {
-                    text: 'Ok',
-                    handler: function () {
-                        _this.db.collection('trainpetsvideos').doc(videoId).update({
-                            isactive: false
-                        }).then(function (res) {
-                            var toast = _this.toastCtrl.create({
-                                message: 'Video was deleted',
-                                duration: 5000,
-                                position: 'bottom'
-                            });
-                            toast.present();
-                        }).catch(function (err) {
-                            var toast = _this.toastCtrl.create({
-                                message: err.message,
-                                duration: 5000,
-                                position: 'bottom'
-                            });
-                            toast.present();
-                        });
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    AdminTrainPetPage.prototype.action = function (videoId) {
-        var _this = this;
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Modify your post',
-            buttons: [
-                {
-                    text: 'Remove',
-                    icon: 'trash',
-                    handler: function () {
-                        _this.removePost(videoId);
-                    }
-                }, {
-                    text: 'Edit',
-                    icon: 'create',
-                    handler: function () {
-                        var data = {
-                            videoId: videoId
-                        };
-                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__edit_train_pet_edit_train_pet__["a" /* EditTrainPetPage */], data);
-                        modal.onDidDismiss(function (data) {
-                        });
-                        modal.present();
-                    }
-                }, {
-                    text: 'Cancel',
-                    icon: 'close',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }
-            ]
-        });
-        actionSheet.present();
-    };
-    AdminTrainPetPage = __decorate([
+    ForgotPassPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-train-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Train Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="videos?.length == 0" class="noPetResult">No train pet video yet.</p>\n    <div *ngIf="videos?.length">\n      <div class="videoPlayList" *ngFor="let video of videos">\n        <h5>{{video?.title}}</h5>\n        <video width="100%" controls poster="assets/images/icon.png">\n          <source src="{{video?.video}}" type="video/mp4">\n          <source src="{{video?.video}}" type="video/ogg"> Your browser does not support HTML5 video.\n        </video>\n        <button ion-button type="button" *ngIf="isAdmin == 1" class="listBtn" (click)="action(video.videoId)">\n          <ion-icon name="more"></ion-icon>\n        </button>\n        <span class="datePosted">Posted: {{video.datePosted | date:\'mediumDate\'}}</span>\n      </div>\n    </div>\n    <ion-fab bottom right *ngIf="isAdmin == 1">\n      <button ion-fab (click)="addTrainPetVideos()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-train-pet\admin-train-pet.html"*/,
+            selector: 'page-forgot-pass',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\forgot-pass\forgot-pass.html"*/'<ion-header>\n\n  <ion-navbar>\n    <ion-title>Forgot Password</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <form [formGroup]="forgotPassForm" (ngSubmit)="forgotPasswordSubmit()">\n    <ion-item>\n      <ion-label floating>Email</ion-label>\n      <ion-input type="text" formControlName="email" [(ngModel)]="email" name="email"></ion-input>\n    </ion-item>\n\n    <button ion-button class="btnForgotPass" type="submit" [disabled]="isSubmitting">\n      <ion-spinner name="crescent" *ngIf="isSubmitting"></ion-spinner>\n      <ion-icon name="send" *ngIf="isSubmitting == false"></ion-icon>&nbsp; Send</button>\n  </form>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\forgot-pass\forgot-pass.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-    ], AdminTrainPetPage);
-    return AdminTrainPetPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* ToastController */], __WEBPACK_IMPORTED_MODULE_3__providers_auth_auth__["a" /* AuthProvider */]])
+    ], ForgotPassPage);
+    return ForgotPassPage;
 }());
 
-//# sourceMappingURL=admin-train-pet.js.map
+//# sourceMappingURL=forgot-pass.js.map
 
 /***/ })
 

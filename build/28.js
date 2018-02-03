@@ -1,14 +1,14 @@
 webpackJsonp([28],{
 
-/***/ 609:
+/***/ 613:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditLostPetPageModule", function() { return EditLostPetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditRegisteredPetPageModule", function() { return EditRegisteredPetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_lost_pet__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__edit_registered_pet__ = __webpack_require__(350);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EditLostPetPageModule = (function () {
-    function EditLostPetPageModule() {
+var EditRegisteredPetPageModule = (function () {
+    function EditRegisteredPetPageModule() {
     }
-    EditLostPetPageModule = __decorate([
+    EditRegisteredPetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__edit_lost_pet__["a" /* EditLostPetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__edit_registered_pet__["a" /* EditRegisteredPetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_lost_pet__["a" /* EditLostPetPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__edit_registered_pet__["a" /* EditRegisteredPetPage */]),
             ],
         })
-    ], EditLostPetPageModule);
-    return EditLostPetPageModule;
+    ], EditRegisteredPetPageModule);
+    return EditRegisteredPetPageModule;
 }());
 
-//# sourceMappingURL=edit-lost-pet.module.js.map
+//# sourceMappingURL=edit-registered-pet.module.js.map
 
 /***/ })
 

@@ -5,10 +5,10 @@ webpackJsonp([18],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminGroomPetPageModule", function() { return AdminGroomPetPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminHomePageModule", function() { return AdminHomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__ = __webpack_require__(634);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_home__ = __webpack_require__(635);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,39 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var AdminGroomPetPageModule = (function () {
-    function AdminGroomPetPageModule() {
+var AdminHomePageModule = (function () {
+    function AdminHomePageModule() {
     }
-    AdminGroomPetPageModule = __decorate([
+    AdminHomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__["a" /* AdminGroomPetPage */],
+                __WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_groom_pet__["a" /* AdminGroomPetPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__admin_home__["a" /* AdminHomePage */]),
             ],
         })
-    ], AdminGroomPetPageModule);
-    return AdminGroomPetPageModule;
+    ], AdminHomePageModule);
+    return AdminHomePageModule;
 }());
 
-//# sourceMappingURL=admin-groom-pet.module.js.map
+//# sourceMappingURL=admin-home.module.js.map
 
 /***/ }),
 
-/***/ 634:
+/***/ 635:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminGroomPetPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminHomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin_add_groom_pet_admin_add_groom_pet__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(37);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__edit_groom_pet_edit_groom_pet__ = __webpack_require__(353);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__ = __webpack_require__(62);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,56 +60,67 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var AdminGroomPetPage = (function () {
-    function AdminGroomPetPage(navCtrl, navParams, modalCtrl, toastCtrl, actionSheetCtrl, alertCtrl) {
+var AdminHomePage = (function () {
+    function AdminHomePage(navCtrl, navParams, authProvider, alertCtrl, toastCtrl, adminProvider, app) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.modalCtrl = modalCtrl;
-        this.toastCtrl = toastCtrl;
-        this.actionSheetCtrl = actionSheetCtrl;
+        this.authProvider = authProvider;
         this.alertCtrl = alertCtrl;
-        this.videosCount = 0;
-        this.db = __WEBPACK_IMPORTED_MODULE_3_firebase__["firestore"]();
+        this.toastCtrl = toastCtrl;
+        this.adminProvider = adminProvider;
+        this.app = app;
+        this.userCount = 0;
+        this.buySellPetCount = 0;
+        this.lostPetsCount = 0;
+        this.vaccineSchedCount = 0;
+        this.groomPetCount = 0;
+        this.trainPetCount = 0;
         this.pageLoaded = false;
+        this.registeredUserCount();
         this.userId = localStorage.getItem('userId');
-        this.isAdmin = parseInt(localStorage.getItem('isAdmin'));
-        this.getGroomPetVideos();
     }
-    AdminGroomPetPage.prototype.getGroomPetVideos = function () {
+    AdminHomePage.prototype.registeredUserCount = function () {
         var _this = this;
-        this.db.collection('groompetsvideos').where("isactive", "==", true).orderBy("datePosted", "desc").limit(1000).onSnapshot(function (snapshots) {
-            var videos = [];
-            snapshots.forEach(function (doc) {
-                var docData = doc.data();
-                docData['videoId'] = doc.id;
-                videos.push(docData);
+        this.adminProvider.registeredUserCount().then(function (count01) {
+            _this.userCount = count01;
+            _this.adminProvider.buySellPetCount().then(function (count02) {
+                _this.buySellPetCount = count02;
+                _this.adminProvider.lostPetCount().then(function (count03) {
+                    _this.lostPetsCount = count03;
+                    _this.adminProvider.vaccineSchedCount().then(function (count4) {
+                        _this.vaccineSchedCount = count4;
+                        _this.adminProvider.groomPetCount().then(function (count5) {
+                            _this.groomPetCount = count5;
+                            _this.adminProvider.trainPetCount().then(function (count6) {
+                                _this.pageLoaded = true;
+                                _this.trainPetCount = count6;
+                            }).catch(function (err) {
+                                console.log('err', err);
+                            });
+                        }).catch(function (err) {
+                            console.log('err', err);
+                        });
+                    }).catch(function (err) {
+                        console.log('err', err);
+                    });
+                }).catch(function (err) {
+                    console.log('err', err);
+                });
+            }).catch(function (err) {
+                console.log('err', err);
             });
-            _this.videos = videos;
-            _this.videosCount = Object.keys(videos).length;
-            _this.pageLoaded = true;
-            console.log('this.videos', _this.videos);
-        }), (function (err) {
-            var toast = _this.toastCtrl.create({
-                message: err.message,
-                duration: 5000,
-                position: 'bottom'
-            });
-            toast.present();
+        }).catch(function (err) {
+            console.log('err', err);
         });
     };
-    AdminGroomPetPage.prototype.addGroomPetVideos = function () {
-        var modal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2__admin_add_groom_pet_admin_add_groom_pet__["a" /* AdminAddGroomPetPage */]);
-        modal.onDidDismiss(function (data) {
-        });
-        modal.present();
+    AdminHomePage.prototype.pushPage = function (page) {
+        this.navCtrl.push(page);
     };
-    AdminGroomPetPage.prototype.removePost = function (videoId) {
+    AdminHomePage.prototype.logout = function () {
         var _this = this;
         var confirm = this.alertCtrl.create({
-            title: 'Remove this post?',
-            message: 'Are you sure do you want to remove your post?',
+            title: 'Logout Confirmation?',
+            message: 'Are you sure do you want to log out?',
             buttons: [
                 {
                     text: 'Cancel',
@@ -123,11 +130,41 @@ var AdminGroomPetPage = (function () {
                 {
                     text: 'Ok',
                     handler: function () {
-                        _this.db.collection('groompetsvideos').doc(videoId).update({
-                            isactive: false
-                        }).then(function (res) {
+                        _this.authProvider.logout().then(function () {
+                            localStorage.clear();
+                            _this.app.getRootNav().setRoot('HomePage');
+                        }).catch(function (err) {
                             var toast = _this.toastCtrl.create({
-                                message: 'Video was deleted',
+                                message: err.message,
+                                duration: 5000,
+                                position: 'bottom'
+                            });
+                            toast.present();
+                        });
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    AdminHomePage.prototype.switchRole = function () {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Switch Role Confirmation?',
+            message: 'Are you sure do you want to switch user role?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    handler: function () {
+                    }
+                },
+                {
+                    text: 'Ok',
+                    handler: function () {
+                        _this.authProvider.switchRole(_this.userId, 0).then(function () {
+                            _this.navCtrl.push('TabsPage');
+                            var toast = _this.toastCtrl.create({
+                                message: 'Switching role completed',
                                 duration: 5000,
                                 position: 'bottom'
                             });
@@ -146,55 +183,22 @@ var AdminGroomPetPage = (function () {
         });
         confirm.present();
     };
-    AdminGroomPetPage.prototype.action = function (videoId) {
-        var _this = this;
-        var actionSheet = this.actionSheetCtrl.create({
-            title: 'Modify your post',
-            buttons: [
-                {
-                    text: 'Remove',
-                    icon: 'trash',
-                    handler: function () {
-                        _this.removePost(videoId);
-                    }
-                }, {
-                    text: 'Edit',
-                    icon: 'create',
-                    handler: function () {
-                        var data = {
-                            videoId: videoId
-                        };
-                        var modal = _this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__edit_groom_pet_edit_groom_pet__["a" /* EditGroomPetPage */], data);
-                        modal.onDidDismiss(function (data) {
-                        });
-                        modal.present();
-                    }
-                }, {
-                    text: 'Cancel',
-                    icon: 'close',
-                    handler: function () {
-                        console.log('Cancel clicked');
-                    }
-                }
-            ]
-        });
-        actionSheet.present();
-    };
-    AdminGroomPetPage = __decorate([
+    AdminHomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-admin-groom-pet',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Groom Pet Videos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="videos?.length == 0" class="noPetResult">No groom pet video yet.</p>\n      <div *ngIf="videos?.length">\n        <div class="videoPlayList" *ngFor="let video of videos">\n          <h5>{{video?.title}}</h5>\n          <video width="100%" controls poster="assets/images/icon.png">\n            <source src="{{video?.video}}" type="video/mp4">\n            <source src="{{video?.video}}" type="video/ogg"> Your browser does not support HTML5 video.\n          </video>\n          <button ion-button type="button" *ngIf="isAdmin == \'1\'" class="listBtn" (click)="action(video.videoId)">\n            <ion-icon name="more"></ion-icon>\n          </button>\n          <span class="datePosted">Posted: {{video.datePosted | date:\'mediumDate\'}}</span>\n        </div>\n      </div>\n    <ion-fab bottom right *ngIf="isAdmin == 1">\n      <button ion-fab (click)="addGroomPetVideos()">\n        <ion-icon name="add"></ion-icon>\n      </button>\n    </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\admin-groom-pet\admin-groom-pet.html"*/,
+            selector: 'page-admin-home',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Purrs &amp; Paws Admin Dashboard</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n      <div class="box green" (click)="pushPage(\'AdminRegisteredUserPage\')">\n        <div class="iconBlock">\n          <ion-icon name="people"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{userCount}}</p>\n          <h3>Registered Users</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box blue" (click)="pushPage(\'AdminBuyAndSellPage\')">\n        <div class="iconBlock">\n          <ion-icon name="pricetag"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{buySellPetCount}}</p>\n          <h3>Buy &amp; Sell Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n    \n      <div class="box pink" (click)="pushPage(\'AdminLostPetsPage\')">\n        <div class="iconBlock">\n          <ion-icon name="paw"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{lostPetsCount}}</p>\n          <h3>Lost Pets</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box cyan" (click)="pushPage(\'VaccinationSchedulePage\')">\n        <div class="iconBlock">\n          <ion-icon name="calendar"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{vaccineSchedCount}}</p>\n          <h3>Vaccination Schedule</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <div class="box indigo" (click)="pushPage(\'AdminGroomPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="shirt"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{groomPetCount}}</p>\n          <h3>Groom Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n      <div class="box amber" (click)="pushPage(\'AdminTrainPetPage\')">\n        <div class="iconBlock">\n          <ion-icon name="help-buoy"></ion-icon>\n        </div>\n        <div class="titleBlock">\n          <p class="count">{{trainPetCount}}</p>\n          <h3>Train Pet Videos</h3>\n        </div>\n        <ion-icon name="arrow-forward" class="arrow"></ion-icon>\n      </div>\n\n      <!-- <ion-fab bottom right>\n        <button ion-fab (click)="logout()" class="logout"><ion-icon name="log-out"></ion-icon></button>\n      </ion-fab> -->\n\n      <ion-fab bottom right edge>\n        <button ion-fab>\n          <ion-icon name="arrow-dropleft"></ion-icon>\n        </button>\n        <ion-fab-list side="left">\n          <button ion-fab (click)="logout()" color="danger">\n            <ion-icon name="log-out"></ion-icon>\n          </button>\n          <button ion-fab (click)="switchRole()" color="secondary">\n            <ion-icon name="switch"></ion-icon>\n          </button>\n        </ion-fab-list>\n      </ion-fab>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\admin-home\admin-home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
-    ], AdminGroomPetPage);
-    return AdminGroomPetPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_auth_auth__["a" /* AuthProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_admin_admin__["a" /* AdminProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]])
+    ], AdminHomePage);
+    return AdminHomePage;
 }());
 
-//# sourceMappingURL=admin-groom-pet.js.map
+//# sourceMappingURL=admin-home.js.map
 
 /***/ })
 

@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "VaccinationSchedulePageModule", function() { return VaccinationSchedulePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__ = __webpack_require__(650);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__ = __webpack_require__(652);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -27,7 +27,7 @@ var VaccinationSchedulePageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__["a" /* VaccinationSchedulePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__["a" /* VaccinationSchedulePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__vaccination_schedule__["a" /* VaccinationSchedulePage */]),
             ],
         })
     ], VaccinationSchedulePageModule);
@@ -38,14 +38,14 @@ var VaccinationSchedulePageModule = (function () {
 
 /***/ }),
 
-/***/ 650:
+/***/ 652:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VaccinationSchedulePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__add_vaccination_schedule_form_add_vaccination_schedule_form__ = __webpack_require__(352);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__edit_vaccination_sched_edit_vaccination_sched__ = __webpack_require__(358);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_firebase__);
@@ -169,14 +169,14 @@ var VaccinationSchedulePage = (function () {
     };
     VaccinationSchedulePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-vaccination-schedule',template:/*ion-inline-start:"C:\Users\ph2150108\Dropbox\petApp\src\pages\vaccination-schedule\vaccination-schedule.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Vaccination Schedules</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="card-background-page" [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="posts?.length == 0" class="noResult">No vaccination schedule posted yet.</p>\n    <div *ngIf="posts?.length">\n      <ion-card *ngFor="let post of posts">\n        <img [src]="post?.image != \'\' && post?.image != null ? post?.image : \'assets/images/icon.png\'" [class.noImage]="post?.image == \'\' || post?.image == null"\n        />\n        <ion-card-content>\n          <ion-card-title>{{post.title}}\n          </ion-card-title>\n          <div>\n            <span class="bold">Notes:</span>\n            <span>{{post.notes}}</span>\n          </div>\n          <div>\n            <span class="bold">Vaccination Date:</span>\n            <span>{{post.vaccineDate | date:\'mediumDate\'}}</span>\n          </div>\n          <button ion-button type="button" *ngIf="isAdmin == \'1\'" class="removeBtn" (click)="action(post.postId)">\n            <ion-icon name="more"></ion-icon>\n          </button>\n          <span class="datePosted">Posted: {{post.datePosted | date:\'mediumDate\'}}</span>\n        </ion-card-content>\n      </ion-card>\n    </div>\n  </div>\n  <ion-fab bottom right *ngIf="isAdmin == \'1\'">\n    <button ion-fab (click)="addVaccinationSched()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"C:\Users\ph2150108\Dropbox\petApp\src\pages\vaccination-schedule\vaccination-schedule.html"*/,
+            selector: 'page-vaccination-schedule',template:/*ion-inline-start:"C:\Users\Sanchez\Dropbox\petApp\src\pages\vaccination-schedule\vaccination-schedule.html"*/'<ion-header [class.admin]="isAdmin == 1">\n\n  <ion-navbar>\n    <ion-title>Vaccination Schedules</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class="card-background-page" [class.admin]="isAdmin == 1">\n  <ion-spinner name="crescent" class="pageLoader" *ngIf="pageLoaded == false"></ion-spinner>\n  <div *ngIf="pageLoaded">\n    <p *ngIf="posts?.length == 0" class="noResult">No vaccination schedule posted yet.</p>\n    <div *ngIf="posts?.length">\n      <ion-card *ngFor="let post of posts">\n        <img [src]="post?.image != \'\' && post?.image != null ? post?.image : \'assets/images/icon.png\'" [class.noImage]="post?.image == \'\' || post?.image == null"\n        />\n        <ion-card-content>\n          <ion-card-title>{{post.title}}\n          </ion-card-title>\n          <div>\n            <span class="bold">Notes:</span>\n            <span>{{post.notes}}</span>\n          </div>\n          <div>\n            <span class="bold">Vaccination Date:</span>\n            <span>{{post.vaccineDate | date:\'mediumDate\'}}</span>\n          </div>\n          <button ion-button type="button" *ngIf="isAdmin == \'1\'" class="removeBtn" (click)="action(post.postId)">\n            <ion-icon name="more"></ion-icon>\n          </button>\n          <span class="datePosted">Posted: {{post.datePosted | date:\'mediumDate\'}}</span>\n        </ion-card-content>\n      </ion-card>\n    </div>\n  </div>\n  <ion-fab bottom right *ngIf="isAdmin == \'1\'">\n    <button ion-fab (click)="addVaccinationSched()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>'/*ion-inline-end:"C:\Users\Sanchez\Dropbox\petApp\src\pages\vaccination-schedule\vaccination-schedule.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* ModalController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ToastController */]])
     ], VaccinationSchedulePage);
     return VaccinationSchedulePage;
 }());
